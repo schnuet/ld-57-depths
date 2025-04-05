@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://d2ojvo2qj2eyr"]
+
+[ext_resource type="Script" uid="uid://dx1q1ydgmp1n6" path="res://player/SideCamera/side_camera.gd" id="1_isgld"]
+[ext_resource type="Script" uid="uid://bj5iukj0scggh" path="res://addons/shaker/src/Vector2/shaker_component2D.gd" id="2_e5lsc"]
+[ext_resource type="Script" uid="uid://bprhp6r4msk2v" path="res://addons/shaker/data/Vector2/BaseShakerType2D.gd" id="3_352xk"]
+[ext_resource type="Script" uid="uid://wbt3t7a5nbfl" path="res://addons/shaker/data/Vector2/ShakerTypeRandom2D.gd" id="4_e5lsc"]
+[ext_resource type="Script" uid="uid://nsw1k7n2hdc3" path="res://addons/shaker/data/Single/BaseShakerType1D.gd" id="5_ljbuy"]
+[ext_resource type="Script" uid="uid://hbg4g7c2upf6" path="res://addons/shaker/data/Vector2/ShakerPreset2D.gd" id="6_xucj4"]
+
+[sub_resource type="Resource" id="Resource_352xk"]
+script = ExtResource("4_e5lsc")
+seed = 0
+amplitude = Vector2(6, 6)
+offset = Vector2(0, 0)
+BlendingMode = 0
+fade_in = 0.0
+fade_out = 0.0
+start_percent = 0.0
+end_percent = 1.0
+_temp_graph = false
+bake_internal = 64
+metadata/_custom_type_script = "uid://wbt3t7a5nbfl"
+
+[sub_resource type="Resource" id="Resource_afdnr"]
+script = ExtResource("6_xucj4")
+PositionShake = Array[ExtResource("3_352xk")]([SubResource("Resource_352xk")])
+RotationShake = Array[ExtResource("5_ljbuy")]([])
+ScaleShake = Array[ExtResource("3_352xk")]([])
+bake_internal = 64
+__follow_timeline = false
+metadata/_custom_type_script = "uid://hbg4g7c2upf6"
+
+[node name="SideCamera" type="Camera2D"]
+position = Vector2(-2.38419e-07, -2.74181e-06)
+limit_smoothed = true
+script = ExtResource("1_isgld")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.81, 0.797445, 0.0567, 0.129412)
+
+[node name="Shaker" type="Node2D" parent="."]
+script = ExtResource("2_e5lsc")
+duration = 0.25
+shakerPreset = SubResource("Resource_afdnr")
+metadata/_custom_type_script = "uid://bj5iukj0scggh"

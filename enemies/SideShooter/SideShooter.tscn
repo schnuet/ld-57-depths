@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://dapys1tef7aoj"]
+
+[ext_resource type="Script" uid="uid://wp7tar6tj11i" path="res://enemies/SideShooter/side_shooter.gd" id="1_nlcy6"]
+[ext_resource type="Script" uid="uid://dr8bvnfebp76" path="res://addons/health_hitbox_hurtbox/health/health.gd" id="2_oeoeq"]
+[ext_resource type="Script" uid="uid://ctuf38y050aep" path="res://addons/health_hitbox_hurtbox/2d/hurt_box_2d/hurt_box_2d.gd" id="3_lduay"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhg7v"]
+size = Vector2(60, 120)
+
+[node name="SideShooter" type="Node2D"]
+script = ExtResource("1_nlcy6")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_oeoeq")
+current = 10
+max = 10
+metadata/_custom_type_script = "uid://dr8bvnfebp76"
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -30.0
+offset_top = -152.0
+offset_right = 31.0
+offset_bottom = -125.0
+max_value = 10.0
+step = 1.0
+value = 10.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
+[node name="HurtBox2D" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("3_lduay")
+health = NodePath("../Health")
+metadata/_custom_type_script = "uid://ctuf38y050aep"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox2D"]
+position = Vector2(0, -60)
+shape = SubResource("RectangleShape2D_hhg7v")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="damaged" from="Health" to="." method="_on_health_damaged"]
+[connection signal="died" from="Health" to="." method="_on_health_died"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dohj8823jg4i0"]
+
+[ext_resource type="Script" uid="uid://cwcxg3omfk2m0" path="res://gui/SettingsMenu/ESC_Menu.gd" id="1_1arg7"]
+
+[node name="EscapeMenu Parent" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_1arg7")
+
+[node name="EscapeMenu" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

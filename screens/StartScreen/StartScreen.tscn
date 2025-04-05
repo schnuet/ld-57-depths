@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://do42mk4be24ko"]
+
+[ext_resource type="Script" uid="uid://bi2gr0eq70kic" path="res://screens/StartScreen/StartScreen.gd" id="1_dks8u"]
+[ext_resource type="FontFile" uid="uid://b2jbl0piinbrn" path="res://gui/Typography/fonts/MunroSmall-wPZw.ttf" id="2_4bpjc"]
+
+[sub_resource type="FontVariation" id="FontVariation_wlhc0"]
+base_font = ExtResource("2_4bpjc")
+
+[node name="StartScreen" type="Node2D"]
+script = ExtResource("1_dks8u")
+
+[node name="BlackOverlay" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 530.0
+offset_top = 555.0
+offset_right = 613.0
+offset_bottom = 582.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_wlhc0")
+theme_override_font_sizes/font_size = 10
+text = "Start"
+
+[node name="CreditsButton" type="Button" parent="."]
+offset_left = 662.0
+offset_top = 555.0
+offset_right = 753.0
+offset_bottom = 582.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_wlhc0")
+theme_override_font_sizes/font_size = 10
+text = "Credits"
+
+[node name="Logo" type="Sprite2D" parent="."]
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]

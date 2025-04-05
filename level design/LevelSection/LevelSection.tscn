@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7si0yu1v6jaw"]
+
+[ext_resource type="Script" uid="uid://d02b7flf1u6qt" path="res://level design/LevelSection/level_section.gd" id="1_4hd5h"]
+[ext_resource type="TileSet" uid="uid://dld60hu50porp" path="res://level design/base_tileset.tres" id="2_ifffq"]
+
+[node name="LevelSection" type="Node2D"]
+script = ExtResource("1_4hd5h")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="TilemapMain" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_ifffq")
+
+[node name="Foreground" type="Node2D" parent="."]
