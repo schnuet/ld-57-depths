@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://duigv8nwli4ia"]
+[gd_scene load_steps=98 format=3 uid="uid://duigv8nwli4ia"]
 
 [ext_resource type="Script" uid="uid://dwgxb0gql43wy" path="res://player/Jumper/jumper.gd" id="1_l0bbj"]
 [ext_resource type="Script" uid="uid://dr8bvnfebp76" path="res://addons/health_hitbox_hurtbox/health/health.gd" id="2_6hxia"]
@@ -445,6 +445,12 @@ affect = 1
 type = 2
 amount = 1
 
+[sub_resource type="Resource" id="Resource_8yc1n"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gqqn2"]
 size = Vector2(88, 20)
 
@@ -455,6 +461,12 @@ type = 2
 amount = 1
 
 [sub_resource type="Resource" id="Resource_83w72"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_tdulr"]
 script = ExtResource("9_bi3sa")
 affect = 1
 type = 2
@@ -475,6 +487,12 @@ affect = 1
 type = 2
 amount = 1
 
+[sub_resource type="Resource" id="Resource_cqwjq"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_do8v2"]
 size = Vector2(30, 111)
 
@@ -485,6 +503,12 @@ type = 2
 amount = 1
 
 [sub_resource type="Resource" id="Resource_pqbsa"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_fanfg"]
 script = ExtResource("9_bi3sa")
 affect = 1
 type = 2
@@ -505,7 +529,19 @@ affect = 1
 type = 2
 amount = 1
 
+[sub_resource type="Resource" id="Resource_jqvsd"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
 [sub_resource type="Resource" id="Resource_b5pnu"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_njlrc"]
 script = ExtResource("9_bi3sa")
 affect = 1
 type = 2
@@ -570,7 +606,7 @@ position = Vector2(0, -35)
 collision_layer = 8388608
 collision_mask = 32
 script = ExtResource("8_bi3sa")
-actions = Array[ExtResource("9_bi3sa")]([SubResource("Resource_cpfru"), SubResource("Resource_bi3sa"), SubResource("Resource_3y3uq"), SubResource("Resource_xb3b7"), SubResource("Resource_kwnpx"), SubResource("Resource_2hfin"), SubResource("Resource_0wp2j"), SubResource("Resource_hs62l"), SubResource("Resource_xfrxj"), SubResource("Resource_6kbip"), SubResource("Resource_otv5e"), SubResource("Resource_kirah"), SubResource("Resource_yf68y"), SubResource("Resource_h4y7o"), SubResource("Resource_eq0dc"), SubResource("Resource_3714p"), SubResource("Resource_qsol8"), SubResource("Resource_228gu")])
+actions = Array[ExtResource("9_bi3sa")]([SubResource("Resource_cpfru"), SubResource("Resource_bi3sa"), SubResource("Resource_3y3uq"), SubResource("Resource_xb3b7"), SubResource("Resource_kwnpx"), SubResource("Resource_2hfin"), SubResource("Resource_0wp2j"), SubResource("Resource_hs62l"), SubResource("Resource_xfrxj"), SubResource("Resource_6kbip"), SubResource("Resource_otv5e"), SubResource("Resource_kirah"), SubResource("Resource_yf68y"), SubResource("Resource_h4y7o"), SubResource("Resource_eq0dc"), SubResource("Resource_3714p"), SubResource("Resource_qsol8"), SubResource("Resource_228gu"), SubResource("Resource_8yc1n")])
 metadata/_custom_type_script = "uid://chrsg1fc53qs3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_slash_right"]
@@ -584,7 +620,7 @@ position = Vector2(0, -72)
 collision_layer = 8388608
 collision_mask = 32
 script = ExtResource("8_bi3sa")
-actions = Array[ExtResource("9_bi3sa")]([SubResource("Resource_cpfru"), SubResource("Resource_bi3sa"), SubResource("Resource_3y3uq"), SubResource("Resource_xb3b7"), SubResource("Resource_kwnpx"), SubResource("Resource_2hfin"), SubResource("Resource_0wp2j"), SubResource("Resource_hs62l"), SubResource("Resource_xfrxj"), SubResource("Resource_6kbip"), SubResource("Resource_otv5e"), SubResource("Resource_kirah"), SubResource("Resource_yf68y"), SubResource("Resource_h4y7o"), SubResource("Resource_eq0dc"), SubResource("Resource_3714p"), SubResource("Resource_qsol8"), SubResource("Resource_gqqn2"), SubResource("Resource_83w72")])
+actions = Array[ExtResource("9_bi3sa")]([SubResource("Resource_cpfru"), SubResource("Resource_bi3sa"), SubResource("Resource_3y3uq"), SubResource("Resource_xb3b7"), SubResource("Resource_kwnpx"), SubResource("Resource_2hfin"), SubResource("Resource_0wp2j"), SubResource("Resource_hs62l"), SubResource("Resource_xfrxj"), SubResource("Resource_6kbip"), SubResource("Resource_otv5e"), SubResource("Resource_kirah"), SubResource("Resource_yf68y"), SubResource("Resource_h4y7o"), SubResource("Resource_eq0dc"), SubResource("Resource_3714p"), SubResource("Resource_qsol8"), SubResource("Resource_gqqn2"), SubResource("Resource_83w72"), SubResource("Resource_tdulr")])
 metadata/_custom_type_script = "uid://chrsg1fc53qs3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_slash_up"]
@@ -597,7 +633,7 @@ visible = false
 collision_layer = 8388608
 collision_mask = 32
 script = ExtResource("8_bi3sa")
-actions = Array[ExtResource("9_bi3sa")]([SubResource("Resource_cpfru"), SubResource("Resource_bi3sa"), SubResource("Resource_3y3uq"), SubResource("Resource_xb3b7"), SubResource("Resource_kwnpx"), SubResource("Resource_2hfin"), SubResource("Resource_0wp2j"), SubResource("Resource_hs62l"), SubResource("Resource_xfrxj"), SubResource("Resource_6kbip"), SubResource("Resource_otv5e"), SubResource("Resource_kirah"), SubResource("Resource_yf68y"), SubResource("Resource_h4y7o"), SubResource("Resource_eq0dc"), SubResource("Resource_3714p"), SubResource("Resource_qsol8"), SubResource("Resource_gqqn2"), SubResource("Resource_qb0u7"), SubResource("Resource_ryvtr")])
+actions = Array[ExtResource("9_bi3sa")]([SubResource("Resource_cpfru"), SubResource("Resource_bi3sa"), SubResource("Resource_3y3uq"), SubResource("Resource_xb3b7"), SubResource("Resource_kwnpx"), SubResource("Resource_2hfin"), SubResource("Resource_0wp2j"), SubResource("Resource_hs62l"), SubResource("Resource_xfrxj"), SubResource("Resource_6kbip"), SubResource("Resource_otv5e"), SubResource("Resource_kirah"), SubResource("Resource_yf68y"), SubResource("Resource_h4y7o"), SubResource("Resource_eq0dc"), SubResource("Resource_3714p"), SubResource("Resource_qsol8"), SubResource("Resource_gqqn2"), SubResource("Resource_qb0u7"), SubResource("Resource_ryvtr"), SubResource("Resource_cqwjq")])
 metadata/_custom_type_script = "uid://chrsg1fc53qs3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_slash_down"]
@@ -610,7 +646,7 @@ visible = false
 collision_layer = 8388608
 collision_mask = 32
 script = ExtResource("8_bi3sa")
-actions = Array[ExtResource("9_bi3sa")]([SubResource("Resource_cpfru"), SubResource("Resource_bi3sa"), SubResource("Resource_3y3uq"), SubResource("Resource_xb3b7"), SubResource("Resource_kwnpx"), SubResource("Resource_2hfin"), SubResource("Resource_0wp2j"), SubResource("Resource_hs62l"), SubResource("Resource_xfrxj"), SubResource("Resource_6kbip"), SubResource("Resource_otv5e"), SubResource("Resource_kirah"), SubResource("Resource_yf68y"), SubResource("Resource_h4y7o"), SubResource("Resource_eq0dc"), SubResource("Resource_3714p"), SubResource("Resource_qsol8"), SubResource("Resource_gqqn2"), SubResource("Resource_qb0u7"), SubResource("Resource_bbfe1"), SubResource("Resource_pqbsa")])
+actions = Array[ExtResource("9_bi3sa")]([SubResource("Resource_cpfru"), SubResource("Resource_bi3sa"), SubResource("Resource_3y3uq"), SubResource("Resource_xb3b7"), SubResource("Resource_kwnpx"), SubResource("Resource_2hfin"), SubResource("Resource_0wp2j"), SubResource("Resource_hs62l"), SubResource("Resource_xfrxj"), SubResource("Resource_6kbip"), SubResource("Resource_otv5e"), SubResource("Resource_kirah"), SubResource("Resource_yf68y"), SubResource("Resource_h4y7o"), SubResource("Resource_eq0dc"), SubResource("Resource_3714p"), SubResource("Resource_qsol8"), SubResource("Resource_gqqn2"), SubResource("Resource_qb0u7"), SubResource("Resource_bbfe1"), SubResource("Resource_pqbsa"), SubResource("Resource_fanfg")])
 metadata/_custom_type_script = "uid://chrsg1fc53qs3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_smash_left"]
@@ -623,7 +659,7 @@ visible = false
 collision_layer = 8388608
 collision_mask = 32
 script = ExtResource("8_bi3sa")
-actions = Array[ExtResource("9_bi3sa")]([SubResource("Resource_cpfru"), SubResource("Resource_bi3sa"), SubResource("Resource_3y3uq"), SubResource("Resource_xb3b7"), SubResource("Resource_kwnpx"), SubResource("Resource_2hfin"), SubResource("Resource_0wp2j"), SubResource("Resource_hs62l"), SubResource("Resource_xfrxj"), SubResource("Resource_6kbip"), SubResource("Resource_otv5e"), SubResource("Resource_kirah"), SubResource("Resource_yf68y"), SubResource("Resource_h4y7o"), SubResource("Resource_eq0dc"), SubResource("Resource_3714p"), SubResource("Resource_qsol8"), SubResource("Resource_gqqn2"), SubResource("Resource_qb0u7"), SubResource("Resource_bbfe1"), SubResource("Resource_do8v2"), SubResource("Resource_w817k")])
+actions = Array[ExtResource("9_bi3sa")]([SubResource("Resource_cpfru"), SubResource("Resource_bi3sa"), SubResource("Resource_3y3uq"), SubResource("Resource_xb3b7"), SubResource("Resource_kwnpx"), SubResource("Resource_2hfin"), SubResource("Resource_0wp2j"), SubResource("Resource_hs62l"), SubResource("Resource_xfrxj"), SubResource("Resource_6kbip"), SubResource("Resource_otv5e"), SubResource("Resource_kirah"), SubResource("Resource_yf68y"), SubResource("Resource_h4y7o"), SubResource("Resource_eq0dc"), SubResource("Resource_3714p"), SubResource("Resource_qsol8"), SubResource("Resource_gqqn2"), SubResource("Resource_qb0u7"), SubResource("Resource_bbfe1"), SubResource("Resource_do8v2"), SubResource("Resource_w817k"), SubResource("Resource_jqvsd")])
 metadata/_custom_type_script = "uid://chrsg1fc53qs3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_smash_right"]
@@ -637,7 +673,7 @@ position = Vector2(0, -35)
 collision_layer = 8388608
 collision_mask = 32
 script = ExtResource("8_bi3sa")
-actions = Array[ExtResource("9_bi3sa")]([SubResource("Resource_cpfru"), SubResource("Resource_bi3sa"), SubResource("Resource_3y3uq"), SubResource("Resource_xb3b7"), SubResource("Resource_kwnpx"), SubResource("Resource_2hfin"), SubResource("Resource_0wp2j"), SubResource("Resource_hs62l"), SubResource("Resource_xfrxj"), SubResource("Resource_6kbip"), SubResource("Resource_otv5e"), SubResource("Resource_kirah"), SubResource("Resource_yf68y"), SubResource("Resource_h4y7o"), SubResource("Resource_eq0dc"), SubResource("Resource_3714p"), SubResource("Resource_b5pnu")])
+actions = Array[ExtResource("9_bi3sa")]([SubResource("Resource_cpfru"), SubResource("Resource_bi3sa"), SubResource("Resource_3y3uq"), SubResource("Resource_xb3b7"), SubResource("Resource_kwnpx"), SubResource("Resource_2hfin"), SubResource("Resource_0wp2j"), SubResource("Resource_hs62l"), SubResource("Resource_xfrxj"), SubResource("Resource_6kbip"), SubResource("Resource_otv5e"), SubResource("Resource_kirah"), SubResource("Resource_yf68y"), SubResource("Resource_h4y7o"), SubResource("Resource_eq0dc"), SubResource("Resource_3714p"), SubResource("Resource_b5pnu"), SubResource("Resource_njlrc")])
 metadata/_custom_type_script = "uid://chrsg1fc53qs3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_slash_left"]
