@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cgopm8bw77bj3"]
+[gd_scene load_steps=61 format=3 uid="uid://cgopm8bw77bj3"]
 
 [ext_resource type="Script" uid="uid://byoyuaqjiscpu" path="res://enemies/Charger/charger.gd" id="1_jhu34"]
 [ext_resource type="Script" uid="uid://chrsg1fc53qs3" path="res://addons/health_hitbox_hurtbox/2d/hit_box_2d/basic_hit_box_2d.gd" id="2_4wt4w"]
@@ -102,6 +102,78 @@ affect = 1
 type = 2
 amount = 1
 
+[sub_resource type="Resource" id="Resource_2frys"]
+script = ExtResource("3_47hu7")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_dcryv"]
+script = ExtResource("3_47hu7")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_b2ldy"]
+script = ExtResource("3_47hu7")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_ebuoa"]
+script = ExtResource("3_47hu7")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_gv7sd"]
+script = ExtResource("3_47hu7")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_wt0lw"]
+script = ExtResource("3_47hu7")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_djp1r"]
+script = ExtResource("3_47hu7")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_hs5cx"]
+script = ExtResource("3_47hu7")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_ww1ry"]
+script = ExtResource("3_47hu7")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_fowm4"]
+script = ExtResource("3_47hu7")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_bqoif"]
+script = ExtResource("3_47hu7")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_73exy"]
+script = ExtResource("3_47hu7")
+affect = 1
+type = 2
+amount = 1
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffqc2"]
 size = Vector2(89, 107)
 
@@ -171,17 +243,89 @@ affect = 1
 type = 2
 amount = 1
 
+[sub_resource type="Resource" id="Resource_4uuae"]
+script = ExtResource("3_47hu7")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_8c2yt"]
+script = ExtResource("3_47hu7")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_nbq57"]
+script = ExtResource("3_47hu7")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_ckjiu"]
+script = ExtResource("3_47hu7")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_eqfpn"]
+script = ExtResource("3_47hu7")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_ajth6"]
+script = ExtResource("3_47hu7")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_dhrw4"]
+script = ExtResource("3_47hu7")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_52o6o"]
+script = ExtResource("3_47hu7")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_edu70"]
+script = ExtResource("3_47hu7")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_y70wq"]
+script = ExtResource("3_47hu7")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_yu75o"]
+script = ExtResource("3_47hu7")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_e346m"]
+script = ExtResource("3_47hu7")
+affect = 1
+type = 2
+amount = 1
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_convc"]
 size = Vector2(89, 107)
 
-[sub_resource type="Resource" id="Resource_2frys"]
+[sub_resource type="Resource" id="Resource_06psk"]
 script = ExtResource("6_3m32f")
 incrementer = 0
 multiplier = 1.0
 convert_affect = 0
 convert_type = 0
 
-[sub_resource type="Resource" id="Resource_4uuae"]
+[sub_resource type="Resource" id="Resource_r55fh"]
 script = ExtResource("6_3m32f")
 incrementer = 0
 multiplier = 1.0
@@ -243,27 +387,31 @@ position = Vector2(56, -56)
 shape = SubResource("RectangleShape2D_3m32f")
 
 [node name="hitbox_left" type="Area2D" parent="."]
+visible = false
 collision_layer = 64
 collision_mask = 2
 script = ExtResource("2_4wt4w")
-actions = Array[ExtResource("3_47hu7")]([SubResource("Resource_u0jdl"), SubResource("Resource_ffqc2"), SubResource("Resource_3m32f"), SubResource("Resource_7xgag"), SubResource("Resource_5rwvk"), SubResource("Resource_p3m52"), SubResource("Resource_15mak"), SubResource("Resource_lr1k6"), SubResource("Resource_rlgyy"), SubResource("Resource_ls8uv"), SubResource("Resource_3mw5y")])
+actions = Array[ExtResource("3_47hu7")]([SubResource("Resource_u0jdl"), SubResource("Resource_ffqc2"), SubResource("Resource_3m32f"), SubResource("Resource_7xgag"), SubResource("Resource_5rwvk"), SubResource("Resource_p3m52"), SubResource("Resource_15mak"), SubResource("Resource_lr1k6"), SubResource("Resource_rlgyy"), SubResource("Resource_ls8uv"), SubResource("Resource_3mw5y"), SubResource("Resource_2frys"), SubResource("Resource_dcryv"), SubResource("Resource_b2ldy"), SubResource("Resource_ebuoa"), SubResource("Resource_gv7sd"), SubResource("Resource_wt0lw"), SubResource("Resource_djp1r"), SubResource("Resource_hs5cx"), SubResource("Resource_ww1ry"), SubResource("Resource_fowm4"), SubResource("Resource_bqoif"), SubResource("Resource_73exy")])
 metadata/_custom_type_script = "uid://chrsg1fc53qs3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_left"]
 position = Vector2(-64.5, -53.5)
 shape = SubResource("RectangleShape2D_ffqc2")
+disabled = true
 debug_color = Color(0.829549, 0.393951, 0, 0.42)
 
 [node name="hitbox_right" type="Area2D" parent="."]
+visible = false
 collision_layer = 64
 collision_mask = 2
 script = ExtResource("2_4wt4w")
-actions = Array[ExtResource("3_47hu7")]([SubResource("Resource_u0jdl"), SubResource("Resource_4wt4w"), SubResource("Resource_7qeqi"), SubResource("Resource_convc"), SubResource("Resource_im1n4"), SubResource("Resource_r4bfj"), SubResource("Resource_05xdf"), SubResource("Resource_785q6"), SubResource("Resource_wavnu"), SubResource("Resource_0scus"), SubResource("Resource_3puxn"), SubResource("Resource_s1p35")])
+actions = Array[ExtResource("3_47hu7")]([SubResource("Resource_u0jdl"), SubResource("Resource_4wt4w"), SubResource("Resource_7qeqi"), SubResource("Resource_convc"), SubResource("Resource_im1n4"), SubResource("Resource_r4bfj"), SubResource("Resource_05xdf"), SubResource("Resource_785q6"), SubResource("Resource_wavnu"), SubResource("Resource_0scus"), SubResource("Resource_3puxn"), SubResource("Resource_s1p35"), SubResource("Resource_4uuae"), SubResource("Resource_8c2yt"), SubResource("Resource_nbq57"), SubResource("Resource_ckjiu"), SubResource("Resource_eqfpn"), SubResource("Resource_ajth6"), SubResource("Resource_dhrw4"), SubResource("Resource_52o6o"), SubResource("Resource_edu70"), SubResource("Resource_y70wq"), SubResource("Resource_yu75o"), SubResource("Resource_e346m")])
 metadata/_custom_type_script = "uid://chrsg1fc53qs3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_right"]
 position = Vector2(63, -53.5)
 shape = SubResource("RectangleShape2D_convc")
+disabled = true
 debug_color = Color(0.829549, 0.393951, 0, 0.42)
 
 [node name="BasicHurtBox2D" type="Area2D" parent="." node_paths=PackedStringArray("health")]
@@ -272,8 +420,8 @@ collision_mask = 4
 script = ExtResource("5_7qeqi")
 health = NodePath("../Health")
 modifiers = Dictionary[int, ExtResource("6_3m32f")]({
-1: SubResource("Resource_4uuae"),
-2: SubResource("Resource_2frys")
+1: SubResource("Resource_r55fh"),
+2: SubResource("Resource_06psk")
 })
 metadata/_custom_type_script = "uid://dtfoilkdcfvgv"
 
