@@ -113,9 +113,11 @@ regenerate={
 
 2d_physics/layer_1="tilemap and mouse"
 2d_physics/layer_2="player_hurtbox"
+2d_physics/layer_3="player_hitboxes"
 2d_physics/layer_4="interactables"
 2d_physics/layer_5="player collision shape"
 2d_physics/layer_6="enemy hurtboxes"
+2d_physics/layer_7="enemy_hitboxes"
 2d_physics/layer_8="interactors"
 
 [physics]
