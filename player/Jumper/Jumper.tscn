@@ -550,7 +550,7 @@ amount = 1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bi3sa"]
 size = Vector2(88, 20)
 
-[node name="Jumper" type="CharacterBody2D"]
+[node name="Jumper" type="CharacterBody2D" groups=["player"]]
 collision_layer = 16
 script = ExtResource("1_l0bbj")
 
