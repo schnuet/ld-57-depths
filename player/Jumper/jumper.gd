@@ -93,7 +93,7 @@ func handle_state_idle(delta: float):
 # ========================================
 # RUN
 
-@export var RUN_SPEED: float = 500.0
+@export var RUN_SPEED: float = 400.0
 
 var last_side: Vector2 = Vector2.RIGHT
 

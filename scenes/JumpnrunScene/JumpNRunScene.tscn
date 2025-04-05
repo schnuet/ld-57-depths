@@ -58,7 +58,7 @@ tile_set = ExtResource("1_8iglc")
 metadata/_edit_lock_ = true
 
 [node name="Jumper" parent="." instance=ExtResource("1_j0qoq")]
-position = Vector2(2187, 1920)
+position = Vector2(4059, 1483)
 
 [node name="SideCamera" parent="." node_paths=PackedStringArray("following") instance=ExtResource("1_qvi8f")]
 position = Vector2(2367, 1463)
@@ -68,4 +68,4 @@ following = NodePath("../Jumper")
 position = Vector2(2913, 1918)
 
 [node name="Charger" parent="." instance=ExtResource("12_o6xrd")]
-position = Vector2(4436, 1663)
+position = Vector2(4439, 1661)

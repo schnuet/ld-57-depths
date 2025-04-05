@@ -3,11 +3,20 @@ extends CharacterBody2D
 @onready var raycast = $RayCast2D;
 @onready var animated_sprite = $AnimatedSprite2D;
 @onready var direction_timer = $DirectionTimer;
-@onready var hitbox_left = $hitbox_left;
-@onready var hitbox_right = $hitbox_right;
 @onready var state_label = $state_label;
 
-@export var run_speed = 400;
+@onready var step_detector_right = $step_detector_right;
+@onready var step_detector_left = $step_detector_left;
+
+@onready var hitbox_left = $hitbox_left;
+@onready var hitbox_right = $hitbox_right;
+@onready var hitbox_right_collisions = $hitbox_right/CollisionShape2D;
+@onready var hitbox_left_collisions = $hitbox_left/CollisionShape2D;
+@onready var attack_area_right = $attack_area_right;
+@onready var attack_area_left = $attack_area_left;
+@onready var attack_timer = $attack_timer;
+
+@export var run_speed = 500;
 
 var player: Jumper;
 
@@ -38,14 +47,28 @@ func _process(_delta: float) -> void:
 			if player_in_sight():
 				enter_state(State.CHASE);
 		State.CHASE:
-			if is_on_wall():
-				enter_state(State.IDLE);
 			move_and_slide()
-		State.ATTACK:
-			if animated_sprite.frame == 5:
-				attack();
-			if not animated_sprite.is_playing():
+			if velocity.x == 0:
 				enter_state(State.IDLE);
+			if velocity.x < 0:
+				if attack_area_left.has_overlapping_areas():
+					enter_state(State.ATTACK);
+				if not step_detector_left.is_colliding():
+					enter_state(State.IDLE);
+			if velocity.x > 0:
+				if attack_area_right.has_overlapping_areas():
+					enter_state(State.ATTACK);
+				if not step_detector_right.is_colliding():
+					enter_state(State.IDLE);
+		State.ATTACK:
+			if attack_timer.time_left < 0.25:
+				attack();
+			if attack_timer.is_stopped():
+				enter_state(State.IDLE);
+			#if animated_sprite.frame == 5:
+				#attack();
+			#if not animated_sprite.is_playing():
+				#enter_state(State.IDLE);
 		State.HURT:
 			if not animated_sprite.is_playing():
 				enter_state(State.IDLE);
@@ -57,25 +80,32 @@ func enter_state(new_state: State):
 	match state:
 		State.CHASE:
 			player = find_player();
-			if player.global_position.x < global_position.x:
-				chase_direction = DIR.LEFT;
-				set_direction(DIR.LEFT);
+			if player:
+				if player.global_position.x < global_position.x:
+					chase_direction = DIR.LEFT;
+					set_direction(DIR.LEFT);
+				else:
+					chase_direction = DIR.RIGHT;
+					set_direction(DIR.RIGHT);
+			else:
+				print("no player!");
+			if chase_direction == DIR.LEFT:
 				velocity.x = -run_speed;
 			else:
-				chase_direction = DIR.RIGHT;
-				set_direction(DIR.RIGHT);
 				velocity.x = run_speed;
 		State.ATTACK:
 			velocity.x = 0;
-			pass
+			attack_timer.start()
 		
 		
 	state_label.text = State.keys()[new_state];
 	state = new_state;
 
 
-func leave_state(new_state: State):
-	match new_state:
+func leave_state(old_state: State):
+	match old_state:
+		State.CHASE:
+			velocity.x = 0;
 		State.ATTACK:
 			attacked = false;
 
@@ -85,17 +115,26 @@ func attack():
 		return;
 	attacked = true;
 	if dir == DIR.RIGHT:
-		hitbox_right.ignore_collisions = false;
+		hitbox_right_collisions.disabled = false;
+		hitbox_right.show();
 		await get_tree().physics_frame
-		hitbox_right.ignore_collisions = true;
+		await get_tree().physics_frame
+		hitbox_right_collisions.disabled = true;
+		hitbox_right.hide();
 	else:
-		hitbox_left.ignore_collisions = false;
+		hitbox_left_collisions.disabled = false;
+		hitbox_left.show();
 		await get_tree().physics_frame
-		hitbox_left.ignore_collisions = true;
+		await get_tree().physics_frame
+		hitbox_left_collisions.disabled = true;
+		hitbox_left.hide();
 
 
 func find_player():
-	get_tree().get_nodes_in_group("player");
+	var players = get_tree().get_nodes_in_group("player");
+	if players.size() == 0:
+		return null;
+	return players[0];
 
 
 func set_direction(new_dir: DIR):
