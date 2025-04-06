@@ -45,10 +45,12 @@ func update_target_position(_delta: float) -> void:
 		return;
 
 	var pos = following.global_position;
+	
+	var input_side = Input.get_axis("left", "right")
 
-	if following.velocity.x > 0:
+	if input_side > 0:
 		last_side = Vector2.RIGHT;
-	elif following.velocity.x < 0:
+	elif input_side < 0:
 		last_side = Vector2.LEFT;
 
 	if last_side.x > 0:

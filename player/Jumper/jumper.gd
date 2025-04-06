@@ -374,6 +374,7 @@ const SLASH_MOVE_SPEED = 300.0
 
 const SLASH_TIME = 0.1
 var slash_timer = 0.0
+var has_hit_hurtbox = false;
 
 var slash_direction = Vector2.RIGHT;
 
@@ -399,7 +400,8 @@ func enter_state_slash_air_side(_state_before: State):
 	velocity.x = sign(last_side.x) * SLASH_MOVE_SPEED
 	velocity.y = 0
 	slash_timer = SLASH_TIME
-	set_animation("attack_air")
+	set_animation("attack_air");
+	has_hit_hurtbox = false;
 	enable_slash_hitbox()
 
 func handle_state_slash_air_side(delta: float):
@@ -414,6 +416,7 @@ func enter_state_slash_air_down(_state_before: State):
 	velocity.x = 0
 	velocity.y = SLASH_MOVE_SPEED
 	slash_timer = SLASH_TIME
+	has_hit_hurtbox = false;
 	set_animation("attack_air")
 	enable_slash_hitbox()
 
@@ -429,6 +432,7 @@ func enter_state_slash_air_up(_state_before: State):
 	velocity.x = 0
 	velocity.y = -SLASH_MOVE_SPEED
 	slash_timer = SLASH_TIME
+	has_hit_hurtbox = false;
 	set_animation("attack_air")
 	enable_slash_hitbox()
 
@@ -453,12 +457,11 @@ func enter_state_ground_attack_prepare(_state_before: State):
 
 func handle_state_ground_attack_prepare(delta: float):
 	ground_attack_prepare_timer += delta
+	# end attack prepare
+	if ground_attack_prepare_timer >= SMASH_PREPARE_TIME:
+		enter_state(State.SMASH);
 	if not Input.is_action_pressed("slash"):
-		# end attack prepare
-		if ground_attack_prepare_timer >= SMASH_PREPARE_TIME:
-			enter_state(State.SMASH)
-		else:
-			ground_slash()
+		ground_slash()
 		ground_attack_prepare_timer = 0;
 		return
 	
@@ -476,15 +479,17 @@ func ground_slash():
 		enter_state(State.SLASH_GROUND)
 
 func enter_state_slash_ground_side(_state_before: State):
-	velocity.x = sign(last_side.x) * SLASH_MOVE_SPEED
+	velocity.x = 0
 	velocity.y = 0
 	slash_timer = SLASH_TIME
+	has_hit_hurtbox = false;
 	set_animation("attack_ground")
 	enable_slash_hitbox()
 
 func handle_state_slash_ground_side(delta: float):
-	velocity.x = move_toward(velocity.x, 0, 1000 * delta)
-
+	if has_hit_hurtbox:
+		velocity.x = -slash_direction.x * SLASH_MOVE_SPEED;
+		has_hit_hurtbox = false;
 	if slash_timer <= 0:
 		enter_state(State.IDLE)
 		return
@@ -522,6 +527,7 @@ func enter_state_smash(_state_before: State):
 	velocity.y = 0
 	smash_timer = 0
 	smash_direction = last_side
+	has_hit_hurtbox = false;
 	set_animation("attack_smash")
 	enable_smash_hitbox()
 
@@ -552,6 +558,20 @@ func enable_smash_hitbox():
 	await get_tree().physics_frame
 	hit_box_collisions.disabled = true;
 	hitbox.visible = false;
+
+
+
+func _on_hitbox_slash_right_hurt_box_entered(hurt_box: HurtBox2D) -> void:
+	has_hit_hurtbox = true;
+
+func _on_hitbox_slash_left_hurt_box_entered(hurt_box: HurtBox2D) -> void:
+	has_hit_hurtbox = true;
+
+func _on_hitbox_slash_up_hurt_box_entered(hurt_box: HurtBox2D) -> void:
+	has_hit_hurtbox = true;
+
+func _on_hitbox_slash_down_hurt_box_entered(hurt_box: HurtBox2D) -> void:
+	has_hit_hurtbox = true;
 
 
 # ========================================
@@ -757,9 +777,6 @@ func get_state_label(s: State):
 # ========================================
 # HEALTH
 
-@onready var health_bar = $HealthBar;
-
-
 func _on_health_died(_entity: Node) -> void:
 	print("player died")
 	velocity.x = 0;
@@ -767,7 +784,6 @@ func _on_health_died(_entity: Node) -> void:
 	$HurtBox2D.queue_free()
 
 func _on_health_damaged(_entity: Node, _type: HealthActionType.Enum, _amount: int, _incrementer: int, _multiplier: float, applied: int) -> void:
-	health_bar.value -= applied;
 	Engine.time_scale = 0.25;
 	hurt.emit(-applied);
 	var tween = get_tree().create_tween();

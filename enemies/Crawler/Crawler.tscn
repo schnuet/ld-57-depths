@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://bctnxumxv8qyl"]
+[gd_scene load_steps=34 format=3 uid="uid://bctnxumxv8qyl"]
 
 [ext_resource type="Script" uid="uid://1pgj2fqkxck7" path="res://enemies/Crawler/crawler.gd" id="1_6p1a8"]
 [ext_resource type="Script" uid="uid://chrsg1fc53qs3" path="res://addons/health_hitbox_hurtbox/2d/hit_box_2d/basic_hit_box_2d.gd" id="1_etp23"]
 [ext_resource type="Script" uid="uid://dr8bvnfebp76" path="res://addons/health_hitbox_hurtbox/health/health.gd" id="2_3n5fd"]
 [ext_resource type="Script" uid="uid://hrwhd52e5mkq" path="res://addons/health_hitbox_hurtbox/resources/action.gd" id="2_6p1a8"]
+[ext_resource type="PackedScene" uid="uid://bfvvc1f6rf8gv" path="res://components/HealthBar/HealthBar.tscn" id="3_gpdnx"]
 [ext_resource type="Script" uid="uid://dtfoilkdcfvgv" path="res://addons/health_hitbox_hurtbox/2d/hurt_box_2d/basic_hurt_box_2d.gd" id="3_wb5dx"]
 [ext_resource type="Script" uid="uid://cobp4qehnuq77" path="res://addons/health_hitbox_hurtbox/resources/modifier.gd" id="4_gpdnx"]
 
@@ -25,7 +26,7 @@ convert_type = 0
 size = Vector2(90, 88)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvqhj"]
-size = Vector2(64, 64)
+size = Vector2(62, 62)
 
 [sub_resource type="Resource" id="Resource_3n5fd"]
 script = ExtResource("2_6p1a8")
@@ -93,6 +94,66 @@ affect = 1
 type = 2
 amount = 1
 
+[sub_resource type="Resource" id="Resource_bvift"]
+script = ExtResource("2_6p1a8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_iqdlx"]
+script = ExtResource("2_6p1a8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_uluhs"]
+script = ExtResource("2_6p1a8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_dnl3r"]
+script = ExtResource("2_6p1a8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_30a77"]
+script = ExtResource("2_6p1a8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_mk6c0"]
+script = ExtResource("2_6p1a8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_kpc8u"]
+script = ExtResource("2_6p1a8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_hylrh"]
+script = ExtResource("2_6p1a8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_iruet"]
+script = ExtResource("2_6p1a8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_rebf7"]
+script = ExtResource("2_6p1a8")
+affect = 1
+type = 2
+amount = 1
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nn0y"]
 size = Vector2(90, 88)
 
@@ -106,6 +167,13 @@ current = 8
 max = 8
 metadata/_custom_type_script = "uid://dr8bvnfebp76"
 
+[node name="HealthBar" parent="." node_paths=PackedStringArray("health") instance=ExtResource("3_gpdnx")]
+offset_left = 11.0
+offset_top = -77.0
+offset_right = 55.0
+offset_bottom = -67.0
+health = NodePath("../Health")
+
 [node name="BasicHurtBox2D" type="Area2D" parent="." node_paths=PackedStringArray("health")]
 position = Vector2(32, -32)
 collision_layer = 32
@@ -113,8 +181,8 @@ collision_mask = 4
 script = ExtResource("3_wb5dx")
 health = NodePath("../Health")
 modifiers = Dictionary[int, ExtResource("4_gpdnx")]({
-1: SubResource("Resource_1g4j5"),
-2: SubResource("Resource_a07j8")
+1: SubResource("Resource_a07j8"),
+2: SubResource("Resource_1g4j5")
 })
 metadata/_custom_type_script = "uid://dtfoilkdcfvgv"
 
@@ -131,7 +199,7 @@ position = Vector2(30, 1)
 collision_layer = 64
 collision_mask = 2
 script = ExtResource("1_etp23")
-actions = Array[ExtResource("2_6p1a8")]([SubResource("Resource_3n5fd"), SubResource("Resource_6p1a8"), SubResource("Resource_2nn0y"), SubResource("Resource_wb5dx"), SubResource("Resource_gpdnx"), SubResource("Resource_e5cvn"), SubResource("Resource_8d0xd"), SubResource("Resource_afs2d"), SubResource("Resource_8tica"), SubResource("Resource_em1om"), SubResource("Resource_7ekvh")])
+actions = Array[ExtResource("2_6p1a8")]([SubResource("Resource_3n5fd"), SubResource("Resource_6p1a8"), SubResource("Resource_2nn0y"), SubResource("Resource_wb5dx"), SubResource("Resource_gpdnx"), SubResource("Resource_e5cvn"), SubResource("Resource_8d0xd"), SubResource("Resource_afs2d"), SubResource("Resource_8tica"), SubResource("Resource_em1om"), SubResource("Resource_7ekvh"), SubResource("Resource_bvift"), SubResource("Resource_iqdlx"), SubResource("Resource_uluhs"), SubResource("Resource_dnl3r"), SubResource("Resource_30a77"), SubResource("Resource_mk6c0"), SubResource("Resource_kpc8u"), SubResource("Resource_hylrh"), SubResource("Resource_iruet"), SubResource("Resource_rebf7")])
 metadata/_custom_type_script = "uid://chrsg1fc53qs3"
 metadata/_edit_group_ = true
 
