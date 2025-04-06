@@ -36,8 +36,6 @@ func shoot():
 		projectile.velocity = direction * 500;
 		get_parent().add_child(projectile);
 		projectile.global_position = origin;
-		print("projectile ", self, origin, player.global_position);
-		print("DEBUG");
 	else:
 		print("no player!");
 

@@ -35,7 +35,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("regenerate"):
-		generate_level(randi() % 12 + 1);
+		generate_level(randi() % 5 + 10);
 		add_player();
 
 
@@ -81,12 +81,16 @@ func generate_level(min_level_size: int = 12) -> void:
 		var new_section = get_random_level_section(criteria);
 		if (new_section == null):
 			print("No valid sections found");
-			return;
+			return generate_level(min_level_size)
 
 		level_size += 1;
 		add_level_section(new_section, cursor, direction, level_size);
 
 		var next_side = new_section.get_random_remaining_side(last_side);
+		
+		if next_side == "":
+			print("no place for next tile");
+			return generate_level(min_level_size);
 
 		if (next_side == "right"):
 			cursor.x += new_section.size.x;
@@ -137,7 +141,7 @@ func generate_level(min_level_size: int = 12) -> void:
 	var last_section = get_random_level_section(criteria);
 	if (last_section == null):
 		print("No valid sections found");
-		return;
+		return generate_level(min_level_size)
 
 	level_size += 1;
 	add_level_section(last_section, cursor, direction, level_size);

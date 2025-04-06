@@ -42,26 +42,21 @@ func _physics_process(_delta: float) -> void:
 			if not arrived_on_side and raycast_up_left.is_colliding():
 				arrived_on_side = true;
 			if arrived_on_side and not raycast_up_left.is_colliding():
-				change_direction(DIR.UP);
-				floor_side = DIR.LEFT;
+				change_direction(DIR.UP, DIR.LEFT);
 				position.x = round(position.x / 64) * 64;
 				return;
 			if velocity.x == 0:
-				change_direction(DIR.DOWN);
-				floor_side = DIR.RIGHT;
+				change_direction(DIR.DOWN, DIR.RIGHT);
 				return;
 		elif floor_side == DIR.DOWN:
 			if not arrived_on_side and raycast_down_left.is_colliding():
 				arrived_on_side = true;
 			if arrived_on_side and not raycast_down_left.is_colliding():
-				change_direction(DIR.DOWN);
-				floor_side = DIR.LEFT;
+				change_direction(DIR.DOWN, DIR.LEFT);
 				position.x = round(position.x / 64) * 64;
-				print("pos", position.x);
 				return;
 			if velocity.x == 0:
-				change_direction(DIR.UP);
-				floor_side = DIR.RIGHT;
+				change_direction(DIR.UP, DIR.RIGHT);
 				return;
 		velocity = Vector2(speed, 0);
 	elif dir == DIR.LEFT:
@@ -69,84 +64,73 @@ func _physics_process(_delta: float) -> void:
 			if not arrived_on_side and raycast_up_right.is_colliding():
 				arrived_on_side = true;
 			if arrived_on_side and not raycast_up_right.is_colliding():
-				change_direction(DIR.UP);
-				floor_side = DIR.RIGHT;
+				change_direction(DIR.UP, DIR.RIGHT);
 				position.x = round(position.x / 64) * 64;
 				return;
 			if velocity.x == 0:
-				change_direction(DIR.DOWN);
-				floor_side = DIR.LEFT;
+				change_direction(DIR.DOWN, DIR.LEFT);
 				return;
 		elif floor_side == DIR.DOWN:
 			if not arrived_on_side and raycast_down_right.is_colliding():
 				arrived_on_side = true;
 			if arrived_on_side and not raycast_down_right.is_colliding():
-				change_direction(DIR.DOWN);
-				floor_side = DIR.RIGHT;
+				change_direction(DIR.DOWN, DIR.RIGHT);
 				position.x = round(position.x / 64) * 64;
 				return;
 			if velocity.x == 0:
-				change_direction(DIR.UP);
-				floor_side = DIR.LEFT;
+				change_direction(DIR.UP, DIR.LEFT);
 				return;
 	elif dir == DIR.UP:
 		if floor_side == DIR.LEFT:
 			if not arrived_on_side and raycast_left_bottom.is_colliding():
 				arrived_on_side = true;
 			if arrived_on_side and not raycast_left_bottom.is_colliding():
-				change_direction(DIR.LEFT);
-				floor_side = DIR.DOWN;
+				change_direction(DIR.LEFT, DIR.DOWN);
 				position.y = round(position.y / 64) * 64;
 				return;
 			if velocity.y == 0:
-				change_direction(DIR.RIGHT);
-				floor_side = DIR.UP;
+				change_direction(DIR.RIGHT, DIR.UP);
 				return;
 		elif floor_side == DIR.RIGHT:
 			if not arrived_on_side and raycast_right_bottom.is_colliding():
 				arrived_on_side = true;
 			if arrived_on_side and not raycast_right_bottom.is_colliding():
-				change_direction(DIR.RIGHT);
-				floor_side = DIR.DOWN;
+				change_direction(DIR.RIGHT, DIR.DOWN);
 				position.y = round(position.y / 64) * 64;
 				return;
 			if velocity.y == 0:
-				change_direction(DIR.LEFT);
-				floor_side = DIR.UP;
+				change_direction(DIR.LEFT, DIR.UP);
 				return;
 	elif dir == DIR.DOWN:
 		if floor_side == DIR.LEFT:
 			if not arrived_on_side and raycast_left_top.is_colliding():
 				arrived_on_side = true;
 			if arrived_on_side and not raycast_left_top.is_colliding():
-				change_direction(DIR.LEFT);
-				floor_side = DIR.UP;
+				change_direction(DIR.LEFT, DIR.UP);
 				position.y = round(position.y / 64) * 64;
 				return;
 			if velocity.y == 0:
-				change_direction(DIR.RIGHT);
-				floor_side = DIR.DOWN;
+				change_direction(DIR.RIGHT, DIR.DOWN);
 				return;
 		elif floor_side == DIR.RIGHT:
 			if not arrived_on_side and raycast_right_top.is_colliding():
 				arrived_on_side = true;
 			if arrived_on_side and not raycast_right_top.is_colliding():
-				change_direction(DIR.RIGHT);
-				floor_side = DIR.UP;
+				change_direction(DIR.RIGHT, DIR.UP);
 				position.y = round(position.y / 64) * 64;
 				return;
 			if velocity.y == 0:
-				change_direction(DIR.LEFT);
-				floor_side = DIR.DOWN;
+				change_direction(DIR.LEFT, DIR.DOWN);
 				return;
 	move_and_slide()
 
 
-func change_direction(new_dir: DIR):
+func change_direction(new_dir: DIR, new_floor_side: DIR = floor_side) -> void:
 	#var old_dir = dir;
 	arrived_on_side = false;
 	dir = new_dir;
 	dir_label.text = DIR.keys()[new_dir];
+
 	if dir == DIR.LEFT:
 		velocity = Vector2(-speed, 0);
 	elif dir == DIR.RIGHT:
@@ -155,7 +139,19 @@ func change_direction(new_dir: DIR):
 		velocity = Vector2(0, -speed);
 	if dir == DIR.DOWN:
 		velocity = Vector2(0, speed);
+	
+	set_floor_side(new_floor_side);
 
+func set_floor_side(new_floor_side: DIR) -> void:
+	floor_side = new_floor_side;
+	if floor_side == DIR.LEFT:
+		animated_sprite.rotation_degrees = 90;
+	if floor_side == DIR.RIGHT:
+		animated_sprite.rotation_degrees = 270;
+	if floor_side == DIR.UP:
+		animated_sprite.rotation_degrees = 180;
+	if floor_side == DIR.DOWN:
+		animated_sprite.rotation_degrees = 0;
 
 func _on_ready_timer_timeout() -> void:
 	print("ready_timer timeout");
@@ -163,6 +159,7 @@ func _on_ready_timer_timeout() -> void:
 
 func awaken():
 	is_ready = true;
+	animated_sprite.play()
 
 func start_timers():
 	ready_timer.start();

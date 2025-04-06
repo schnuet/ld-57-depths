@@ -69,8 +69,9 @@ func handle_state_idle(delta: float):
 		dash_to_side(Vector2.RIGHT)
 		return
 	
-	if Input.is_action_just_pressed("slash") and Input.is_action_pressed("slash"):
-		enter_state(State.GROUND_ATTACK_PREPARE)
+	if Input.is_action_just_pressed("slash") and Input.is_action_pressed("slash") and slash_cooldown_timer <= 0:
+		print("idle -> slash");
+		ground_slash()
 		return
 	
 	apply_gravity(delta)
@@ -111,8 +112,9 @@ func handle_state_run(delta: float):
 		dash_to_side(Vector2.RIGHT)
 		return
 	
-	if Input.is_action_just_pressed("slash") and Input.is_action_pressed("slash"):
-		enter_state(State.GROUND_ATTACK_PREPARE)
+	if Input.is_action_just_pressed("slash") and Input.is_action_pressed("slash") and slash_cooldown_timer <= 0:
+		print("idle -> slash");
+		ground_slash();
 		return
 	
 	if not is_on_floor():
@@ -134,7 +136,7 @@ func handle_state_run(delta: float):
 @export_category("Jump")
 
 @export var can_jump: bool = true;
-@export var JUMP_VELOCITY: float = -1600.0
+@export var JUMP_VELOCITY: float = -1000.0
 
 @export var COYOTE_TIME: float = 0.15;
 var coyote_timer: float = 0.0
@@ -166,7 +168,7 @@ func handle_state_jump(delta: float):
 		dash_to_side(Vector2.RIGHT)
 		return
 	
-	if Input.is_action_just_pressed("slash"):
+	if Input.is_action_just_pressed("slash") and slash_cooldown_timer <= 0:
 		air_slash();
 		return
 
@@ -208,7 +210,7 @@ func handle_state_fall(delta: float):
 		dash_to_side(Vector2.RIGHT)
 		return
 	
-	if Input.is_action_just_pressed("slash"):
+	if Input.is_action_just_pressed("slash") and slash_cooldown_timer <= 0:
 		air_slash();
 		return
 
@@ -392,22 +394,26 @@ var has_hit_hurtbox = false;
 
 var slash_direction = Vector2.RIGHT;
 
+var SLASH_COOLDOWN = 0.25;
+var slash_cooldown_timer = 0;
+
 @onready var hitbox_slash_right = $hitbox_slash_right;
 @onready var hitbox_slash_left = $hitbox_slash_left;
 @onready var hitbox_slash_up = $hitbox_slash_up;
 @onready var hitbox_slash_down = $hitbox_slash_down;
 
 func air_slash():
+	print("cooldown", slash_cooldown_timer);
 	var direction = get_main_input_direction()
 	if direction == Vector2.ZERO:
 		direction = last_side
 	slash_direction = direction
-	if direction == Vector2.DOWN:
-		enter_state(State.SLASH_AIR_DOWN)
-	elif direction == Vector2.UP:
-		enter_state(State.SLASH_AIR_UP)
-	else:
-		enter_state(State.SLASH_AIR_SIDE)
+	#if direction == Vector2.DOWN:
+		#enter_state(State.SLASH_AIR_DOWN)
+	#elif direction == Vector2.UP:
+		#enter_state(State.SLASH_AIR_UP)
+	#else:
+	enter_state(State.SLASH_AIR_SIDE)
 
 
 func enter_state_slash_air_side(_state_before: State):
@@ -416,6 +422,7 @@ func enter_state_slash_air_side(_state_before: State):
 	slash_timer = SLASH_TIME
 	set_animation("attack_air");
 	has_hit_hurtbox = false;
+	slash_cooldown_timer = SLASH_COOLDOWN;
 	enable_slash_hitbox()
 
 func handle_state_slash_air_side(delta: float):
@@ -431,6 +438,7 @@ func enter_state_slash_air_down(_state_before: State):
 	velocity.y = SLASH_MOVE_SPEED
 	slash_timer = SLASH_TIME
 	has_hit_hurtbox = false;
+	slash_cooldown_timer = SLASH_COOLDOWN;
 	set_animation("attack_air")
 	enable_slash_hitbox()
 
@@ -446,6 +454,7 @@ func enter_state_slash_air_up(_state_before: State):
 	velocity.x = 0
 	velocity.y = -SLASH_MOVE_SPEED
 	slash_timer = SLASH_TIME
+	slash_cooldown_timer = SLASH_COOLDOWN;
 	has_hit_hurtbox = false;
 	set_animation("attack_air")
 	enable_slash_hitbox()
@@ -475,12 +484,13 @@ func handle_state_ground_attack_prepare(delta: float):
 	if ground_attack_prepare_timer >= SMASH_PREPARE_TIME:
 		enter_state(State.SMASH);
 	if not Input.is_action_pressed("slash"):
-		ground_slash()
-		ground_attack_prepare_timer = 0;
+		enter_state(State.IDLE)
 		return
 	
 
 # SLASH GROUND
+
+var slash_still_pressed = false;
 
 func ground_slash():
 	var direction = get_main_input_direction()
@@ -493,19 +503,29 @@ func ground_slash():
 		enter_state(State.SLASH_GROUND)
 
 func enter_state_slash_ground_side(_state_before: State):
+	print("START GROUND SLASH");
 	velocity.x = 0
 	velocity.y = 0
 	slash_timer = SLASH_TIME
+	slash_cooldown_timer = SLASH_COOLDOWN;
 	has_hit_hurtbox = false;
 	set_animation("attack_ground")
+	slash_still_pressed = true;
 	enable_slash_hitbox()
 
-func handle_state_slash_ground_side(delta: float):
+func handle_state_slash_ground_side(_delta: float):
+	if not Input.is_action_pressed("slash"):
+		slash_still_pressed = false;
+	
 	if has_hit_hurtbox:
 		velocity.x = -slash_direction.x * SLASH_MOVE_SPEED;
 		has_hit_hurtbox = false;
+	
 	if slash_timer <= 0:
-		enter_state(State.IDLE)
+		if slash_still_pressed:
+			enter_state(State.GROUND_ATTACK_PREPARE);
+		else:
+			enter_state(State.IDLE)
 		return
 
 
@@ -542,6 +562,7 @@ func enter_state_smash(_state_before: State):
 	smash_timer = 0
 	smash_direction = last_side
 	has_hit_hurtbox = false;
+	slash_cooldown_timer = SLASH_COOLDOWN;
 	set_animation("attack_smash")
 	enable_smash_hitbox()
 
@@ -757,11 +778,12 @@ func enter_state(next_state: State):
 
 
 func process_timers(delta: float):
-	wall_jump_timer = move_toward(wall_jump_timer, 0, delta)
-	coyote_timer = move_toward(coyote_timer, 0, delta)
-	slash_timer = move_toward(slash_timer, 0, delta)
-	dash_timer = move_toward(dash_timer, 0, delta)
-	jump_buffer_timer = move_toward(jump_buffer_timer, 0, delta)
+	wall_jump_timer = move_toward(wall_jump_timer, 0, delta);
+	coyote_timer = move_toward(coyote_timer, 0, delta);
+	slash_timer = move_toward(slash_timer, 0, delta);
+	dash_timer = move_toward(dash_timer, 0, delta);
+	jump_buffer_timer = move_toward(jump_buffer_timer, 0, delta);
+	slash_cooldown_timer = move_toward(slash_cooldown_timer, 0, delta);
 
 
 # ========================================
@@ -770,6 +792,9 @@ func process_timers(delta: float):
 @onready var sprite = $AnimatedSprite2D;
 
 func set_animation(animation_name: String):
+	if sprite.animation == animation_name:
+		return
+	sprite.stop()
 	sprite.play(animation_name)
 
 func update_animation_side():

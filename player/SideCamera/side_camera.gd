@@ -77,8 +77,8 @@ func shake_short():
 
 func get_limited_position(pos: Vector2):
 	var limited = pos;
-	var half_width = 960;
-	var half_height = 540;
+	var half_width = 960 / zoom.x;
+	var half_height = 540 / zoom.x;
 	if pos.x < limits.get("left") + half_width:
 		limited.x = limits.get("left") + half_width;
 	if pos.y < limits.get("top") + half_height:

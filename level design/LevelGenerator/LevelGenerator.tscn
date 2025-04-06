@@ -1,20 +1,19 @@
-[gd_scene load_steps=18 format=3 uid="uid://crios7cuyg8bd"]
+[gd_scene load_steps=17 format=3 uid="uid://crios7cuyg8bd"]
 
 [ext_resource type="Script" uid="uid://djr1h56yjfbyo" path="res://level design/LevelGenerator/level_generator.gd" id="1_qrd63"]
 [ext_resource type="PackedScene" uid="uid://wg5sh88g8m7" path="res://level design/level sections START/start_1.tscn" id="2_3oiy7"]
 [ext_resource type="PackedScene" uid="uid://deqst0s8ve8d7" path="res://level design/level sections/bottom_1.tscn" id="2_p83jk"]
-[ext_resource type="PackedScene" uid="uid://cwekddldccibc" path="res://level design/level sections/crossing_1.tscn" id="3_4obn5"]
 [ext_resource type="PackedScene" uid="uid://bq2wv5ny2ed18" path="res://level design/level sections/left_1.tscn" id="4_3oiy7"]
 [ext_resource type="PackedScene" uid="uid://d05hydbjxmo1b" path="res://level design/level sections/left_2.tscn" id="5_joo2e"]
 [ext_resource type="PackedScene" uid="uid://3u8ecfj7dfnk" path="res://level design/level sections/left_bottom_1.tscn" id="6_tifbp"]
 [ext_resource type="PackedScene" uid="uid://fl06ytt52qr2" path="res://level design/level sections/left_right_1.tscn" id="7_0w37t"]
-[ext_resource type="PackedScene" uid="uid://crx5hbf5w2hnj" path="res://level design/level sections/left_right_top_1.tscn" id="8_o1cfb"]
-[ext_resource type="PackedScene" uid="uid://c7t6id4fve3ae" path="res://level design/level sections/left_right_top_2.tscn" id="9_kufl6"]
 [ext_resource type="PackedScene" uid="uid://bgkraw6b0ad7h" path="res://level design/level sections/left_top_1.tscn" id="10_y7axa"]
 [ext_resource type="PackedScene" uid="uid://khos5ffdaork" path="res://level design/level sections/right_1.tscn" id="11_j57ka"]
 [ext_resource type="PackedScene" uid="uid://uaatw3l0xhk5" path="res://level design/level sections/right_2.tscn" id="12_w7f5p"]
+[ext_resource type="PackedScene" uid="uid://b88l3ugo5jrai" path="res://level design/level sections/top_bottom_1.tscn" id="13_4obn5"]
 [ext_resource type="PackedScene" uid="uid://bx0id2clfp2yu" path="res://level design/level sections/right_bottom_1.tscn" id="13_gaiy6"]
 [ext_resource type="PackedScene" uid="uid://y12x5ajp81yy" path="res://level design/level sections/right_top_1.tscn" id="14_2tdor"]
+[ext_resource type="PackedScene" uid="uid://bu8ge76b6kg04" path="res://level design/level sections/top_bottom_2.tscn" id="14_3oiy7"]
 [ext_resource type="PackedScene" uid="uid://bvthwmauuq6q" path="res://level design/level sections/top_1.tscn" id="15_d407y"]
 [ext_resource type="TileSet" uid="uid://dld60hu50porp" path="res://level design/base_tileset.tres" id="16_4obn5"]
 
@@ -27,8 +26,6 @@ visible = false
 
 [node name="Bottom1" parent="Sections" instance=ExtResource("2_p83jk")]
 
-[node name="Crossing1" parent="Sections" instance=ExtResource("3_4obn5")]
-
 [node name="Left1" parent="Sections" instance=ExtResource("4_3oiy7")]
 
 [node name="Left2" parent="Sections" instance=ExtResource("5_joo2e")]
@@ -36,10 +33,6 @@ visible = false
 [node name="LeftBottom1" parent="Sections" instance=ExtResource("6_tifbp")]
 
 [node name="LeftRight1" parent="Sections" instance=ExtResource("7_0w37t")]
-
-[node name="LeftRightTop1" parent="Sections" instance=ExtResource("8_o1cfb")]
-
-[node name="LeftRightTop2" parent="Sections" instance=ExtResource("9_kufl6")]
 
 [node name="LeftTop1" parent="Sections" instance=ExtResource("10_y7axa")]
 
@@ -52,6 +45,12 @@ visible = false
 [node name="RightTop1" parent="Sections" instance=ExtResource("14_2tdor")]
 
 [node name="Top1" parent="Sections" instance=ExtResource("15_d407y")]
+
+[node name="TopBottom1" parent="Sections" instance=ExtResource("13_4obn5")]
+position = Vector2(6067.36, 1535.08)
+
+[node name="TopBottom2" parent="Sections" instance=ExtResource("14_3oiy7")]
+position = Vector2(6067.36, 1535.08)
 
 [node name="StartSections" type="Node2D" parent="."]
 process_mode = 4

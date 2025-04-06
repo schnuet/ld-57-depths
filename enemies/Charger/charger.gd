@@ -188,7 +188,6 @@ func _on_direction_timer_timeout() -> void:
 		direction_timer.start(time);
 	else:
 		var time = randf_range(2, 5);
-		print("set_timer", time);
 		direction_timer.start(time);
 
 
