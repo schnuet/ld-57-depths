@@ -2,6 +2,8 @@
 extends Node2D
 class_name LevelSection
 
+signal player_entered(section: LevelSection);
+
 @export var size: Vector2i = Vector2i.ONE:
 	set(value):
 		size = value;
@@ -25,6 +27,8 @@ class_name LevelSection
 };
 
 @onready var section_area:Area2D = Area2D.new();
+
+var connected_sections: Array[LevelSection];
 
 const game_dimensions = Vector2i(1920, 1088);
 
@@ -55,7 +59,8 @@ func _draw() -> void:
 		draw_rect(Rect2i(0,0, size.x * game_dimensions.x, size.y * game_dimensions.y), Color(1, 0, 0, 0.5), false, 4);
 
 func _on_section_area_body_entered(body: Node2D):
-	_on_player_section_entered(body as Jumper);
+	if body is Player:
+		_on_player_section_entered(body as Jumper);
 
 
 # =========================================
@@ -65,6 +70,7 @@ func _on_player_section_entered(player: Jumper):
 	# set camera limits
 	print("player entered ", name);
 	adjust_player_camera_limits(player);
+	player_entered.emit(self);
 
 func adjust_player_camera_limits(player: Jumper):
 	if top:
@@ -86,7 +92,19 @@ func adjust_player_camera_limits(player: Jumper):
 		player.remove_camera_limit("right")
 	else:
 		player.add_camera_limit("right", global_position.x + size.x * game_dimensions.x);
-		
+
+
+func awaken():
+	var objects = section_area.get_overlapping_bodies();
+	for object in objects:
+		object.process_mode = Node.PROCESS_MODE_INHERIT;
+
+func sleep():
+	var objects = section_area.get_overlapping_bodies();
+	for object in objects:
+		object.process_mode = Node.PROCESS_MODE_DISABLED;
+
+
 # ==============================
 # SIDES
 

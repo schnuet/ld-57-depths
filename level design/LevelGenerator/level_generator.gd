@@ -232,6 +232,17 @@ func add_level_section(section: LevelSection, p: Vector2i, direction: Vector2, i
 	level.add_child(new_section);
 	number_section(new_section, index);
 	placed_sections.append(new_section);
+	
+	new_section.connect("player_entered", on_section_entered);
+
+
+func on_section_entered(section: LevelSection):
+	var active_sections = section.connected_sections;
+	for level_section in placed_sections:
+		if active_sections.find(level_section):
+			level_section.awaken();
+		else:
+			level_section.sleep();
 
 
 func get_section_at(pos: Vector2i) -> LevelSection:

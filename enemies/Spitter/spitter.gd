@@ -34,9 +34,10 @@ func shoot():
 		var origin = get_projectile_origin();
 		var direction = ((player.global_position + player.velocity * 0.25 + Vector2(0, -50)) - origin).normalized()
 		projectile.velocity = direction * 500;
-		projectile.global_position = origin;
 		get_parent().add_child(projectile);
+		projectile.global_position = origin;
 		print("projectile ", self, origin, player.global_position);
+		print("DEBUG");
 	else:
 		print("no player!");
 
@@ -83,7 +84,7 @@ func _on_health_damaged(_entity: Node, _type: HealthActionType.Enum, _amount: in
 	pass # Replace with function body.
 
 func start_timers():
-	cooldown_timer.start();
+	cooldown_timer.start(5);
 
 func awaken():
 	start_timers();
