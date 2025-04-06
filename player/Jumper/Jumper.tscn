@@ -3316,6 +3316,7 @@ amount = 1
 collision_layer = 16
 script = ExtResource("1_l0bbj")
 MID_AIR_JUMPS = 0
+can_wall_slide = false
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_6hxia")

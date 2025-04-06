@@ -131,6 +131,8 @@ func handle_state_run(delta: float):
 # ========================================
 # JUMP
 
+@export_category("Jump")
+
 @export var can_jump: bool = true;
 @export var JUMP_VELOCITY: float = -1600.0
 
@@ -210,7 +212,7 @@ func handle_state_fall(delta: float):
 		air_slash();
 		return
 
-	if is_on_wall():
+	if can_wall_slide and is_on_wall():
 		enter_state(State.WALL_SLIDE)
 		return
 	
@@ -237,6 +239,8 @@ func show_double_jump_effect():
 
 # ========================================
 # WALL SLIDE
+
+@export var can_wall_slide: bool = true;
 
 const WALL_SLIDE_HORIZONTAL_JUMP_SPEED = 800.0
 var wall_slide_side = Vector2.RIGHT;
@@ -316,6 +320,8 @@ func wall_jump():
 # ========================================
 # DASH
 
+@export_category("Dash")
+
 #@export var DASH_DOWN_VELOCITY = 1600.0
 @export var DASH_SIDE_VELOCITY = 1600.0
 @export var DASH_UP_VELOCITY = 1600.0
@@ -375,6 +381,8 @@ func _on_dash_tentacles_animation_finished() -> void:
 
 # ========================================
 # ATTACKS
+
+@export_category("Attacks")
 
 const SLASH_MOVE_SPEED = 300.0
 
