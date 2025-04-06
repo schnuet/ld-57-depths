@@ -141,7 +141,7 @@ func generate_level(min_level_size: int = 12) -> void:
 
 	level_size += 1;
 	add_level_section(last_section, cursor, direction, level_size);
-	
+
 
 	# Close any open sides
 	while(true):
@@ -167,7 +167,18 @@ func generate_level(min_level_size: int = 12) -> void:
 	var main_tilemap_cells = main_tilemap.get_used_cells()
 	main_tilemap.set_cells_terrain_connect(main_tilemap_cells, 0, false);
 
-
+	# set connected section for each placed section
+	for section in placed_sections:
+		var pos = Vector2i(int(section.position.x) / game_dimensions.x, int(section.position.y) / game_dimensions.y);
+		var unblocked_sides = get_unblocked_open_sides(section);
+		for side in unblocked_sides:
+			var side_pos = pos + side;
+			if section_positions.has(side_pos):
+				var connected_section = section_positions[side_pos];
+				if not section.connected_sections.has(connected_section):
+					section.connected_sections.append(connected_section);
+					connected_section.connected_sections.append(section);
+					print("Connected: ", section.name, " with ", connected_section.name);
 
 func get_random_level_section(criteria: Dictionary) -> LevelSection:
 	var valid_sections: Array[LevelSection] = [];
@@ -217,7 +228,7 @@ func add_level_section(section: LevelSection, p: Vector2i, direction: Vector2, i
 		section_position = Vector2(p.x * game_dimensions.x, p.y * game_dimensions.y);
 	else:
 		section_position = Vector2(p.x * game_dimensions.x, p.y * game_dimensions.y);
-	
+
 	new_section.position = section_position;
 
 	# add tiles to main tilemap directly

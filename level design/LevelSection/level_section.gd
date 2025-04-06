@@ -30,6 +30,8 @@ signal player_entered(section: LevelSection);
 
 var connected_sections: Array[LevelSection];
 
+var asleep: bool = true;
+
 const game_dimensions = Vector2i(1920, 1088);
 
 func _ready() -> void:
@@ -40,17 +42,13 @@ func _ready() -> void:
 	collision_shape.shape = shape;
 	collision_shape.position = game_dimensions / 2;
 	section_area.add_child(collision_shape);
-	section_area.set_collision_mask_value(5, true); # DETECT PLAYER ONLY
+	section_area.set_collision_mask_value(5, true); # DETECT PLAYER
+	section_area.set_collision_mask_value(9, true); # DETECT ENEMIES
 	section_area.set_collision_layer_value(1, false);
 	section_area.set_collision_layer_value(32, true); # 32 is just so that it has a layer.
 	section_area.set_collision_mask_value(1, false);
 	section_area.connect("body_entered", _on_section_area_body_entered);
 	add_child(section_area);
-	
-	for child in get_children():
-		if child.has_method("awaken"):
-			child.awaken();
-
 
 func _draw() -> void:
 	if Engine.is_editor_hint():
@@ -59,7 +57,7 @@ func _draw() -> void:
 		draw_rect(Rect2i(0,0, size.x * game_dimensions.x, size.y * game_dimensions.y), Color(1, 0, 0, 0.5), false, 4);
 
 func _on_section_area_body_entered(body: Node2D):
-	if body is Player:
+	if body.has_method("is_player"):
 		_on_player_section_entered(body as Jumper);
 
 
@@ -95,11 +93,21 @@ func adjust_player_camera_limits(player: Jumper):
 
 
 func awaken():
+	if not asleep:
+		return;
+	asleep = false;
 	var objects = section_area.get_overlapping_bodies();
 	for object in objects:
 		object.process_mode = Node.PROCESS_MODE_INHERIT;
+	
+	for child in get_children():
+		if child.has_method("awaken"):
+			child.awaken();
 
 func sleep():
+	if asleep:
+		return;
+	asleep = true;
 	var objects = section_area.get_overlapping_bodies();
 	for object in objects:
 		object.process_mode = Node.PROCESS_MODE_DISABLED;

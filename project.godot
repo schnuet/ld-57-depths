@@ -119,6 +119,7 @@ regenerate={
 2d_physics/layer_6="enemy hurtboxes"
 2d_physics/layer_7="enemy_hitboxes"
 2d_physics/layer_8="interactors"
+2d_physics/layer_9="enemy_collision_shapes"
 
 [physics]
 

@@ -29,8 +29,6 @@ var arrived_on_side: bool = false;
 
 func _ready() -> void:
 	change_direction(dir);
-	print("crawler ready");
-	start_timers();
 
 func _physics_process(_delta: float) -> void:
 	if not is_ready:

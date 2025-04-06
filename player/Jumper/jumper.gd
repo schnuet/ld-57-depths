@@ -19,7 +19,7 @@ enum State {
 	RUN,
 	JUMP,
 	FALL,
-	DASH_DOWN,
+	#DASH_DOWN,
 	DASH_SIDE,
 	WALL_SLIDE,
 	SLASH_AIR_SIDE,
@@ -59,10 +59,6 @@ func enter_state_idle(_state_before: State):
 func handle_state_idle(delta: float):
 	if Input.is_action_just_pressed("jump") or jump_buffer_timer > 0:
 		enter_state(State.JUMP)
-		return
-	
-	if Input.is_action_just_pressed("dash") and Input.is_action_pressed("down"):
-		enter_state(State.DASH_DOWN)
 		return
 	
 	if Input.is_action_just_pressed("dash") and Input.is_action_pressed("left"):
@@ -147,6 +143,8 @@ var jump_buffer_timer = 0.0
 @export var MID_AIR_JUMPS: int = 1;
 var remaining_mid_air_jumps = MID_AIR_JUMPS;
 
+@onready var double_jump_tentacles = $double_jump_tentacles;
+
 func enter_state_jump(_state_before: State):
 	coyote_timer = 0;
 	velocity.y = JUMP_VELOCITY;
@@ -157,10 +155,6 @@ func enter_state_jump(_state_before: State):
 func handle_state_jump(delta: float):
 	if Input.is_action_just_released("jump"):
 		velocity.y = 0
-	
-	if Input.is_action_just_pressed("dash") and Input.is_action_pressed("down"):
-		enter_state(State.DASH_DOWN)
-		return
 	
 	if Input.is_action_just_pressed("dash") and Input.is_action_pressed("left"):
 		dash_to_side(Vector2.LEFT)
@@ -199,13 +193,10 @@ func handle_state_fall(delta: float):
 			return
 		if remaining_mid_air_jumps > 0:
 			remaining_mid_air_jumps -= 1;
+			show_double_jump_effect();
 			enter_state(State.JUMP);
 			return
 		jump_buffer_timer = JUMP_BUFFER_TIME
-
-	if Input.is_action_just_pressed("dash") and Input.is_action_pressed("down"):
-		enter_state(State.DASH_DOWN)
-		return
 	
 	if Input.is_action_just_pressed("dash") and Input.is_action_pressed("left"):
 		dash_to_side(Vector2.LEFT)
@@ -231,6 +222,18 @@ func handle_state_fall(delta: float):
 func start_coyote_time():
 	coyote_timer = COYOTE_TIME
 
+
+func activate_double_jump():
+	MID_AIR_JUMPS = 1;
+
+
+func _on_double_jump_tentacles_animation_finished() -> void:
+	double_jump_tentacles.hide();
+
+
+func show_double_jump_effect():
+	double_jump_tentacles.show();
+	double_jump_tentacles.play();
 
 # ========================================
 # WALL SLIDE
@@ -274,10 +277,6 @@ func handle_state_wall_slide(delta: float):
 		wall_jump()
 		return
 	
-	if Input.is_action_just_pressed("dash") and Input.is_action_pressed("down"):
-		enter_state(State.DASH_DOWN)
-		return
-	
 	if Input.is_action_just_pressed("dash") and Input.is_action_pressed("left"):
 		dash_to_side(Vector2.LEFT)
 		return
@@ -314,34 +313,23 @@ func wall_jump():
 	velocity.x = wall_slide_side.x * -WALL_SLIDE_HORIZONTAL_JUMP_SPEED
 	enter_state(State.JUMP)
 
-
 # ========================================
 # DASH
 
-@export var DASH_DOWN_VELOCITY = 1600.0
+#@export var DASH_DOWN_VELOCITY = 1600.0
 @export var DASH_SIDE_VELOCITY = 1600.0
 @export var DASH_UP_VELOCITY = 1600.0
+
+@onready var dash_tentacles = $dash_tentacles;
 
 const DASH_TIME = 0.2
 var dash_timer = 0.0
 
-func enter_state_dash_down(_state_before: State):
-	velocity.x = 0
-	velocity.y = DASH_DOWN_VELOCITY
-	set_animation("dash_down")
-
-func handle_state_dash_down(delta: float):
-
-	if is_on_floor():
-		enter_state(State.IDLE)
-		return
-
-	apply_gravity(delta)
-	
-
 func enter_state_dash_side(_state_before: State):
 	dash_timer = DASH_TIME
-	set_animation("dash_side")
+	set_animation("dash_side");
+	dash_tentacles.show();
+	dash_tentacles.play();
 
 func handle_state_dash_side(_delta: float):
 	if dash_timer <= 0:
@@ -352,20 +340,38 @@ func handle_state_dash_side(_delta: float):
 func dash_to_side(side: Vector2):
 	velocity.x = side.x * DASH_SIDE_VELOCITY
 	velocity.y = 0
-	enter_state(State.DASH_SIDE)
+	dash_tentacles.scale.y = side.x * 2;
+	enter_state(State.DASH_SIDE);
 
 
+func _on_dash_tentacles_animation_finished() -> void:
+	dash_tentacles.hide();
 
-func enter_state_dash_up(_state_before: State):
-	velocity.x = 0
-	velocity.y = -DASH_UP_VELOCITY
-	set_animation("dash_up")
+#func enter_state_dash_down(_state_before: State):
+	#velocity.x = 0
+	#velocity.y = DASH_DOWN_VELOCITY
+	#set_animation("dash_down")
+#
+#func handle_state_dash_down(delta: float):
+#
+	#if is_on_floor():
+		#enter_state(State.IDLE)
+		#return
+#
+	#apply_gravity(delta)
 
-func handle_state_dash_up(_delta: float):
+#
+#func enter_state_dash_up(_state_before: State):
+	#velocity.x = 0
+	#velocity.y = -DASH_UP_VELOCITY
+	#set_animation("dash_up")
+#
+#func handle_state_dash_up(_delta: float):
+#
+	#if is_on_floor():
+		#enter_state(State.IDLE)
+		#return
 
-	if is_on_floor():
-		enter_state(State.IDLE)
-		return
 
 # ========================================
 # ATTACKS
@@ -681,8 +687,8 @@ func handle_state(delta):
 			handle_state_jump(delta)
 		State.FALL:
 			handle_state_fall(delta)
-		State.DASH_DOWN:
-			handle_state_dash_down(delta)
+		#State.DASH_DOWN:
+			#handle_state_dash_down(delta)
 		State.DASH_SIDE:
 			handle_state_dash_side(delta)
 		State.WALL_SLIDE:
@@ -717,8 +723,8 @@ func enter_state(next_state: State):
 			enter_state_jump(state_before)
 		State.FALL:
 			enter_state_fall(state_before)
-		State.DASH_DOWN:
-			enter_state_dash_down(state_before)
+		#State.DASH_DOWN:
+			#enter_state_dash_down(state_before)
 		State.DASH_SIDE:
 			enter_state_dash_side(state_before)
 		State.WALL_SLIDE:
@@ -803,3 +809,7 @@ func add_camera_limit(side: String, pos: int):
 
 func remove_camera_limit(side: String):
 	camera_remove_limit.emit(side);
+
+
+func is_player():
+	return true;
