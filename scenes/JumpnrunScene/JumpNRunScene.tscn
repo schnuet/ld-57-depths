@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://8m2eusdv75hi"]
+[gd_scene load_steps=15 format=4 uid="uid://8m2eusdv75hi"]
 
 [ext_resource type="TileSet" uid="uid://dld60hu50porp" path="res://level design/base_tileset.tres" id="1_8iglc"]
 [ext_resource type="PackedScene" uid="uid://duigv8nwli4ia" path="res://player/Jumper/Jumper.tscn" id="1_j0qoq"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dapys1tef7aoj" path="res://enemies/SideShooter/SideShooter.tscn" id="10_id5jf"]
 [ext_resource type="PackedScene" uid="uid://cgopm8bw77bj3" path="res://enemies/Charger/Charger.tscn" id="12_o6xrd"]
 [ext_resource type="PackedScene" uid="uid://bctnxumxv8qyl" path="res://enemies/Crawler/Crawler.tscn" id="13_i1lsf"]
+[ext_resource type="PackedScene" uid="uid://hvhc1se8n78j" path="res://enemies/Spitter/Spitter.tscn" id="14_ld1t2"]
 
 [node name="JumpNRunScene" type="Node2D"]
 
@@ -73,3 +74,12 @@ position = Vector2(4439, 1661)
 
 [node name="Crawler" parent="." instance=ExtResource("13_i1lsf")]
 position = Vector2(4703, 1088)
+
+[node name="Crawler2" parent="." instance=ExtResource("13_i1lsf")]
+position = Vector2(4480, 1343)
+dir = 3
+floor_side = 0
+
+[node name="Spitter" parent="." instance=ExtResource("14_ld1t2")]
+position = Vector2(3864, 1379)
+base_side = 0

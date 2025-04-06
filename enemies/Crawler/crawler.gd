@@ -11,6 +11,8 @@ extends CharacterBody2D
 @onready var raycast_down_right = $raycast_down_right;
 @onready var raycast_down_left = $raycast_down_left;
 @onready var dir_label = $dir_label;
+@onready var hurt_timer = $hurt_timer;
+@onready var animated_sprite = $AnimatedSprite2D;
 
 enum DIR {
 	UP,
@@ -26,10 +28,14 @@ var arrived_on_side: bool = false;
 
 func _ready() -> void:
 	change_direction(dir);
+	animated_sprite.material
 
 func _physics_process(_delta: float) -> void:
 	if not is_ready:
 		return;
+	
+	if not hurt_timer.is_stopped():
+		return
 		
 	if dir == DIR.RIGHT:
 		if floor_side == DIR.UP:
@@ -156,8 +162,10 @@ func _on_ready_timer_timeout() -> void:
 
 
 func _on_health_damaged(_entity: Node, _type: HealthActionType.Enum, _amount: int, _incrementer: int, _multiplier: float, _applied: int) -> void:
-	pass # Replace with function body.
-
+	hurt_timer.start(0.125);
+	animated_sprite.material.set_shader_parameter("flash_value", 1.0);
+	var tween = get_tree().create_tween();
+	tween.tween_property(animated_sprite, "material:shader_parameter/flash_value", 0.0, 0.5);
 
 func _on_health_died(_entity: Node) -> void:
 	queue_free()

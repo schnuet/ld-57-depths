@@ -16,6 +16,7 @@ extends CharacterBody2D
 @onready var attack_area_left = $attack_area_left;
 @onready var attack_timer = $attack_timer;
 @onready var excite_timer = $excite_timer;
+@onready var hurt_timer = $hurt_timer;
 
 @export var run_speed = 500;
 
@@ -76,8 +77,10 @@ func _process(_delta: float) -> void:
 				enter_state(State.IDLE);
 		State.HURT:
 			excited = true;
-			if not animated_sprite.is_playing():
+			if hurt_timer.is_stopped():
 				enter_state(State.IDLE);
+			#if not animated_sprite.is_playing():
+				#enter_state(State.IDLE);
 
 
 func enter_state(new_state: State):
@@ -107,7 +110,11 @@ func enter_state(new_state: State):
 		State.IDLE:
 			animated_sprite.play("idle");
 		State.HURT:
+			hurt_timer.start(0.5);
 			animated_sprite.play("hurt");
+			var tween = get_tree().create_tween()
+			animated_sprite.material.set_shader_parameter("flash_value", 1.0);
+			tween.tween_property(animated_sprite, "material:shader_parameter/flash_value", 0.0, 0.5);
 		
 		
 	state_label.text = State.keys()[new_state];
@@ -154,10 +161,10 @@ func find_player():
 func set_direction(new_dir: DIR):
 	dir = new_dir;
 	if dir == DIR.RIGHT:
-		raycast.target_position = Vector2(500, 0);
+		raycast.target_position = Vector2(1000, 0);
 		animated_sprite.flip_h = true;
 	else:
-		raycast.target_position = Vector2(-500, 0);
+		raycast.target_position = Vector2(-1000, 0);
 		animated_sprite.flip_h = false;
 
 
@@ -187,3 +194,7 @@ func _on_health_damaged(_entity: Node, _type: HealthActionType.Enum, _amount: in
 
 func _on_excite_timer_timeout() -> void:
 	excited = false;
+	
+
+func _on_health_died(entity: Node) -> void:
+	queue_free()

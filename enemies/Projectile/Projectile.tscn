@@ -80,4 +80,12 @@ metadata/_custom_type_script = "uid://chrsg1fc53qs3"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BasicHitBox2D"]
 shape = SubResource("CircleShape2D_5lwk6")
 
+[node name="WallCollider" type="Area2D" parent="."]
+visible = false
+collision_layer = 2147483648
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallCollider"]
+shape = SubResource("CircleShape2D_5lwk6")
+
 [connection signal="action_applied" from="BasicHitBox2D" to="." method="_on_basic_hit_box_2d_action_applied"]
+[connection signal="body_entered" from="WallCollider" to="." method="_on_wall_collider_body_entered"]

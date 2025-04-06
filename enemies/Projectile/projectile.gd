@@ -13,3 +13,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_basic_hit_box_2d_action_applied(_hurt_box: HurtBox2D) -> void:
 	queue_free();
+
+
+func _on_wall_collider_body_entered(body: Node2D) -> void:
+	queue_free();
