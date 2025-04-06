@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://crios7cuyg8bd"]
+[gd_scene load_steps=18 format=3 uid="uid://crios7cuyg8bd"]
 
 [ext_resource type="Script" uid="uid://djr1h56yjfbyo" path="res://level design/LevelGenerator/level_generator.gd" id="1_qrd63"]
+[ext_resource type="PackedScene" uid="uid://wg5sh88g8m7" path="res://level design/level sections START/start_1.tscn" id="2_3oiy7"]
 [ext_resource type="PackedScene" uid="uid://deqst0s8ve8d7" path="res://level design/level sections/bottom_1.tscn" id="2_p83jk"]
 [ext_resource type="PackedScene" uid="uid://cwekddldccibc" path="res://level design/level sections/crossing_1.tscn" id="3_4obn5"]
 [ext_resource type="PackedScene" uid="uid://bq2wv5ny2ed18" path="res://level design/level sections/left_1.tscn" id="4_3oiy7"]
@@ -19,8 +20,6 @@
 
 [node name="LevelGenerator" type="Node2D"]
 script = ExtResource("1_qrd63")
-
-[node name="Level" type="Node2D" parent="."]
 
 [node name="Sections" type="Node2D" parent="."]
 process_mode = 4
@@ -53,6 +52,13 @@ visible = false
 [node name="RightTop1" parent="Sections" instance=ExtResource("14_2tdor")]
 
 [node name="Top1" parent="Sections" instance=ExtResource("15_d407y")]
+
+[node name="StartSections" type="Node2D" parent="."]
+process_mode = 4
+
+[node name="Start1" parent="StartSections" instance=ExtResource("2_3oiy7")]
+
+[node name="Level" type="Node2D" parent="."]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_set = ExtResource("16_4obn5")

@@ -42,6 +42,11 @@ func _ready() -> void:
 	section_area.set_collision_mask_value(1, false);
 	section_area.connect("body_entered", _on_section_area_body_entered);
 	add_child(section_area);
+	
+	for child in get_children():
+		if child.has_method("awaken"):
+			child.awaken();
+
 
 func _draw() -> void:
 	if Engine.is_editor_hint():

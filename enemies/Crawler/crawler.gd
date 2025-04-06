@@ -12,6 +12,7 @@ extends CharacterBody2D
 @onready var raycast_down_left = $raycast_down_left;
 @onready var dir_label = $dir_label;
 @onready var hurt_timer = $hurt_timer;
+@onready var ready_timer = $ready_timer;
 @onready var animated_sprite = $AnimatedSprite2D;
 
 enum DIR {
@@ -28,7 +29,8 @@ var arrived_on_side: bool = false;
 
 func _ready() -> void:
 	change_direction(dir);
-	animated_sprite.material
+	print("crawler ready");
+	start_timers();
 
 func _physics_process(_delta: float) -> void:
 	if not is_ready:
@@ -158,8 +160,14 @@ func change_direction(new_dir: DIR):
 
 
 func _on_ready_timer_timeout() -> void:
+	print("ready_timer timeout");
+	awaken();
+
+func awaken():
 	is_ready = true;
 
+func start_timers():
+	ready_timer.start();
 
 func _on_health_damaged(_entity: Node, _type: HealthActionType.Enum, _amount: int, _incrementer: int, _multiplier: float, _applied: int) -> void:
 	hurt_timer.start(0.125);

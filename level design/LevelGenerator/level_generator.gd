@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var start_sections: Array[LevelSection];
 @onready var sections: Array[LevelSection];
 @onready var level = $Level;
 @onready var main_tilemap = $TileMapLayer;
@@ -21,6 +22,13 @@ func _ready() -> void:
 		sections.append(child);
 	
 	sections_container.position = Vector2(-50 * game_dimensions.x, -50 * game_dimensions.y);
+	
+	var start_sections_container = $StartSections;
+	var start_sections_list = start_sections_container.get_children();
+	for child in start_sections_list:
+		start_sections.append(child);
+	
+	start_sections_container.position = Vector2(-50 * game_dimensions.x, -50 * game_dimensions.y);
 	
 	generate_level();
 	add_player();
@@ -49,7 +57,7 @@ func generate_level(min_level_size: int = 12) -> void:
 	clear_level();
 
 
-	var start_level_section = get_random_level_section({ 'right': true, 'bottom': false });
+	var start_level_section = start_sections[0];
 	if start_level_section == null:
 		print("No start section found.");
 		return;
@@ -59,7 +67,6 @@ func generate_level(min_level_size: int = 12) -> void:
 	add_level_section(start_level_section, cursor, Vector2.RIGHT, level_size);
 	cursor.x += start_level_section.size.x;
 	#print("→");
-
 
 	var direction = Vector2.RIGHT;
 	var last_side = "left";

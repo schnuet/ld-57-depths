@@ -11,7 +11,7 @@ func _ready() -> void:
 	max_value = health.max;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if health == null:
 		return
 	

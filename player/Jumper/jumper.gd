@@ -561,16 +561,16 @@ func enable_smash_hitbox():
 
 
 
-func _on_hitbox_slash_right_hurt_box_entered(hurt_box: HurtBox2D) -> void:
+func _on_hitbox_slash_right_hurt_box_entered(_hurt_box: HurtBox2D) -> void:
 	has_hit_hurtbox = true;
 
-func _on_hitbox_slash_left_hurt_box_entered(hurt_box: HurtBox2D) -> void:
+func _on_hitbox_slash_left_hurt_box_entered(_hurt_box: HurtBox2D) -> void:
 	has_hit_hurtbox = true;
 
-func _on_hitbox_slash_up_hurt_box_entered(hurt_box: HurtBox2D) -> void:
+func _on_hitbox_slash_up_hurt_box_entered(_hurt_box: HurtBox2D) -> void:
 	has_hit_hurtbox = true;
 
-func _on_hitbox_slash_down_hurt_box_entered(hurt_box: HurtBox2D) -> void:
+func _on_hitbox_slash_down_hurt_box_entered(_hurt_box: HurtBox2D) -> void:
 	has_hit_hurtbox = true;
 
 

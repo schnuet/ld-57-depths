@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var raycast = $RayCast2D;
 @onready var animated_sprite = $AnimatedSprite2D;
-@onready var direction_timer = $DirectionTimer;
+@onready var direction_timer = $direction_timer;
 @onready var state_label = $state_label;
 
 @onready var step_detector_right = $step_detector_right;
@@ -40,11 +40,16 @@ var chase_direction: DIR = DIR.RIGHT;
 
 var attacked: bool = false;
 var excited: bool = false;
+var is_ready: bool = false;
 
 func _ready() -> void:
+	start_timers();
 	enter_state(State.IDLE);
 
 func _process(_delta: float) -> void:
+	if not is_ready:
+		return;
+	
 	match state:
 		State.IDLE:
 			if excited:
@@ -180,7 +185,6 @@ func _on_direction_timer_timeout() -> void:
 			set_direction(DIR.RIGHT);
 	if excited == true:
 		var time = randf_range(0.25, 0.75);
-		print("set timer, excited: ", time);
 		direction_timer.start(time);
 	else:
 		var time = randf_range(2, 5);
@@ -198,3 +202,13 @@ func _on_excite_timer_timeout() -> void:
 
 func _on_health_died(entity: Node) -> void:
 	queue_free()
+
+
+func start_timers():
+	direction_timer.start();
+
+func awaken():
+	if is_ready:
+		return;
+	is_ready = true;
+	start_timers();

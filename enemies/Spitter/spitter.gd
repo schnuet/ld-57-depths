@@ -15,11 +15,12 @@ enum SIDE {
 	BOTTOM
 }
 
-@export var base_side: SIDE = SIDE.BOTTOM;
+@export var base_side: SIDE = SIDE.TOP;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	#start_timers();
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -35,6 +36,9 @@ func shoot():
 		projectile.velocity = direction * 500;
 		projectile.global_position = origin;
 		get_parent().add_child(projectile);
+		print("projectile ", self, origin, player.global_position);
+	else:
+		print("no player!");
 
 
 func find_player() -> Jumper:
@@ -75,5 +79,11 @@ func _on_attack_timer_timeout() -> void:
 		attack_timer.stop()
 
 
-func _on_health_damaged(entity: Node, type: HealthActionType.Enum, amount: int, incrementer: int, multiplier: float, applied: int) -> void:
+func _on_health_damaged(_entity: Node, _type: HealthActionType.Enum, _amount: int, _incrementer: int, _multiplier: float, _applied: int) -> void:
 	pass # Replace with function body.
+
+func start_timers():
+	cooldown_timer.start();
+
+func awaken():
+	start_timers();
