@@ -15,6 +15,7 @@ extends CharacterBody2D
 @onready var attack_area_right = $attack_area_right;
 @onready var attack_area_left = $attack_area_left;
 @onready var attack_timer = $attack_timer;
+@onready var excite_timer = $excite_timer;
 
 @export var run_speed = 500;
 
@@ -37,6 +38,7 @@ var dir: DIR = DIR.LEFT;
 var chase_direction: DIR = DIR.RIGHT;
 
 var attacked: bool = false;
+var excited: bool = false;
 
 func _ready() -> void:
 	enter_state(State.IDLE);
@@ -44,10 +46,16 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	match state:
 		State.IDLE:
+			if excited:
+				animated_sprite.speed_scale = 2;
+			else:
+				animated_sprite.speed_scale = 1;
 			if player_in_sight():
+				excited = true;
+				excite_timer.start(20);
 				enter_state(State.CHASE);
 		State.CHASE:
-			move_and_slide()
+			move_and_slide();
 			if velocity.x == 0:
 				enter_state(State.IDLE);
 			if velocity.x < 0:
@@ -61,15 +69,13 @@ func _process(_delta: float) -> void:
 				if not step_detector_right.is_colliding():
 					enter_state(State.IDLE);
 		State.ATTACK:
-			if attack_timer.time_left < 0.25:
+			if animated_sprite.frame == 9:
 				attack();
-			if attack_timer.is_stopped():
+			if not animated_sprite.is_playing():
+				excite_timer.start(10);
 				enter_state(State.IDLE);
-			#if animated_sprite.frame == 5:
-				#attack();
-			#if not animated_sprite.is_playing():
-				#enter_state(State.IDLE);
 		State.HURT:
+			excited = true;
 			if not animated_sprite.is_playing():
 				enter_state(State.IDLE);
 
@@ -77,8 +83,9 @@ func _process(_delta: float) -> void:
 func enter_state(new_state: State):
 	leave_state(state);
 	
-	match state:
+	match new_state:
 		State.CHASE:
+			animated_sprite.play("run");
 			player = find_player();
 			if player:
 				if player.global_position.x < global_position.x:
@@ -94,8 +101,13 @@ func enter_state(new_state: State):
 			else:
 				velocity.x = run_speed;
 		State.ATTACK:
+			animated_sprite.play("attack");
 			velocity.x = 0;
 			attack_timer.start()
+		State.IDLE:
+			animated_sprite.play("idle");
+		State.HURT:
+			animated_sprite.play("hurt");
 		
 		
 	state_label.text = State.keys()[new_state];
@@ -108,6 +120,8 @@ func leave_state(old_state: State):
 			velocity.x = 0;
 		State.ATTACK:
 			attacked = false;
+		State.IDLE:
+			animated_sprite.speed_scale = 1;
 
 
 func attack():
@@ -141,10 +155,10 @@ func set_direction(new_dir: DIR):
 	dir = new_dir;
 	if dir == DIR.RIGHT:
 		raycast.target_position = Vector2(500, 0);
-		animated_sprite.flip_h = false;
+		animated_sprite.flip_h = true;
 	else:
 		raycast.target_position = Vector2(-500, 0);
-		animated_sprite.flip_h = true;
+		animated_sprite.flip_h = false;
 
 
 func player_in_sight():
@@ -157,8 +171,19 @@ func _on_direction_timer_timeout() -> void:
 			set_direction(DIR.LEFT);
 		else:
 			set_direction(DIR.RIGHT);
-	direction_timer.wait_time = randi_range(4, 15);
+	if excited == true:
+		var time = randf_range(0.25, 0.75);
+		print("set timer, excited: ", time);
+		direction_timer.start(time);
+	else:
+		var time = randf_range(2, 5);
+		print("set_timer", time);
+		direction_timer.start(time);
 
 
 func _on_health_damaged(_entity: Node, _type: HealthActionType.Enum, _amount: int, _incrementer: int, _multiplier: float, _applied: int) -> void:
 	enter_state(State.HURT);
+
+
+func _on_excite_timer_timeout() -> void:
+	excited = false;
