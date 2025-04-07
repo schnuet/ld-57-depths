@@ -38,11 +38,15 @@ var enabled = true;
 var Healthbar = preload("res://gui/Healthbar/HealthbarChar.tscn");
 
 signal hurt(amount: int);
+signal died;
 
 func _ready() -> void:
 	var healthbar = Healthbar.instantiate();
 	var parent = get_parent();
 	parent.call_deferred("add_child", healthbar);
+	
+	enter_state_idle(State.IDLE);
+	$AnimatedSprite2D.animation = "idle";
 
 # ========================================
 # LOOP
@@ -649,6 +653,8 @@ func die():
 
 func enter_state_dead(_state_before: State):
 	set_animation("die")
+	await sprite.animation_finished;
+	emit_signal("died");
 
 func handle_state_dead(delta: float):
 	apply_gravity(delta)

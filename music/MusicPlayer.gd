@@ -18,6 +18,10 @@ func play_music(music_name: String):
 	
 	fade_to(music_name);
 
+func stop_music():
+	if current_player:
+		current_player.stop();
+
 func fade_to(music_name):
 	if current_player and current_player.name == music_name:
 		return;

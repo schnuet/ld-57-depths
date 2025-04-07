@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://crios7cuyg8bd"]
+[gd_scene load_steps=18 format=3 uid="uid://crios7cuyg8bd"]
 
 [ext_resource type="Script" uid="uid://djr1h56yjfbyo" path="res://level design/LevelGenerator/level_generator.gd" id="1_qrd63"]
 [ext_resource type="PackedScene" uid="uid://wg5sh88g8m7" path="res://level design/level sections START/start_1.tscn" id="2_3oiy7"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bu8ge76b6kg04" path="res://level design/level sections/top_bottom_2.tscn" id="14_3oiy7"]
 [ext_resource type="PackedScene" uid="uid://bvthwmauuq6q" path="res://level design/level sections/top_1.tscn" id="15_d407y"]
 [ext_resource type="TileSet" uid="uid://dld60hu50porp" path="res://level design/base_tileset.tres" id="16_4obn5"]
+[ext_resource type="Texture2D" uid="uid://d17aqaktsl7fu" path="res://gui/Tutorials/00-Controls-INTRO.png" id="17_3oiy7"]
 
 [node name="LevelGenerator" type="Node2D"]
 script = ExtResource("1_qrd63")
@@ -61,3 +62,10 @@ process_mode = 4
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_set = ExtResource("16_4obn5")
+
+[node name="tutorial_layer" type="CanvasLayer" parent="."]
+
+[node name="tutorial_image" type="Sprite2D" parent="tutorial_layer"]
+visible = false
+position = Vector2(938, 541)
+texture = ExtResource("17_3oiy7")

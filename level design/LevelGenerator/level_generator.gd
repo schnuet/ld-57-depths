@@ -6,6 +6,7 @@ extends Node2D
 @onready var main_tilemap = $TileMapLayer;
 
 @onready var game_dimensions = Vector2(1920, 1088); # 1088 is divisable by 64
+@onready var tutorial_image = $tutorial_layer/tutorial_image;
 
 var taken_spaces: PackedVector2Array = PackedVector2Array();
 var section_positions: Dictionary[Vector2i, LevelSection] = {};
@@ -14,6 +15,8 @@ var placed_sections: Array[LevelSection] = [];
 var PlayerScene = preload("res://player/Jumper/Jumper.tscn");
 const SideCamera = preload("res://player/SideCamera/SideCamera.tscn");
 const Orb = preload("res://components/Orb/Orb.tscn");
+
+var tutorial_visible = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -33,10 +36,27 @@ func _ready() -> void:
 	
 	generate_level(30);
 	add_player();
+	var player = get_player();
+	placed_sections[0]._on_player_section_entered(player);
+	player.enabled = false;
+	tutorial_image.modulate = Color.TRANSPARENT;
+	
+	await get_tree().create_timer(1).timeout;
+	
+	var tween = get_tree().create_tween();
+	tween.tween_property(tutorial_image, "modulate", Color.WHITE, 0.5);
+	tutorial_image.show();
 	
 	MusicPlayer.play_music("horror");
 
 func _process(_delta: float) -> void:
+	if tutorial_image.visible:
+		if Input.is_action_just_pressed("jump") or Input.is_action_pressed("slash"):
+			tutorial_image.hide();
+			var player = get_player();
+			player.enabled = true;
+			return;
+	
 	if Input.is_action_just_pressed("regenerate"):
 		generate_level(30);
 		add_player();
@@ -50,6 +70,8 @@ func add_player():
 	var camera = SideCamera.instantiate();
 	level.add_child(camera);
 	camera.following = player;
+	
+	player.connect("died", _on_jumper_died);
 
 
 # ==================================
@@ -284,6 +306,8 @@ func get_section_at(pos: Vector2i) -> LevelSection:
 
 
 func number_section(section: LevelSection, num: int) -> void:
+	return; # STOP THIS
+	
 	# Add a label to the section
 	var label = Label.new();
 	label.text = str(num);
@@ -419,3 +443,14 @@ func get_cells_offset(cells: Array[Vector2i]) -> Vector2i:
 		-1 - min_x,
 		-1 - min_y
 	);
+
+
+func get_player():
+	var players = get_tree().get_nodes_in_group("player");
+	if players.size() == 0:
+		return null;
+	return players[0];
+
+
+func _on_jumper_died() -> void:
+	get_tree().reload_current_scene()

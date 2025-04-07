@@ -21,7 +21,7 @@ enum SIDE {
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#start_timers();
-	pass
+	position_sprite();
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -93,8 +93,7 @@ func _on_health_damaged(_entity: Node, _type: HealthActionType.Enum, _amount: in
 func start_timers():
 	cooldown_timer.start(5);
 
-func awaken():
-	start_timers();
+func position_sprite():
 	if base_side == SIDE.RIGHT:
 		animated_sprite.rotation_degrees = 0;
 	elif base_side == SIDE.LEFT:
@@ -103,3 +102,9 @@ func awaken():
 		animated_sprite.rotation_degrees = 90;
 	elif base_side == SIDE.TOP:
 		animated_sprite.rotation_degrees = 270;
+	
+
+func awaken():
+	position_sprite();
+	start_timers();
+	

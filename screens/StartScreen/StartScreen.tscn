@@ -1,47 +1,94 @@
-[gd_scene load_steps=4 format=3 uid="uid://do42mk4be24ko"]
+[gd_scene load_steps=19 format=3 uid="uid://do42mk4be24ko"]
 
 [ext_resource type="Script" uid="uid://bi2gr0eq70kic" path="res://screens/StartScreen/StartScreen.gd" id="1_dks8u"]
 [ext_resource type="FontFile" uid="uid://b2jbl0piinbrn" path="res://gui/Typography/fonts/MunroSmall-wPZw.ttf" id="2_4bpjc"]
+[ext_resource type="AudioStream" uid="uid://7fui0tdm7b8j" path="res://screens/StartScreen/01-INTRO-01.ogg" id="3_rsv2s"]
+[ext_resource type="VideoStream" path="res://screens/StartScreen/01-INTRO-01.ogv" id="5_3ayag"]
+[ext_resource type="VideoStream" path="res://screens/StartScreen/Fall-zum-BOSS.ogv" id="5_okxca"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0drl7"]
+load_path = "res://.godot/imported/01-INTRO-01_00407.png-faedeb16a1a930f8a5053c278c5b113d.ctex"
 
 [sub_resource type="FontVariation" id="FontVariation_wlhc0"]
 base_font = ExtResource("2_4bpjc")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0drl7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3ayag"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_okxca"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gn4as"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ogsth"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4v6x7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dmumq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mxtx3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lv03k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_338x2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i8d3f"]
+
 [node name="StartScreen" type="Node2D"]
 script = ExtResource("1_dks8u")
 
+[node name="01-intro-0100407" type="Sprite2D" parent="."]
+texture = SubResource("CompressedTexture2D_0drl7")
+centered = false
+
 [node name="BlackOverlay" type="ColorRect" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1280.0
-offset_bottom = 720.0
+offset_right = 1957.0
+offset_bottom = 1100.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="StartButton" type="Button" parent="."]
-offset_left = 530.0
-offset_top = 555.0
-offset_right = 613.0
-offset_bottom = 582.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("FontVariation_wlhc0")
-theme_override_font_sizes/font_size = 10
-text = "Start"
-
-[node name="CreditsButton" type="Button" parent="."]
-offset_left = 662.0
-offset_top = 555.0
-offset_right = 753.0
-offset_bottom = 582.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("FontVariation_wlhc0")
-theme_override_font_sizes/font_size = 10
-text = "Credits"
-
 [node name="Logo" type="Sprite2D" parent="."]
 
+[node name="snd_intro" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_rsv2s")
+
+[node name="snd_fall" type="AudioStreamPlayer" parent="."]
+
+[node name="video_intro" type="VideoStreamPlayer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("5_3ayag")
+volume_db = -80.0
+
+[node name="video_fall" type="VideoStreamPlayer" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("5_okxca")
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 1051.0
+offset_top = 878.0
+offset_right = 1391.0
+offset_bottom = 1010.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_wlhc0")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0drl7")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_3ayag")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_okxca")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_gn4as")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ogsth")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_4v6x7")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dmumq")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_mxtx3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lv03k")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_338x2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_i8d3f")
+
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]

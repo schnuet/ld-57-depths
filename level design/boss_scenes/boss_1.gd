@@ -48,8 +48,7 @@ func enter_stage(new_stage: Stage):
 		await move_tween.finished;
 		player.enabled = true;
 		
-		shake_rumble.play_shake();
-		await shake_rumble.shake_finished;
+		await growl();
 		await wait(0.25);
 		
 		if randi_range(1, 2) == 1:
@@ -71,6 +70,9 @@ func enter_stage(new_stage: Stage):
 	
 	if new_stage == Stage.THROWING_PROJECTILES:
 		var move_tween = get_tree().create_tween();
+		if boss == null:
+			return;
+			
 		if randi_range(1, 2) == 1:
 			move_tween.tween_property(boss, "position", Vector2(1500, 256), 0.4);
 		else:
@@ -111,8 +113,7 @@ func enter_stage(new_stage: Stage):
 		player.enabled = true;
 		
 		print("STAGE FALLING PROJECTILES");
-		shake_rumble.play_shake();
-		await shake_rumble.shake_finished;
+		await growl();
 		await wait(0.25);
 		
 		var variant = randi_range(1, 2);
@@ -144,7 +145,7 @@ func enter_stage(new_stage: Stage):
 		await move_tween.finished;
 		player.enabled = true;
 		
-		shake_rumble.play_shake();
+		growl();
 
 		var non_floating_projectiles = get_non_floating_projectiles();
 		var missing_floating_rocks = 8 - floating_projectiles.size();
@@ -219,9 +220,9 @@ func enter_stage(new_stage: Stage):
 
 
 func growl():
+	$snd_hello.play();
 	shake_rumble.play_shake();
 	await shake_rumble.shake_finished;
-	await wait(0.25);
 
 func get_non_floating_projectiles():
 	var non_floating_projectiles = [];
@@ -277,8 +278,20 @@ func _on_wait_timeout():
 	wait_expired.emit();
 
 func _on_boss_was_hit() -> void:
+	$snd_hit.play();
 	shake_rumble.play_shake();
 	needed_hits -= 1;
 	print("NEEDED HITS ", needed_hits);
 	if needed_hits <= 0:
 		boss_hit_or_time_expired.emit()
+
+
+func _on_boss_died() -> void:
+	player.enabled = false;
+	MusicPlayer.stop_music();
+	$CanvasLayer/credits_video.show();
+	$CanvasLayer/credits_video.play();
+
+
+func _on_jumper_died() -> void:
+	get_tree().reload_current_scene()

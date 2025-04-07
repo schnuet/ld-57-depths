@@ -140,6 +140,7 @@ func attack():
 	if attacked:
 		return;
 	attacked = true;
+	$snd_attack.play();
 	if dir == DIR.RIGHT:
 		hitbox_right_collisions.disabled = false;
 		hitbox_right.show();

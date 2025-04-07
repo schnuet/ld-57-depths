@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://0u6nhhnrrujm"
+path="res://.godot/imported/Fall zum BOSS.ogg-8e723b475fcfc1763ec079c9e157f87c.oggvorbisstr"
+
+[deps]
+
+source_file="res://screens/StartScreen/Fall zum BOSS.ogg"
+dest_files=["res://.godot/imported/Fall zum BOSS.ogg-8e723b475fcfc1763ec079c9e157f87c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

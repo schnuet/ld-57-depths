@@ -26,6 +26,8 @@ signal player_entered(section: LevelSection);
 	"left": left
 };
 
+var background_texture = preload("res://level design/deco/background/Background.png");
+
 @onready var section_area:Area2D = Area2D.new();
 
 var connected_sections: Array[LevelSection];
@@ -49,12 +51,18 @@ func _ready() -> void:
 	section_area.set_collision_mask_value(1, false);
 	section_area.connect("body_entered", _on_section_area_body_entered);
 	add_child(section_area);
+	
+	var sprite = Sprite2D.new();
+	sprite.texture = background_texture;
+	sprite.z_index = -3;
+	sprite.centered = false;
+	add_child(sprite);
 
 func _draw() -> void:
 	if Engine.is_editor_hint():
 		draw_rect(Rect2i(0,0, size.x * game_dimensions.x, size.y * game_dimensions.y), Color(1, 0, 0, 0.5), false, 4);
-	else:
-		draw_rect(Rect2i(0,0, size.x * game_dimensions.x, size.y * game_dimensions.y), Color(1, 0, 0, 0.5), false, 4);
+	#else:
+		#draw_rect(Rect2i(0,0, size.x * game_dimensions.x, size.y * game_dimensions.y), Color(1, 0, 0, 0.5), false, 4);
 
 func _on_section_area_body_entered(body: Node2D):
 	if body.has_method("is_player"):

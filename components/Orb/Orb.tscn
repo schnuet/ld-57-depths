@@ -1,16 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpyyv1fc7hc5k"]
+[gd_scene load_steps=11 format=3 uid="uid://bpyyv1fc7hc5k"]
 
 [ext_resource type="Texture2D" uid="uid://do4mmm7u5wugl" path="res://components/Orb/Orb.png" id="1_31qk3"]
 [ext_resource type="Script" uid="uid://vegybli6yl7b" path="res://components/Orb/orb.gd" id="1_thts2"]
 [ext_resource type="Texture2D" uid="uid://d4delhts4dq3i" path="res://components/Orb/Orb Glow.png" id="2_thts2"]
+[ext_resource type="Texture2D" uid="uid://cuhuu2lxtqspk" path="res://gui/Tutorials/00-Controls-DASH.png" id="4_ybxy7"]
+[ext_resource type="Texture2D" uid="uid://bsp5jkknkictb" path="res://gui/Tutorials/00-Controls-DOUBBLE.png" id="5_1sar1"]
+[ext_resource type="Texture2D" uid="uid://ci1ck0qe327vg" path="res://gui/Tutorials/00-Controls-SMASH.png" id="6_170cd"]
+[ext_resource type="AudioStream" uid="uid://berfanypvy651" path="res://components/Orb/Orb-Wummern.ogg" id="7_170cd"]
+[ext_resource type="AudioStream" uid="uid://by2is122w85g4" path="res://components/Orb/Collect Sound.wav" id="8_7pixc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_31qk3"]
 radius = 32.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_thts2"]
-radius = 696.414
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thts2"]
+size = Vector2(1408, 384)
 
 [node name="Orb" type="Area2D"]
+process_mode = 3
+z_index = 40
 collision_layer = 2147483648
 collision_mask = 16
 script = ExtResource("1_thts2")
@@ -35,7 +42,42 @@ collision_layer = 2147483648
 collision_mask = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
-shape = SubResource("CircleShape2D_thts2")
+shape = SubResource("RectangleShape2D_thts2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="tutorial" type="Node2D" parent="CanvasLayer"]
+process_mode = 3
+visible = false
+
+[node name="dash" type="Sprite2D" parent="CanvasLayer/tutorial"]
+process_mode = 3
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("4_ybxy7")
+
+[node name="jump" type="Sprite2D" parent="CanvasLayer/tutorial"]
+process_mode = 3
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("5_1sar1")
+
+[node name="smash" type="Sprite2D" parent="CanvasLayer/tutorial"]
+process_mode = 3
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("6_170cd")
+
+[node name="snd_orb" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_170cd")
+autoplay = true
+max_distance = 1061.0
+parameters/looping = true
+
+[node name="snd_collect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_7pixc")
+volume_db = -15.097
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]

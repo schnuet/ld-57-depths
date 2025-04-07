@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://b4tvbchdqatwo"]
+[gd_scene load_steps=19 format=4 uid="uid://b4tvbchdqatwo"]
 
 [ext_resource type="Script" uid="uid://cwylr2w67w0o" path="res://level design/boss_scenes/boss_1.gd" id="1_c1k21"]
 [ext_resource type="TileSet" uid="uid://dld60hu50porp" path="res://level design/base_tileset.tres" id="2_6b3ot"]
@@ -13,7 +13,9 @@
 [ext_resource type="Script" uid="uid://hbg4g7c2upf6" path="res://addons/shaker/data/Vector2/ShakerPreset2D.gd" id="6_tj8ii"]
 [ext_resource type="PackedScene" uid="uid://d2g0se7bd50qx" path="res://enemies/Boss/BossProjectile.tscn" id="10_776vs"]
 [ext_resource type="PackedScene" uid="uid://dp30tk5n2idoy" path="res://gui/Healthbar/HealthbarBoss.tscn" id="13_tj8ii"]
-[ext_resource type="PackedScene" uid="uid://bpyyv1fc7hc5k" path="res://components/Orb/Orb.tscn" id="14_aytor"]
+[ext_resource type="AudioStream" uid="uid://bdka5o8d5uh3l" path="res://enemies/Boss/sounds/BOSS-Hallo.wav" id="15_8pdho"]
+[ext_resource type="VideoStream" path="res://level design/boss_scenes/02-ENDE.ogv" id="16_g2y0v"]
+[ext_resource type="AudioStream" uid="uid://c30aaeaal28vd" path="res://enemies/Boss/sounds/BOSS-Hit.wav" id="16_mvplk"]
 
 [sub_resource type="Resource" id="Resource_aytor"]
 script = ExtResource("4_r0o1x")
@@ -157,9 +159,23 @@ offset_bottom = 1365.67
 [node name="healthbar_boss_outside" parent="healthbar_boss" index="2"]
 position = Vector2(1206.35, 1325.07)
 
-[node name="Orb" parent="." instance=ExtResource("14_aytor")]
-position = Vector2(1312, 560)
+[node name="snd_hello" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_8pdho")
 
+[node name="snd_hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_mvplk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="credits_video" type="VideoStreamPlayer" parent="CanvasLayer"]
+visible = false
+z_index = 70
+offset_right = 1920.0
+offset_bottom = 1080.0
+stream = ExtResource("16_g2y0v")
+
+[connection signal="died" from="Jumper" to="." method="_on_jumper_died"]
+[connection signal="died" from="Boss" to="." method="_on_boss_died"]
 [connection signal="was_hit" from="Boss" to="." method="_on_boss_was_hit"]
 
 [editable path="healthbar_boss"]
