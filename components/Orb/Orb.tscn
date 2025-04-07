@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpyyv1fc7hc5k"]
+
+[ext_resource type="Texture2D" uid="uid://do4mmm7u5wugl" path="res://components/Orb/Orb.png" id="1_31qk3"]
+[ext_resource type="Script" uid="uid://vegybli6yl7b" path="res://components/Orb/orb.gd" id="1_thts2"]
+[ext_resource type="Texture2D" uid="uid://d4delhts4dq3i" path="res://components/Orb/Orb Glow.png" id="2_thts2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_31qk3"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_thts2"]
+radius = 696.414
+
+[node name="Orb" type="Area2D"]
+collision_layer = 2147483648
+collision_mask = 16
+script = ExtResource("1_thts2")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-8, 8)
+scale = Vector2(0.15, 0.15)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("1_31qk3")
+
+[node name="OrbGlow" type="Sprite2D" parent="Node2D"]
+position = Vector2(58, -14)
+texture = ExtResource("2_thts2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_31qk3")
+
+[node name="detection_area" type="Area2D" parent="."]
+collision_layer = 2147483648
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+shape = SubResource("CircleShape2D_thts2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]

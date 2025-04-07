@@ -38,6 +38,10 @@ func shoot():
 		get_parent().add_child(projectile);
 		projectile.global_position = origin;
 		animated_sprite.play("default");
+		
+		var angle = projectile.velocity.angle();
+		var angle_in_degrees = rad_to_deg(angle);
+		projectile.animated_sprite.rotation = angle_in_degrees - 90;
 	else:
 		print("no player!");
 
@@ -54,14 +58,15 @@ func get_projectile_origin():
 
 
 func get_side_offset() -> Vector2:
+	var OFFSET = 0;
 	if base_side == SIDE.TOP:
-		return Vector2(0, 64);
+		return Vector2(0, OFFSET);
 	if base_side == SIDE.BOTTOM:
-		return Vector2(0, -64);
+		return Vector2(0, -OFFSET);
 	if base_side == SIDE.LEFT:
-		return Vector2(64, 0);
+		return Vector2(OFFSET, 0);
 	if base_side == SIDE.RIGHT:
-		return Vector2(-64, 0);
+		return Vector2(-OFFSET, 0);
 	return Vector2.ZERO;
 
 func _on_health_died(_entity: Node) -> void:

@@ -1,0 +1,35 @@
+extends CanvasLayer
+
+var max = 100;
+var value = 0;
+
+@onready var progress = $TextureProgressBar;
+
+func _ready() -> void:
+	var player = find_player();
+	if player:
+		var player_health: Health = player.get_node("Health");
+		value = player_health.current;
+		max = player_health.max;
+	
+	progress.max_value = max;
+	progress.value = value;
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	var player = find_player();
+	
+	if player:
+		var player_health: Health = player.get_node("Health");
+		value = player_health.current;
+		max = player_health.max;
+	
+	progress.max_value = max;
+	var value_to_set = move_toward(progress.value, value, delta * 100);
+	progress.set_value_no_signal(value_to_set);
+	
+func find_player():
+	var players = get_tree().get_nodes_in_group("player");
+	if players.size() == 0:
+		return null;
+	return players[0];

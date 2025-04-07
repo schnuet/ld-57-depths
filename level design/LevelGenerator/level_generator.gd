@@ -13,6 +13,7 @@ var placed_sections: Array[LevelSection] = [];
 
 var PlayerScene = preload("res://player/Jumper/Jumper.tscn");
 const SideCamera = preload("res://player/SideCamera/SideCamera.tscn");
+const Orb = preload("res://components/Orb/Orb.tscn");
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,14 +31,14 @@ func _ready() -> void:
 	
 	start_sections_container.position = Vector2(-50 * game_dimensions.x, -50 * game_dimensions.y);
 	
-	generate_level();
+	generate_level(30);
 	add_player();
 	
 	MusicPlayer.play_music("horror");
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("regenerate"):
-		generate_level(randi() % 5 + 10);
+		generate_level(30);
 		add_player();
 
 
@@ -54,8 +55,12 @@ func add_player():
 # ==================================
 # LEVEL GENERATION
 
+const ORB_1_LEVEL = 7;
+const ORB_2_LEVEL = 14;
+const ORB_3_LEVEL = 20;
 
-func generate_level(min_level_size: int = 12) -> void:
+
+func generate_level(min_level_size: int = 30) -> void:
 	clear_level();
 
 
@@ -80,7 +85,7 @@ func generate_level(min_level_size: int = 12) -> void:
 
 	while level_size < min_level_size:
 		#print(cursor);
-		var new_section = get_random_level_section(criteria);
+		var new_section = get_random_level_section(criteria, level_size);
 		if (new_section == null):
 			print("No valid sections found");
 			return generate_level(min_level_size)
@@ -140,7 +145,7 @@ func generate_level(min_level_size: int = 12) -> void:
 	# Add the last section
 	criteria.erase("min_openings");
 	criteria["openings"] = 1;
-	var last_section = get_random_level_section(criteria);
+	var last_section = get_random_level_section(criteria, level_size);
 	if (last_section == null):
 		print("No valid sections found");
 		return generate_level(min_level_size)
@@ -159,7 +164,7 @@ func generate_level(min_level_size: int = 12) -> void:
 				var side_pos = pos + side;
 				var crits = get_position_criteria(side_pos);
 				crits["openings"] = count_openings(crits);
-				var new_section = get_random_level_section(crits);
+				var new_section = get_random_level_section(crits, 50);
 				if (new_section == null):
 					print("No valid sections found", crits);
 					return;
@@ -186,8 +191,13 @@ func generate_level(min_level_size: int = 12) -> void:
 					connected_section.connected_sections.append(section);
 					print("Connected: ", section.name, " with ", connected_section.name);
 
-func get_random_level_section(criteria: Dictionary) -> LevelSection:
+func get_random_level_section(criteria: Dictionary, index: int = 50) -> LevelSection:
 	var valid_sections: Array[LevelSection] = [];
+
+	if index <= ORB_2_LEVEL:
+		if criteria["top"] != true:
+			criteria["top"] = false;
+
 	for section in sections:
 		if section.meets_criteria(criteria):
 			valid_sections.append(section);
@@ -249,6 +259,11 @@ func add_level_section(section: LevelSection, p: Vector2i, direction: Vector2, i
 	level.add_child(new_section);
 	number_section(new_section, index);
 	placed_sections.append(new_section);
+	
+	if index == ORB_1_LEVEL or index == ORB_2_LEVEL or index == ORB_3_LEVEL:
+		var orb = Orb.instantiate();
+		new_section.add_child(orb);
+		orb.position = Vector2(960, 540);
 	
 	new_section.connect("player_entered", on_section_entered);
 

@@ -36,6 +36,8 @@ func _ready() -> void:
 	await growl();
 	await wait(0.5);
 	
+	MusicPlayer.play_music("boss");
+	
 	enter_stage(Stage.TENTACLES);
 
 

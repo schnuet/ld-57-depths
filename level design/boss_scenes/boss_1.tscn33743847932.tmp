@@ -68,7 +68,6 @@ tile_set = ExtResource("2_6b3ot")
 [node name="Jumper" parent="." instance=ExtResource("5_7i60n")]
 position = Vector2(352, 424)
 MID_AIR_JUMPS = 1
-can_dash = true
 attack_upgraded = true
 
 [node name="Boss" parent="." instance=ExtResource("4_c1k21")]

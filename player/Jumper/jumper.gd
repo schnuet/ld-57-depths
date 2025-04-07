@@ -35,7 +35,14 @@ var enabled = true;
 
 @onready var hurtbox_collision = $HurtBox2D/CollisionShape2D;
 
+var Healthbar = preload("res://gui/Healthbar/HealthbarChar.tscn");
+
 signal hurt(amount: int);
+
+func _ready() -> void:
+	var healthbar = Healthbar.instantiate();
+	var parent = get_parent();
+	parent.call_deferred("add_child", healthbar);
 
 # ========================================
 # LOOP
@@ -66,11 +73,11 @@ func handle_state_idle(delta: float):
 		enter_state(State.JUMP)
 		return
 	
-	if Input.is_action_just_pressed("dash") and Input.is_action_pressed("left"):
+	if can_dash and Input.is_action_just_pressed("dash") and Input.is_action_pressed("left"):
 		dash_to_side(Vector2.LEFT)
 		return
 	
-	if Input.is_action_just_pressed("dash") and Input.is_action_pressed("right"):
+	if can_dash and Input.is_action_just_pressed("dash") and Input.is_action_pressed("right"):
 		dash_to_side(Vector2.RIGHT)
 		return
 	
@@ -109,11 +116,11 @@ func handle_state_run(delta: float):
 		enter_state(State.JUMP)
 		return
 	
-	if Input.is_action_just_pressed("dash") and Input.is_action_pressed("left"):
+	if can_dash and Input.is_action_just_pressed("dash") and Input.is_action_pressed("left"):
 		dash_to_side(Vector2.LEFT)
 		return
 	
-	if Input.is_action_just_pressed("dash") and Input.is_action_pressed("right"):
+	if can_dash and Input.is_action_just_pressed("dash") and Input.is_action_pressed("right"):
 		dash_to_side(Vector2.RIGHT)
 		return
 	
@@ -165,11 +172,11 @@ func handle_state_jump(delta: float):
 	if Input.is_action_just_released("jump"):
 		velocity.y = 0
 	
-	if Input.is_action_just_pressed("dash") and Input.is_action_pressed("left"):
+	if can_dash and Input.is_action_just_pressed("dash") and Input.is_action_pressed("left"):
 		dash_to_side(Vector2.LEFT)
 		return
 	
-	if Input.is_action_just_pressed("dash") and Input.is_action_pressed("right"):
+	if can_dash and Input.is_action_just_pressed("dash") and Input.is_action_pressed("right"):
 		dash_to_side(Vector2.RIGHT)
 		return
 	
@@ -207,11 +214,11 @@ func handle_state_fall(delta: float):
 			return
 		jump_buffer_timer = JUMP_BUFFER_TIME
 	
-	if Input.is_action_just_pressed("dash") and Input.is_action_pressed("left"):
+	if can_dash and Input.is_action_just_pressed("dash") and Input.is_action_pressed("left"):
 		dash_to_side(Vector2.LEFT)
 		return
 	
-	if Input.is_action_just_pressed("dash") and Input.is_action_pressed("right"):
+	if can_dash and Input.is_action_just_pressed("dash") and Input.is_action_pressed("right"):
 		dash_to_side(Vector2.RIGHT)
 		return
 	
@@ -288,11 +295,11 @@ func handle_state_wall_slide(delta: float):
 		wall_jump()
 		return
 	
-	if Input.is_action_just_pressed("dash") and Input.is_action_pressed("left"):
+	if can_dash and Input.is_action_just_pressed("dash") and Input.is_action_pressed("left"):
 		dash_to_side(Vector2.LEFT)
 		return
 	
-	if Input.is_action_just_pressed("dash") and Input.is_action_pressed("right"):
+	if can_dash and Input.is_action_just_pressed("dash") and Input.is_action_pressed("right"):
 		dash_to_side(Vector2.RIGHT)
 		return
 	
@@ -329,6 +336,8 @@ func wall_jump():
 
 @export_category("Dash")
 
+@export var can_dash: bool = false;
+
 #@export var DASH_DOWN_VELOCITY = 1600.0
 @export var DASH_SIDE_VELOCITY = 1600.0
 @export var DASH_UP_VELOCITY = 1600.0
@@ -337,6 +346,7 @@ func wall_jump():
 
 const DASH_TIME = 0.2
 var dash_timer = 0.0
+
 
 func enter_state_dash_side(_state_before: State):
 	dash_timer = DASH_TIME
@@ -395,6 +405,8 @@ func _on_dash_tentacles_animation_finished() -> void:
 
 const SLASH_MOVE_SPEED = 300.0
 
+@export var attack_upgraded = false;
+
 const SLASH_TIME = 0.1
 var slash_timer = 0.0
 var has_hit_hurtbox = false;
@@ -409,11 +421,14 @@ var slash_cooldown_timer = 0;
 @onready var hitbox_slash_up = $hitbox_slash_up;
 @onready var hitbox_slash_down = $hitbox_slash_down;
 
+@onready var hitbox_slash_right_upgraded = $hitbox_slash_right_upgraded;
+@onready var hitbox_slash_left_upgraded = $hitbox_slash_left_upgraded;
+
 func air_slash():
-	var direction = get_main_input_direction()
-	if direction == Vector2.ZERO:
-		direction = last_side
-	slash_direction = direction
+	#var direction = get_main_input_direction()
+	#if direction == Vector2.ZERO:
+		#direction = last_side
+	slash_direction = last_side
 	#if direction == Vector2.DOWN:
 		#enter_state(State.SLASH_AIR_DOWN)
 	#elif direction == Vector2.UP:
@@ -426,7 +441,10 @@ func enter_state_slash_air_side(_state_before: State):
 	velocity.x = sign(last_side.x) * SLASH_MOVE_SPEED
 	velocity.y = 0
 	slash_timer = SLASH_TIME
-	set_animation("attack_air");
+	if attack_upgraded:
+		set_animation("attack_strong");
+	else:
+		set_animation("attack_ground");
 	has_hit_hurtbox = false;
 	slash_cooldown_timer = SLASH_COOLDOWN;
 	enable_slash_hitbox()
@@ -445,7 +463,10 @@ func enter_state_slash_air_down(_state_before: State):
 	slash_timer = SLASH_TIME
 	has_hit_hurtbox = false;
 	slash_cooldown_timer = SLASH_COOLDOWN;
-	set_animation("attack_air")
+	if attack_upgraded:
+		set_animation("attack_strong");
+	else:
+		set_animation("attack_air")
 	enable_slash_hitbox()
 
 func handle_state_slash_air_down(delta: float):
@@ -462,7 +483,10 @@ func enter_state_slash_air_up(_state_before: State):
 	slash_timer = SLASH_TIME
 	slash_cooldown_timer = SLASH_COOLDOWN;
 	has_hit_hurtbox = false;
-	set_animation("attack_air")
+	if attack_upgraded:
+		set_animation("attack_strong");
+	else:
+		set_animation("attack_air")
 	enable_slash_hitbox()
 
 func handle_state_slash_air_up(delta: float):
@@ -499,10 +523,7 @@ func handle_state_ground_attack_prepare(delta: float):
 var slash_still_pressed = false;
 
 func ground_slash():
-	var direction = get_main_input_direction()
-	if direction == Vector2.ZERO:
-		direction = last_side
-	slash_direction = direction
+	var direction = last_side;
 	if direction == Vector2.UP:
 		enter_state(State.SLASH_AIR_UP)
 	else:
@@ -515,7 +536,10 @@ func enter_state_slash_ground_side(_state_before: State):
 	slash_timer = SLASH_TIME
 	slash_cooldown_timer = SLASH_COOLDOWN;
 	has_hit_hurtbox = false;
-	set_animation("attack_ground")
+	if attack_upgraded:
+		set_animation("attack_strong");
+	else:
+		set_animation("attack_ground")
 	slash_still_pressed = true;
 	enable_slash_hitbox()
 
@@ -540,13 +564,15 @@ func handle_state_slash_ground_side(_delta: float):
 func enable_slash_hitbox():
 	var hitbox;
 	if slash_direction == Vector2.LEFT:
-		hitbox = hitbox_slash_left
+		if attack_upgraded:
+			hitbox = hitbox_slash_left_upgraded
+		else:
+			hitbox = hitbox_slash_left
 	elif slash_direction == Vector2.RIGHT:
-		hitbox = hitbox_slash_right
-	elif slash_direction == Vector2.UP:
-		hitbox = hitbox_slash_up
-	elif slash_direction == Vector2.DOWN:
-		hitbox = hitbox_slash_down
+		if attack_upgraded:
+			hitbox = hitbox_slash_right_upgraded
+		else:
+			hitbox = hitbox_slash_right
 	
 	var hit_box_collisions = hitbox.get_node("CollisionShape2D")
 	hit_box_collisions.disabled = false;
