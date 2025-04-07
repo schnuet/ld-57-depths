@@ -1,0 +1,398 @@
+[gd_scene load_steps=66 format=3 uid="uid://d2g0se7bd50qx"]
+
+[ext_resource type="Script" uid="uid://crxuljq7ms0vy" path="res://enemies/Boss/boss_projectile.gd" id="1_0aej8"]
+[ext_resource type="Texture2D" uid="uid://c2i35rfmu7qf2" path="res://enemies/Boss/projectiles/Projektil.PNG" id="1_46vhw"]
+[ext_resource type="Texture2D" uid="uid://biix1c3dowoac" path="res://enemies/Boss/projectiles/Stein.PNG" id="2_re60s"]
+[ext_resource type="Script" uid="uid://chrsg1fc53qs3" path="res://addons/health_hitbox_hurtbox/2d/hit_box_2d/basic_hit_box_2d.gd" id="3_3whxa"]
+[ext_resource type="Script" uid="uid://hrwhd52e5mkq" path="res://addons/health_hitbox_hurtbox/resources/action.gd" id="4_0aej8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_go3ur"]
+radius = 36.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3whxa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_46vhw")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_re60s")
+}],
+"loop": true,
+"name": &"static",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_la4or"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_0aej8"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_uifm0"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_mpq12"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_mxhfw"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_c8nt1"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_60asq"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_lrmo4"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_15o4g"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_6m4i6"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_ar0bv"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_ajmqw"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_q8ftu"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_ijama"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_8x40d"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_egjg8"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_xdac2"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_3qxvo"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_ubyl0"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_2f1c3"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_3sgk4"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_sldlw"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_hr4b1"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_hn4mi"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_t7irr"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_jxosf"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_5qt4t"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_g7rg8"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_0cqsg"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_ntj76"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_phuwf"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_thlh7"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_vs0ed"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_tgmqb"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_2rw4f"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_ajgiv"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_pptaa"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_rgiu4"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_s2dc3"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_s4x2e"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_hjuys"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_m5d3b"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_dnhia"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_qmmrb"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_axk6t"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_jv5tc"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_dpdt2"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_dhqpx"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_e461y"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_ob7gb"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_6yx1d"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_hlj7r"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_yroua"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_8xups"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_03mj1"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_lacpy"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_54jpm"]
+script = ExtResource("4_0aej8")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uifm0"]
+
+[node name="BossProjectile" type="CharacterBody2D"]
+collision_layer = 256
+script = ExtResource("1_0aej8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(38, 0)
+shape = SubResource("CircleShape2D_go3ur")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(62, 3)
+scale = Vector2(0.115, 0.115)
+sprite_frames = SubResource("SpriteFrames_3whxa")
+animation = &"static"
+
+[node name="BasicHitBox2D" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("3_3whxa")
+actions = Array[ExtResource("4_0aej8")]([SubResource("Resource_la4or"), SubResource("Resource_0aej8"), SubResource("Resource_uifm0"), SubResource("Resource_mpq12"), SubResource("Resource_mxhfw"), SubResource("Resource_c8nt1"), SubResource("Resource_60asq"), SubResource("Resource_lrmo4"), SubResource("Resource_15o4g"), SubResource("Resource_6m4i6"), SubResource("Resource_ar0bv"), SubResource("Resource_ajmqw"), SubResource("Resource_q8ftu"), SubResource("Resource_ijama"), SubResource("Resource_8x40d"), SubResource("Resource_egjg8"), SubResource("Resource_xdac2"), SubResource("Resource_3qxvo"), SubResource("Resource_ubyl0"), SubResource("Resource_2f1c3"), SubResource("Resource_3sgk4"), SubResource("Resource_sldlw"), SubResource("Resource_hr4b1"), SubResource("Resource_hn4mi"), SubResource("Resource_t7irr"), SubResource("Resource_jxosf"), SubResource("Resource_5qt4t"), SubResource("Resource_g7rg8"), SubResource("Resource_0cqsg"), SubResource("Resource_ntj76"), SubResource("Resource_phuwf"), SubResource("Resource_thlh7"), SubResource("Resource_vs0ed"), SubResource("Resource_tgmqb"), SubResource("Resource_2rw4f"), SubResource("Resource_ajgiv"), SubResource("Resource_pptaa"), SubResource("Resource_rgiu4"), SubResource("Resource_s2dc3"), SubResource("Resource_s4x2e"), SubResource("Resource_hjuys"), SubResource("Resource_m5d3b"), SubResource("Resource_dnhia"), SubResource("Resource_qmmrb"), SubResource("Resource_axk6t"), SubResource("Resource_jv5tc"), SubResource("Resource_dpdt2"), SubResource("Resource_dhqpx"), SubResource("Resource_e461y"), SubResource("Resource_ob7gb"), SubResource("Resource_6yx1d"), SubResource("Resource_hlj7r"), SubResource("Resource_yroua"), SubResource("Resource_8xups"), SubResource("Resource_03mj1"), SubResource("Resource_lacpy"), SubResource("Resource_54jpm")])
+metadata/_custom_type_script = "uid://chrsg1fc53qs3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BasicHitBox2D"]
+position = Vector2(32, 0)
+shape = SubResource("CircleShape2D_uifm0")

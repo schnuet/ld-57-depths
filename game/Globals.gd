@@ -8,10 +8,13 @@ var anim_frame = 0;
 # Game-wide variables
 var cursor_mode = "default";
 
+var level_counter = 0;
+
 ## Set all game-wide variables to the values they should have
 ## at the beginning of the game.
 func init_vars():
 	cursor_mode = "default";
+	level_counter = 0;
 
 func _ready():
 	add_child(frame_timer);

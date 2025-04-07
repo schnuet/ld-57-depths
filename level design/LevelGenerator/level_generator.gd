@@ -32,6 +32,8 @@ func _ready() -> void:
 	
 	generate_level();
 	add_player();
+	
+	MusicPlayer.play_music("horror");
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("regenerate"):

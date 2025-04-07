@@ -13,7 +13,6 @@ extends CharacterBody2D
 # - Ground slash (melee attack)
 # - 
 
-
 enum State {
 	IDLE,
 	RUN,
@@ -32,14 +31,20 @@ enum State {
 }
 var state: State = State.IDLE;
 
+var enabled = true;
+
+@onready var hurtbox_collision = $HurtBox2D/CollisionShape2D;
+
 signal hurt(amount: int);
 
 # ========================================
 # LOOP
 
 func _physics_process(delta: float) -> void:
-
-	handle_state(delta)
+	if enabled:
+		handle_state(delta)
+	else:
+		apply_gravity(delta);
 
 	process_timers(delta)
 
@@ -341,8 +346,9 @@ func enter_state_dash_side(_state_before: State):
 
 func handle_state_dash_side(_delta: float):
 	if dash_timer <= 0:
-		velocity.x = RUN_SPEED * sign(velocity.x)
-		enter_state(State.FALL)
+		velocity.x = RUN_SPEED * sign(velocity.x);
+		enter_state(State.FALL);
+		hurtbox_collision.disabled = false;
 		return
 
 func dash_to_side(side: Vector2):
@@ -350,6 +356,7 @@ func dash_to_side(side: Vector2):
 	velocity.y = 0
 	dash_tentacles.scale.y = side.x * 2;
 	enter_state(State.DASH_SIDE);
+	hurtbox_collision.disabled = true;
 
 
 func _on_dash_tentacles_animation_finished() -> void:
@@ -403,7 +410,6 @@ var slash_cooldown_timer = 0;
 @onready var hitbox_slash_down = $hitbox_slash_down;
 
 func air_slash():
-	print("cooldown", slash_cooldown_timer);
 	var direction = get_main_input_direction()
 	if direction == Vector2.ZERO:
 		direction = last_side

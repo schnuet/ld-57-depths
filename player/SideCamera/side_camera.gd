@@ -34,6 +34,7 @@ func _process(delta: float) -> void:
 
 
 func connect_following(body: Jumper):
+	global_position = body.global_position;
 	body.connect("hurt", _on_following_hurt);
 	body.connect("camera_add_limit", _on_following_add_camera_limit);
 	body.connect("camera_remove_limit", _on_following_remove_camera_limit);

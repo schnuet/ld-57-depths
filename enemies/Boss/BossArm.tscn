@@ -1,0 +1,320 @@
+[gd_scene load_steps=66 format=3 uid="uid://c2sbsr2q6310d"]
+
+[ext_resource type="Script" uid="uid://db2c13eqhpb7c" path="res://enemies/Boss/boss_arm.gd" id="1_no7rm"]
+[ext_resource type="Script" uid="uid://chrsg1fc53qs3" path="res://addons/health_hitbox_hurtbox/2d/hit_box_2d/basic_hit_box_2d.gd" id="2_6hig3"]
+[ext_resource type="Script" uid="uid://dr8bvnfebp76" path="res://addons/health_hitbox_hurtbox/health/health.gd" id="2_gbm8s"]
+[ext_resource type="Script" uid="uid://hrwhd52e5mkq" path="res://addons/health_hitbox_hurtbox/resources/action.gd" id="3_qq42c"]
+[ext_resource type="Script" uid="uid://dtfoilkdcfvgv" path="res://addons/health_hitbox_hurtbox/2d/hurt_box_2d/basic_hurt_box_2d.gd" id="5_32eir"]
+[ext_resource type="Script" uid="uid://cobp4qehnuq77" path="res://addons/health_hitbox_hurtbox/resources/modifier.gd" id="6_mi0nv"]
+[ext_resource type="Texture2D" uid="uid://bxpgjoanyufl5" path="res://enemies/Boss/animations/arm_lower/04 Tentakel-OUTRO_00000.png" id="7_qwpsv"]
+[ext_resource type="Texture2D" uid="uid://bvqvncqvk87h0" path="res://enemies/Boss/animations/arm_lower/04 Tentakel-OUTRO_00001.png" id="8_wai0d"]
+[ext_resource type="Texture2D" uid="uid://ci20nuccjyt1a" path="res://enemies/Boss/animations/arm_lower/04 Tentakel-OUTRO_00002.png" id="9_evx3y"]
+[ext_resource type="Texture2D" uid="uid://ce14k1f8i0y3v" path="res://enemies/Boss/animations/arm_lower/04 Tentakel-OUTRO_00003.png" id="10_0wrsl"]
+[ext_resource type="Texture2D" uid="uid://cb0ygofi3sybo" path="res://enemies/Boss/animations/arm_lower/04 Tentakel-OUTRO_00004.png" id="11_hp8sg"]
+[ext_resource type="Texture2D" uid="uid://deeiqin5ktynl" path="res://enemies/Boss/animations/arm_lower/04 Tentakel-OUTRO_00005.png" id="12_lhpjs"]
+[ext_resource type="Texture2D" uid="uid://dgb2kmmox62t3" path="res://enemies/Boss/animations/arm_lower/04 Tentakel-OUTRO_00006.png" id="13_pqf2e"]
+[ext_resource type="Texture2D" uid="uid://u1nk7u3cpktp" path="res://enemies/Boss/animations/arm_lower/04 Tentakel-OUTRO_00007.png" id="14_wb14o"]
+[ext_resource type="Texture2D" uid="uid://df3bg2rj4qy6g" path="res://enemies/Boss/animations/arm_lower/04 Tentakel-OUTRO_00008.png" id="15_0u1s2"]
+[ext_resource type="Texture2D" uid="uid://clb64xxns7ygh" path="res://enemies/Boss/animations/arm_rise/03 Tentakel-INTRO_00000.png" id="16_qerlv"]
+[ext_resource type="Texture2D" uid="uid://vcj0ya634mhc" path="res://enemies/Boss/animations/arm_rise/03 Tentakel-INTRO_00001.png" id="17_6alcw"]
+[ext_resource type="Texture2D" uid="uid://bdh05y2jc72jb" path="res://enemies/Boss/animations/arm_rise/03 Tentakel-INTRO_00002.png" id="18_0vi7b"]
+[ext_resource type="Texture2D" uid="uid://ugwkqbfiq3qt" path="res://enemies/Boss/animations/arm_rise/03 Tentakel-INTRO_00003.png" id="19_a0ahq"]
+[ext_resource type="Texture2D" uid="uid://chroy3f6djrtx" path="res://enemies/Boss/animations/arm_rise/03 Tentakel-INTRO_00004.png" id="20_jqjpw"]
+[ext_resource type="Texture2D" uid="uid://cjv3tnt4rnrjm" path="res://enemies/Boss/animations/arm_rise/03 Tentakel-INTRO_00005.png" id="21_qolvk"]
+[ext_resource type="Texture2D" uid="uid://b36cs0tpwa2wp" path="res://enemies/Boss/animations/arm_rise/03 Tentakel-INTRO_00006.png" id="22_ek3od"]
+[ext_resource type="Texture2D" uid="uid://44f10bada4bq" path="res://enemies/Boss/animations/arm_rise/03 Tentakel-INTRO_00007.png" id="23_oieep"]
+[ext_resource type="Texture2D" uid="uid://dxv0y28xpqtai" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00000.png" id="24_w3b4b"]
+[ext_resource type="Texture2D" uid="uid://b6kdqfryfl8tu" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00001.png" id="25_0mfp3"]
+[ext_resource type="Texture2D" uid="uid://cnjrfuqqvws3x" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00002.png" id="26_ssfmb"]
+[ext_resource type="Texture2D" uid="uid://cp4lesf0pm6cw" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00003.png" id="27_ae2j3"]
+[ext_resource type="Texture2D" uid="uid://cgn2yy1tuo5xx" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00004.png" id="28_p2hoe"]
+[ext_resource type="Texture2D" uid="uid://ce6uykqmt5pqp" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00005.png" id="29_1rdch"]
+[ext_resource type="Texture2D" uid="uid://jv36p8322vpk" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00006.png" id="30_bqequ"]
+[ext_resource type="Texture2D" uid="uid://dmcsmsfauehcr" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00007.png" id="31_idak3"]
+[ext_resource type="Texture2D" uid="uid://bfkvhedvxyim0" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00008.png" id="32_r2kad"]
+[ext_resource type="Texture2D" uid="uid://ckasc5mf6dlu0" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00009.png" id="33_0lvhx"]
+[ext_resource type="Texture2D" uid="uid://di8occcxgl1us" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00010.png" id="34_5r6jo"]
+[ext_resource type="Texture2D" uid="uid://baoc6tec8ooo5" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00011.png" id="35_rvbrd"]
+[ext_resource type="Texture2D" uid="uid://c0uqniwnm1qpc" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00012.png" id="36_dwqvl"]
+[ext_resource type="Texture2D" uid="uid://bo0t2qq5kb5hi" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00013.png" id="37_0tl8w"]
+[ext_resource type="Texture2D" uid="uid://clifgw6nudirk" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00014.png" id="38_0j3uh"]
+[ext_resource type="Texture2D" uid="uid://cp8lyon0h5gmv" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00015.png" id="39_0xxyt"]
+[ext_resource type="Texture2D" uid="uid://vjybfvl7lwct" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00016.png" id="40_4dvte"]
+[ext_resource type="Texture2D" uid="uid://bmoa4b8btji5e" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00017.png" id="41_tnuya"]
+[ext_resource type="Texture2D" uid="uid://ckaltg6kgas8c" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00018.png" id="42_4jqtj"]
+[ext_resource type="Texture2D" uid="uid://ctk1drmvm5hqt" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00019.png" id="43_o3oiw"]
+[ext_resource type="Texture2D" uid="uid://cwok0tvqxc601" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00020.png" id="44_7iqnq"]
+[ext_resource type="Texture2D" uid="uid://cehufxtnx8o38" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00021.png" id="45_ghmcq"]
+[ext_resource type="Texture2D" uid="uid://ck4yv1ss5ap6r" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00022.png" id="46_r0fu5"]
+[ext_resource type="Texture2D" uid="uid://cq8rciviyak6f" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00023.png" id="47_cs7im"]
+[ext_resource type="Texture2D" uid="uid://tt7bfpaipned" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00024.png" id="48_wyoqm"]
+[ext_resource type="Texture2D" uid="uid://cbejx8c22ntip" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00025.png" id="49_o8pg7"]
+[ext_resource type="Texture2D" uid="uid://dbgeswanksp1p" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00026.png" id="50_bfvp6"]
+[ext_resource type="Texture2D" uid="uid://bl4m7xbku0hxe" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00027.png" id="51_ll6yf"]
+[ext_resource type="Texture2D" uid="uid://ba4w237gptwlp" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00028.png" id="52_dkcpu"]
+[ext_resource type="Texture2D" uid="uid://cnmyl1dj377w6" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00029.png" id="53_slpax"]
+[ext_resource type="Texture2D" uid="uid://dbtke04pilitr" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00030.png" id="54_rr0ta"]
+[ext_resource type="Texture2D" uid="uid://dpvixdlvg8nhr" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00031.png" id="55_nwsfn"]
+[ext_resource type="Texture2D" uid="uid://c2t5l4hlv5mbi" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00032.png" id="56_qf3k1"]
+[ext_resource type="Texture2D" uid="uid://bxqqvks3ehcyl" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00033.png" id="57_edviy"]
+[ext_resource type="Texture2D" uid="uid://cqt3ef1yo6ao" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00034.png" id="58_rg5m4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2v3gv"]
+size = Vector2(64, 64)
+
+[sub_resource type="Resource" id="Resource_omduj"]
+script = ExtResource("3_qq42c")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbm8s"]
+size = Vector2(32, 512)
+
+[sub_resource type="Resource" id="Resource_vbokf"]
+script = ExtResource("6_mi0nv")
+incrementer = 0
+multiplier = 1.0
+convert_affect = 0
+convert_type = 0
+
+[sub_resource type="Resource" id="Resource_77k22"]
+script = ExtResource("6_mi0nv")
+incrementer = 0
+multiplier = 1.0
+convert_affect = 0
+convert_type = 0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_asrnl"]
+size = Vector2(64, 264)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gbm8s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_qwpsv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wai0d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_evx3y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_0wrsl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_hp8sg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_lhpjs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_pqf2e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_wb14o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_0u1s2")
+}],
+"loop": false,
+"name": &"lower",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_qerlv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_6alcw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_0vi7b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_a0ahq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_jqjpw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_qolvk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_ek3od")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_oieep")
+}],
+"loop": false,
+"name": &"rise",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_w3b4b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_0mfp3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_ssfmb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_ae2j3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_p2hoe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_1rdch")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_bqequ")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_idak3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_r2kad")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_0lvhx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_5r6jo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_rvbrd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_dwqvl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_0tl8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_0j3uh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_0xxyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_4dvte")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_tnuya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_4jqtj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_o3oiw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_7iqnq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_ghmcq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_r0fu5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_cs7im")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_wyoqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_o8pg7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_bfvp6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_ll6yf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_dkcpu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_slpax")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_rr0ta")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_nwsfn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_qf3k1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_edviy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_rg5m4")
+}],
+"loop": true,
+"name": &"wiggle",
+"speed": 12.0
+}]
+
+[node name="BossArm" type="CharacterBody2D"]
+collision_layer = 256
+script = ExtResource("1_no7rm")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_gbm8s")
+current = 3
+max = 3
+metadata/_custom_type_script = "uid://dr8bvnfebp76"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_2v3gv")
+
+[node name="BasicHitBox2D" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("2_6hig3")
+actions = Array[ExtResource("3_qq42c")]([SubResource("Resource_omduj")])
+metadata/_custom_type_script = "uid://chrsg1fc53qs3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BasicHitBox2D"]
+position = Vector2(0, -256)
+shape = SubResource("RectangleShape2D_gbm8s")
+disabled = true
+debug_color = Color(0.578108, 0.5528, 1.15514e-06, 0.42)
+
+[node name="BasicHurtBox2D" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+visible = false
+collision_layer = 32
+collision_mask = 4
+script = ExtResource("5_32eir")
+health = NodePath("../Health")
+modifiers = Dictionary[int, ExtResource("6_mi0nv")]({
+1: SubResource("Resource_77k22"),
+2: SubResource("Resource_vbokf")
+})
+metadata/_custom_type_script = "uid://dtfoilkdcfvgv"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BasicHurtBox2D"]
+position = Vector2(0, -132)
+shape = SubResource("RectangleShape2D_asrnl")
+disabled = true
+debug_color = Color(0.97853, 0, 0.395442, 0.42)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, -216)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_gbm8s")
+animation = &"wiggle"
+
+[node name="cooldown_timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="died" from="Health" to="." method="_on_health_died"]

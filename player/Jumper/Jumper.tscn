@@ -1,4 +1,4 @@
-[gd_scene load_steps=602 format=3 uid="uid://duigv8nwli4ia"]
+[gd_scene load_steps=716 format=3 uid="uid://duigv8nwli4ia"]
 
 [ext_resource type="Script" uid="uid://dwgxb0gql43wy" path="res://player/Jumper/jumper.gd" id="1_l0bbj"]
 [ext_resource type="Script" uid="uid://dr8bvnfebp76" path="res://addons/health_hitbox_hurtbox/health/health.gd" id="2_6hxia"]
@@ -28,38 +28,62 @@
 [ext_resource type="Texture2D" uid="uid://dmgxj4cdlumcl" path="res://player/Jumper/animations/dash/07 Dash_00004.png" id="19_tdulr"]
 [ext_resource type="Texture2D" uid="uid://diky8ffbppahs" path="res://player/Jumper/animations/dash/07 Dash_00005.png" id="20_cqwjq"]
 [ext_resource type="Texture2D" uid="uid://dxahe5kbhbqxk" path="res://player/Jumper/animations/fall/04 Jump-Fall_00005.png" id="20_ryvtr"]
+[ext_resource type="Texture2D" uid="uid://btne8c2m7etfw" path="res://player/Jumper/animations/die/10 Death_00000.png" id="25_4172o"]
 [ext_resource type="Texture2D" uid="uid://bva7w18jpeayg" path="res://player/Jumper/animations/hurt/09 Hurt_00000.png" id="26_cqwjq"]
+[ext_resource type="Texture2D" uid="uid://v2u2ct0kcevc" path="res://player/Jumper/animations/die/10 Death_00001.png" id="26_igwlu"]
 [ext_resource type="Texture2D" uid="uid://bgt1juh2qieog" path="res://player/Jumper/animations/idle/01 Idle_00000.png" id="26_ryvtr"]
+[ext_resource type="Texture2D" uid="uid://bhv3yg30nwyds" path="res://player/Jumper/animations/die/10 Death_00002.png" id="27_bb3hx"]
 [ext_resource type="Texture2D" uid="uid://ci3x1ef6id4rb" path="res://player/Jumper/animations/hurt/09 Hurt_00001.png" id="27_fanfg"]
 [ext_resource type="Texture2D" uid="uid://chj3teogfw8h2" path="res://player/Jumper/animations/idle/01 Idle_00001.png" id="27_pqbsa"]
 [ext_resource type="Texture2D" uid="uid://bexjdu261t8dr" path="res://player/Jumper/animations/hurt/09 Hurt_00002.png" id="28_jqvsd"]
+[ext_resource type="Texture2D" uid="uid://crq05ubgo1185" path="res://player/Jumper/animations/die/10 Death_00003.png" id="28_trpxm"]
 [ext_resource type="Texture2D" uid="uid://yyraiag5qqo1" path="res://player/Jumper/animations/idle/01 Idle_00002.png" id="28_w817k"]
 [ext_resource type="Texture2D" uid="uid://ciig3urwmgne1" path="res://player/Jumper/animations/idle/01 Idle_00003.png" id="29_b5pnu"]
+[ext_resource type="Texture2D" uid="uid://bv0aep0mbqm0s" path="res://player/Jumper/animations/die/10 Death_00004.png" id="29_inwve"]
 [ext_resource type="Texture2D" uid="uid://c8ptlw6d5wt6q" path="res://player/Jumper/animations/hurt/09 Hurt_00003.png" id="29_njlrc"]
 [ext_resource type="Texture2D" uid="uid://bw4y2qcff7wgr" path="res://player/Jumper/animations/idle/01 Idle_00004.png" id="30_8yc1n"]
+[ext_resource type="Texture2D" uid="uid://ctpvq22s3u4w6" path="res://player/Jumper/animations/die/10 Death_00005.png" id="30_g0f63"]
 [ext_resource type="Texture2D" uid="uid://bc8bga65wdxgb" path="res://player/Jumper/animations/hurt/09 Hurt_00004.png" id="30_tu1ob"]
 [ext_resource type="Texture2D" uid="uid://tntbk74vup5h" path="res://player/Jumper/animations/punch_tentacles/06 Punch-Tentakel_00000.png" id="31_nj25o"]
 [ext_resource type="Texture2D" uid="uid://ehqjbbmvem70" path="res://player/Jumper/animations/idle/01 Idle_00005.png" id="31_tdulr"]
+[ext_resource type="Texture2D" uid="uid://dghbxipr2us7m" path="res://player/Jumper/animations/die/10 Death_00006.png" id="31_vde0v"]
 [ext_resource type="Texture2D" uid="uid://k5tshoe1y7y4" path="res://player/Jumper/animations/punch_tentacles/06 Punch-Tentakel_00001.png" id="32_2khsi"]
 [ext_resource type="Texture2D" uid="uid://bd4wgvx8n56c3" path="res://player/Jumper/animations/idle/01 Idle_00006.png" id="32_cqwjq"]
+[ext_resource type="Texture2D" uid="uid://cdj5dimqvseyr" path="res://player/Jumper/animations/die/10 Death_00007.png" id="32_m4eqa"]
 [ext_resource type="Texture2D" uid="uid://dhehxhkrxamu3" path="res://player/Jumper/animations/punch_tentacles/06 Punch-Tentakel_00002.png" id="33_ewsxd"]
 [ext_resource type="Texture2D" uid="uid://bb4cpf0puv4fq" path="res://player/Jumper/animations/idle/01 Idle_00007.png" id="33_fanfg"]
+[ext_resource type="Texture2D" uid="uid://dw43oi3pkhr7o" path="res://player/Jumper/animations/die/10 Death_00008.png" id="33_nuvgk"]
 [ext_resource type="Texture2D" uid="uid://cxdl0hrd302u5" path="res://player/Jumper/animations/punch_tentacles/06 Punch-Tentakel_00003.png" id="34_83tkq"]
 [ext_resource type="Texture2D" uid="uid://rkc8dx5i74ow" path="res://player/Jumper/animations/idle/01 Idle_00008.png" id="34_jqvsd"]
+[ext_resource type="Texture2D" uid="uid://e8ppeg1w0146" path="res://player/Jumper/animations/die/10 Death_00009.png" id="34_xqbu3"]
 [ext_resource type="Texture2D" uid="uid://clk2u60eti4cp" path="res://player/Jumper/animations/punch_tentacles/06 Punch-Tentakel_00004.png" id="35_1y4qh"]
+[ext_resource type="Texture2D" uid="uid://culltfrpjdkjn" path="res://player/Jumper/animations/die/10 Death_00010.png" id="35_kj13h"]
 [ext_resource type="Texture2D" uid="uid://cbg4thifb71ef" path="res://player/Jumper/animations/idle/01 Idle_00009.png" id="35_njlrc"]
+[ext_resource type="Texture2D" uid="uid://dplfhrob4c3ml" path="res://player/Jumper/animations/die/10 Death_00011.png" id="36_8xqme"]
 [ext_resource type="Texture2D" uid="uid://ucb75s2q206k" path="res://player/Jumper/animations/idle/01 Idle_00010.png" id="36_tu1ob"]
 [ext_resource type="Texture2D" uid="uid://cu2hf0x1v2ydd" path="res://player/Jumper/animations/idle/01 Idle_00011.png" id="37_ij7vf"]
+[ext_resource type="Texture2D" uid="uid://leuo3srys20y" path="res://player/Jumper/animations/die/10 Death_00012.png" id="37_pfakl"]
+[ext_resource type="Texture2D" uid="uid://dynhonb54b2at" path="res://player/Jumper/animations/die/10 Death_00013.png" id="38_4s1qc"]
 [ext_resource type="Texture2D" uid="uid://bc113klgquyum" path="res://player/Jumper/animations/idle/01 Idle_00012.png" id="38_cau2h"]
 [ext_resource type="Texture2D" uid="uid://cu608ji0ra8qe" path="res://player/Jumper/animations/idle/01 Idle_00013.png" id="39_6mveh"]
+[ext_resource type="Texture2D" uid="uid://n7kjvfq3ydqd" path="res://player/Jumper/animations/die/10 Death_00014.png" id="39_efn6a"]
 [ext_resource type="Texture2D" uid="uid://b3vre00jsilwt" path="res://player/Jumper/animations/idle/01 Idle_00014.png" id="40_1vkxb"]
+[ext_resource type="Texture2D" uid="uid://qd8x08kvkjta" path="res://player/Jumper/animations/die/10 Death_00015.png" id="40_6jjp7"]
+[ext_resource type="Texture2D" uid="uid://cpvmcqe6nklk5" path="res://player/Jumper/animations/die/10 Death_00016.png" id="41_5ti6s"]
 [ext_resource type="Texture2D" uid="uid://cp7mbqkt1c56t" path="res://player/Jumper/animations/idle/01 Idle_00015.png" id="41_nj25o"]
 [ext_resource type="Texture2D" uid="uid://dl6lrikwd0aem" path="res://player/Jumper/animations/jump/03 Jump-Rise_00000.png" id="42_2khsi"]
+[ext_resource type="Texture2D" uid="uid://7yibq3awpgsg" path="res://player/Jumper/animations/die/10 Death_00017.png" id="42_dx108"]
 [ext_resource type="Texture2D" uid="uid://rt32ob5y3ps" path="res://player/Jumper/animations/jump/03 Jump-Rise_00001.png" id="43_ewsxd"]
+[ext_resource type="Texture2D" uid="uid://duxf1hdq7xt3u" path="res://player/Jumper/animations/die/10 Death_00018.png" id="43_o3c6b"]
 [ext_resource type="Texture2D" uid="uid://dbs4p42v4m4ua" path="res://player/Jumper/animations/jump/03 Jump-Rise_00002.png" id="44_83tkq"]
+[ext_resource type="Texture2D" uid="uid://bdh6280n3lu86" path="res://player/Jumper/animations/die/10 Death_00019.png" id="44_dojct"]
 [ext_resource type="Texture2D" uid="uid://jwdwsitxvcbd" path="res://player/Jumper/animations/walk/02 Walk_00000.png" id="45_1y4qh"]
+[ext_resource type="Texture2D" uid="uid://b8pti8vmdm1hm" path="res://player/Jumper/animations/die/10 Death_00020.png" id="45_wo2qb"]
+[ext_resource type="Texture2D" uid="uid://b3kvtbe67xb5u" path="res://player/Jumper/animations/die/10 Death_00021.png" id="46_rw4fc"]
 [ext_resource type="Texture2D" uid="uid://1y6d1woqacor" path="res://player/Jumper/animations/walk/02 Walk_00001.png" id="46_tbxrg"]
 [ext_resource type="Texture2D" uid="uid://doqfps4tpsh2h" path="res://player/Jumper/animations/walk/02 Walk_00002.png" id="47_g6a3t"]
+[ext_resource type="Texture2D" uid="uid://ct6cg3r4icv7x" path="res://player/Jumper/animations/die/10 Death_00022.png" id="47_nfulh"]
+[ext_resource type="Texture2D" uid="uid://cggy1xxm5s3db" path="res://player/Jumper/animations/die/10 Death_00023.png" id="48_81q0u"]
 [ext_resource type="Texture2D" uid="uid://cheg0d1te3qpj" path="res://player/Jumper/animations/walk/02 Walk_00003.png" id="48_bjh8k"]
 [ext_resource type="Texture2D" uid="uid://3b37t5h61ru8" path="res://player/Jumper/animations/walk/02 Walk_00004.png" id="49_uk1gg"]
 [ext_resource type="Texture2D" uid="uid://cqvn7rbsi5ivr" path="res://player/Jumper/animations/walk/02 Walk_00005.png" id="50_j8lyb"]
@@ -250,7 +274,79 @@ animations = [{
 "name": &"dash_up",
 "speed": 12.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_4172o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_igwlu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_bb3hx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_trpxm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_inwve")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_g0f63")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_vde0v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_m4eqa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_nuvgk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_xqbu3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_kj13h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_8xqme")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_pfakl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_4s1qc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_efn6a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_6jjp7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_5ti6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_dx108")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_o3c6b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_dojct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_wo2qb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_rw4fc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_nfulh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_81q0u")
+}],
 "loop": false,
 "name": &"die",
 "speed": 12.0
@@ -1035,6 +1131,96 @@ affect = 1
 type = 2
 amount = 1
 
+[sub_resource type="Resource" id="Resource_swfbu"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_2klkr"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_wi4ci"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_w1nai"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_cg5r3"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_iwo0w"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_03b5k"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_ux2qp"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_hie6t"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_wq38t"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_k5vm8"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_rnxo8"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_ylh66"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_cyltq"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_1r3tr"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gqqn2"]
 size = Vector2(90, 70)
 
@@ -1531,6 +1717,96 @@ type = 2
 amount = 1
 
 [sub_resource type="Resource" id="Resource_2ly3v"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_mygk7"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_a430n"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_hg73c"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_7mnsj"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_q55a1"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_h052w"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_p83b4"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_xb67c"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_2cwvn"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_107cb"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_hk6qp"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_vxixm"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_etbwc"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_khp28"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_ulrvg"]
 script = ExtResource("9_bi3sa")
 affect = 1
 type = 2
@@ -2043,6 +2319,96 @@ affect = 1
 type = 2
 amount = 1
 
+[sub_resource type="Resource" id="Resource_s0tvi"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_kxvqq"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_7k20a"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_wqd5d"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_cxbc5"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_mm732"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_x32x3"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_2w7l2"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_2quol"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_7fohj"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_rbdff"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_ussq6"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_isuvg"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_qhufo"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_qmw4j"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bbfe1"]
 size = Vector2(30, 111)
 
@@ -2545,6 +2911,96 @@ type = 2
 amount = 1
 
 [sub_resource type="Resource" id="Resource_42qyv"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_8g1np"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_nak7f"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_nyj4m"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_crnl7"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_282px"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_j572s"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_hxqs8"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_rgb7k"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_b02q1"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_ok5aq"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_hjr8s"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_bknqt"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_1kl8n"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_qm4xw"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_nu8to"]
 script = ExtResource("9_bi3sa")
 affect = 1
 type = 2
@@ -3057,6 +3513,96 @@ affect = 1
 type = 2
 amount = 1
 
+[sub_resource type="Resource" id="Resource_6qqg8"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_o7hvl"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_bvwk7"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_hovr5"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_hx5ld"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_opiri"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_bmlv8"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_nk7u5"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_a8rnp"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_4b1lm"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_h5on0"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_q05ja"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_jvq80"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_fn335"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_rtdsx"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qb0u7"]
 size = Vector2(202, 214.75)
 
@@ -3564,6 +4110,96 @@ affect = 1
 type = 2
 amount = 1
 
+[sub_resource type="Resource" id="Resource_pv55m"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_3dkbp"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_14eqd"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_u6xdm"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_2gi1u"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_sdfst"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_m7i8j"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_1aqr3"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_4kw7c"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_itkbc"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_sxprh"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_a8xsa"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_fnacw"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_dafth"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_buhy0"]
+script = ExtResource("9_bi3sa")
+affect = 1
+type = 2
+amount = 1
+
 [node name="Jumper" type="CharacterBody2D" groups=["player"]]
 collision_layer = 16
 script = ExtResource("1_l0bbj")
@@ -3613,7 +4249,7 @@ offset = Vector2(0, 50)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -118)
 sprite_frames = SubResource("SpriteFrames_3p4sp")
-animation = &"attack_strong"
+animation = &"die"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -3638,7 +4274,7 @@ position = Vector2(0, -35)
 collision_layer = 8388612
 collision_mask = 32
 script = ExtResource("8_bi3sa")
-actions = Array[ExtResource("9_bi3sa")]([SubResource("Resource_cpfru"), SubResource("Resource_bi3sa"), SubResource("Resource_3y3uq"), SubResource("Resource_xb3b7"), SubResource("Resource_kwnpx"), SubResource("Resource_2hfin"), SubResource("Resource_0wp2j"), SubResource("Resource_hs62l"), SubResource("Resource_xfrxj"), SubResource("Resource_6kbip"), SubResource("Resource_otv5e"), SubResource("Resource_kirah"), SubResource("Resource_yf68y"), SubResource("Resource_h4y7o"), SubResource("Resource_eq0dc"), SubResource("Resource_3714p"), SubResource("Resource_qsol8"), SubResource("Resource_228gu"), SubResource("Resource_8yc1n"), SubResource("Resource_tu1ob"), SubResource("Resource_2khsi"), SubResource("Resource_bjh8k"), SubResource("Resource_uk1gg"), SubResource("Resource_4172o"), SubResource("Resource_vde0v"), SubResource("Resource_pfakl"), SubResource("Resource_o3c6b"), SubResource("Resource_ccsd3"), SubResource("Resource_17shb"), SubResource("Resource_t7dao"), SubResource("Resource_37wx0"), SubResource("Resource_447jb"), SubResource("Resource_kdm5f"), SubResource("Resource_3eql6"), SubResource("Resource_lk08y"), SubResource("Resource_h44x4"), SubResource("Resource_teeak"), SubResource("Resource_8toke"), SubResource("Resource_fa5hb"), SubResource("Resource_qw2s4"), SubResource("Resource_e3jw5"), SubResource("Resource_ncnff"), SubResource("Resource_ueuoc"), SubResource("Resource_my820"), SubResource("Resource_d4jgd"), SubResource("Resource_act1d"), SubResource("Resource_tbkm6"), SubResource("Resource_5hytd"), SubResource("Resource_61fgf"), SubResource("Resource_usvlq"), SubResource("Resource_nmaf0"), SubResource("Resource_buphq"), SubResource("Resource_43210"), SubResource("Resource_jwhuo"), SubResource("Resource_7ujl1"), SubResource("Resource_knrra"), SubResource("Resource_gt2g2"), SubResource("Resource_rev1p"), SubResource("Resource_dsrxe"), SubResource("Resource_f27hg"), SubResource("Resource_vq1d2"), SubResource("Resource_drq7q"), SubResource("Resource_drgls"), SubResource("Resource_mlktx"), SubResource("Resource_lkwxk"), SubResource("Resource_v4ykn"), SubResource("Resource_kr3pg"), SubResource("Resource_4dofj"), SubResource("Resource_4g4em"), SubResource("Resource_12smo"), SubResource("Resource_ivtr0"), SubResource("Resource_kqsh8"), SubResource("Resource_elpa4"), SubResource("Resource_ibsff"), SubResource("Resource_ru0cl"), SubResource("Resource_kwpxj"), SubResource("Resource_r7m3g"), SubResource("Resource_amsuu"), SubResource("Resource_31san"), SubResource("Resource_wv7f2"), SubResource("Resource_rnvxy"), SubResource("Resource_jcpyg"), SubResource("Resource_t4pv7"), SubResource("Resource_idef5"), SubResource("Resource_snonw"), SubResource("Resource_12dsl"), SubResource("Resource_25g5e"), SubResource("Resource_pikhr"), SubResource("Resource_spjjh"), SubResource("Resource_2r1yb"), SubResource("Resource_vdfd3"), SubResource("Resource_clgoo"), SubResource("Resource_b7sqr"), SubResource("Resource_pu0ds"), SubResource("Resource_bk1ir"), SubResource("Resource_5oxan"), SubResource("Resource_1jrw5"), SubResource("Resource_5wguh"), SubResource("Resource_2ws6d"), SubResource("Resource_n06on")])
+actions = Array[ExtResource("9_bi3sa")]([SubResource("Resource_cpfru"), SubResource("Resource_bi3sa"), SubResource("Resource_3y3uq"), SubResource("Resource_xb3b7"), SubResource("Resource_kwnpx"), SubResource("Resource_2hfin"), SubResource("Resource_0wp2j"), SubResource("Resource_hs62l"), SubResource("Resource_xfrxj"), SubResource("Resource_6kbip"), SubResource("Resource_otv5e"), SubResource("Resource_kirah"), SubResource("Resource_yf68y"), SubResource("Resource_h4y7o"), SubResource("Resource_eq0dc"), SubResource("Resource_3714p"), SubResource("Resource_qsol8"), SubResource("Resource_228gu"), SubResource("Resource_8yc1n"), SubResource("Resource_tu1ob"), SubResource("Resource_2khsi"), SubResource("Resource_bjh8k"), SubResource("Resource_uk1gg"), SubResource("Resource_4172o"), SubResource("Resource_vde0v"), SubResource("Resource_pfakl"), SubResource("Resource_o3c6b"), SubResource("Resource_ccsd3"), SubResource("Resource_17shb"), SubResource("Resource_t7dao"), SubResource("Resource_37wx0"), SubResource("Resource_447jb"), SubResource("Resource_kdm5f"), SubResource("Resource_3eql6"), SubResource("Resource_lk08y"), SubResource("Resource_h44x4"), SubResource("Resource_teeak"), SubResource("Resource_8toke"), SubResource("Resource_fa5hb"), SubResource("Resource_qw2s4"), SubResource("Resource_e3jw5"), SubResource("Resource_ncnff"), SubResource("Resource_ueuoc"), SubResource("Resource_my820"), SubResource("Resource_d4jgd"), SubResource("Resource_act1d"), SubResource("Resource_tbkm6"), SubResource("Resource_5hytd"), SubResource("Resource_61fgf"), SubResource("Resource_usvlq"), SubResource("Resource_nmaf0"), SubResource("Resource_buphq"), SubResource("Resource_43210"), SubResource("Resource_jwhuo"), SubResource("Resource_7ujl1"), SubResource("Resource_knrra"), SubResource("Resource_gt2g2"), SubResource("Resource_rev1p"), SubResource("Resource_dsrxe"), SubResource("Resource_f27hg"), SubResource("Resource_vq1d2"), SubResource("Resource_drq7q"), SubResource("Resource_drgls"), SubResource("Resource_mlktx"), SubResource("Resource_lkwxk"), SubResource("Resource_v4ykn"), SubResource("Resource_kr3pg"), SubResource("Resource_4dofj"), SubResource("Resource_4g4em"), SubResource("Resource_12smo"), SubResource("Resource_ivtr0"), SubResource("Resource_kqsh8"), SubResource("Resource_elpa4"), SubResource("Resource_ibsff"), SubResource("Resource_ru0cl"), SubResource("Resource_kwpxj"), SubResource("Resource_r7m3g"), SubResource("Resource_amsuu"), SubResource("Resource_31san"), SubResource("Resource_wv7f2"), SubResource("Resource_rnvxy"), SubResource("Resource_jcpyg"), SubResource("Resource_t4pv7"), SubResource("Resource_idef5"), SubResource("Resource_snonw"), SubResource("Resource_12dsl"), SubResource("Resource_25g5e"), SubResource("Resource_pikhr"), SubResource("Resource_spjjh"), SubResource("Resource_2r1yb"), SubResource("Resource_vdfd3"), SubResource("Resource_clgoo"), SubResource("Resource_b7sqr"), SubResource("Resource_pu0ds"), SubResource("Resource_bk1ir"), SubResource("Resource_5oxan"), SubResource("Resource_1jrw5"), SubResource("Resource_5wguh"), SubResource("Resource_2ws6d"), SubResource("Resource_n06on"), SubResource("Resource_swfbu"), SubResource("Resource_2klkr"), SubResource("Resource_wi4ci"), SubResource("Resource_w1nai"), SubResource("Resource_cg5r3"), SubResource("Resource_iwo0w"), SubResource("Resource_03b5k"), SubResource("Resource_ux2qp"), SubResource("Resource_hie6t"), SubResource("Resource_wq38t"), SubResource("Resource_k5vm8"), SubResource("Resource_rnxo8"), SubResource("Resource_ylh66"), SubResource("Resource_cyltq"), SubResource("Resource_1r3tr")])
 metadata/_custom_type_script = "uid://chrsg1fc53qs3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_slash_right"]
@@ -3652,7 +4288,7 @@ position = Vector2(0, -35)
 collision_layer = 8388612
 collision_mask = 32
 script = ExtResource("8_bi3sa")
-actions = Array[ExtResource("9_bi3sa")]([SubResource("Resource_cpfru"), SubResource("Resource_bi3sa"), SubResource("Resource_3y3uq"), SubResource("Resource_xb3b7"), SubResource("Resource_kwnpx"), SubResource("Resource_2hfin"), SubResource("Resource_0wp2j"), SubResource("Resource_hs62l"), SubResource("Resource_xfrxj"), SubResource("Resource_6kbip"), SubResource("Resource_otv5e"), SubResource("Resource_kirah"), SubResource("Resource_yf68y"), SubResource("Resource_h4y7o"), SubResource("Resource_eq0dc"), SubResource("Resource_3714p"), SubResource("Resource_b5pnu"), SubResource("Resource_njlrc"), SubResource("Resource_nj25o"), SubResource("Resource_g6a3t"), SubResource("Resource_2qnxb"), SubResource("Resource_f187u"), SubResource("Resource_g0f63"), SubResource("Resource_8xqme"), SubResource("Resource_dx108"), SubResource("Resource_81q0u"), SubResource("Resource_6b6nn"), SubResource("Resource_3wiy4"), SubResource("Resource_kxmti"), SubResource("Resource_6uuuc"), SubResource("Resource_18c4k"), SubResource("Resource_mv4g2"), SubResource("Resource_c04tx"), SubResource("Resource_asicl"), SubResource("Resource_u13r3"), SubResource("Resource_7wovq"), SubResource("Resource_lef4e"), SubResource("Resource_rbn35"), SubResource("Resource_v0w3k"), SubResource("Resource_kfhr0"), SubResource("Resource_k4gjm"), SubResource("Resource_whkx4"), SubResource("Resource_geyia"), SubResource("Resource_n4ivs"), SubResource("Resource_i2xoh"), SubResource("Resource_3no6t"), SubResource("Resource_dks83"), SubResource("Resource_eryna"), SubResource("Resource_ygyl5"), SubResource("Resource_cgllp"), SubResource("Resource_u1wik"), SubResource("Resource_lk4cu"), SubResource("Resource_td46x"), SubResource("Resource_76o4t"), SubResource("Resource_8qv2f"), SubResource("Resource_ksamp"), SubResource("Resource_wgrol"), SubResource("Resource_af4cu"), SubResource("Resource_d7bth"), SubResource("Resource_tes2t"), SubResource("Resource_b1oml"), SubResource("Resource_xr0ek"), SubResource("Resource_xc4e6"), SubResource("Resource_eudin"), SubResource("Resource_rslxj"), SubResource("Resource_diw5u"), SubResource("Resource_gts01"), SubResource("Resource_u7kb0"), SubResource("Resource_57cct"), SubResource("Resource_4t6yu"), SubResource("Resource_uxydp"), SubResource("Resource_oavaa"), SubResource("Resource_c74fl"), SubResource("Resource_ydmlj"), SubResource("Resource_0bnnp"), SubResource("Resource_krast"), SubResource("Resource_is3xo"), SubResource("Resource_527li"), SubResource("Resource_x8m2b"), SubResource("Resource_br45i"), SubResource("Resource_dcbg1"), SubResource("Resource_5toek"), SubResource("Resource_aoily"), SubResource("Resource_6w012"), SubResource("Resource_ly4kp"), SubResource("Resource_ew3jv"), SubResource("Resource_lr2nm"), SubResource("Resource_6bsvd"), SubResource("Resource_uifnj"), SubResource("Resource_6fdo4"), SubResource("Resource_r4pax"), SubResource("Resource_ml7n6"), SubResource("Resource_ggnu7"), SubResource("Resource_6oby2"), SubResource("Resource_gu4f2"), SubResource("Resource_ctlv0"), SubResource("Resource_lagki"), SubResource("Resource_2skqj"), SubResource("Resource_2ly3v")])
+actions = Array[ExtResource("9_bi3sa")]([SubResource("Resource_cpfru"), SubResource("Resource_bi3sa"), SubResource("Resource_3y3uq"), SubResource("Resource_xb3b7"), SubResource("Resource_kwnpx"), SubResource("Resource_2hfin"), SubResource("Resource_0wp2j"), SubResource("Resource_hs62l"), SubResource("Resource_xfrxj"), SubResource("Resource_6kbip"), SubResource("Resource_otv5e"), SubResource("Resource_kirah"), SubResource("Resource_yf68y"), SubResource("Resource_h4y7o"), SubResource("Resource_eq0dc"), SubResource("Resource_3714p"), SubResource("Resource_b5pnu"), SubResource("Resource_njlrc"), SubResource("Resource_nj25o"), SubResource("Resource_g6a3t"), SubResource("Resource_2qnxb"), SubResource("Resource_f187u"), SubResource("Resource_g0f63"), SubResource("Resource_8xqme"), SubResource("Resource_dx108"), SubResource("Resource_81q0u"), SubResource("Resource_6b6nn"), SubResource("Resource_3wiy4"), SubResource("Resource_kxmti"), SubResource("Resource_6uuuc"), SubResource("Resource_18c4k"), SubResource("Resource_mv4g2"), SubResource("Resource_c04tx"), SubResource("Resource_asicl"), SubResource("Resource_u13r3"), SubResource("Resource_7wovq"), SubResource("Resource_lef4e"), SubResource("Resource_rbn35"), SubResource("Resource_v0w3k"), SubResource("Resource_kfhr0"), SubResource("Resource_k4gjm"), SubResource("Resource_whkx4"), SubResource("Resource_geyia"), SubResource("Resource_n4ivs"), SubResource("Resource_i2xoh"), SubResource("Resource_3no6t"), SubResource("Resource_dks83"), SubResource("Resource_eryna"), SubResource("Resource_ygyl5"), SubResource("Resource_cgllp"), SubResource("Resource_u1wik"), SubResource("Resource_lk4cu"), SubResource("Resource_td46x"), SubResource("Resource_76o4t"), SubResource("Resource_8qv2f"), SubResource("Resource_ksamp"), SubResource("Resource_wgrol"), SubResource("Resource_af4cu"), SubResource("Resource_d7bth"), SubResource("Resource_tes2t"), SubResource("Resource_b1oml"), SubResource("Resource_xr0ek"), SubResource("Resource_xc4e6"), SubResource("Resource_eudin"), SubResource("Resource_rslxj"), SubResource("Resource_diw5u"), SubResource("Resource_gts01"), SubResource("Resource_u7kb0"), SubResource("Resource_57cct"), SubResource("Resource_4t6yu"), SubResource("Resource_uxydp"), SubResource("Resource_oavaa"), SubResource("Resource_c74fl"), SubResource("Resource_ydmlj"), SubResource("Resource_0bnnp"), SubResource("Resource_krast"), SubResource("Resource_is3xo"), SubResource("Resource_527li"), SubResource("Resource_x8m2b"), SubResource("Resource_br45i"), SubResource("Resource_dcbg1"), SubResource("Resource_5toek"), SubResource("Resource_aoily"), SubResource("Resource_6w012"), SubResource("Resource_ly4kp"), SubResource("Resource_ew3jv"), SubResource("Resource_lr2nm"), SubResource("Resource_6bsvd"), SubResource("Resource_uifnj"), SubResource("Resource_6fdo4"), SubResource("Resource_r4pax"), SubResource("Resource_ml7n6"), SubResource("Resource_ggnu7"), SubResource("Resource_6oby2"), SubResource("Resource_gu4f2"), SubResource("Resource_ctlv0"), SubResource("Resource_lagki"), SubResource("Resource_2skqj"), SubResource("Resource_2ly3v"), SubResource("Resource_mygk7"), SubResource("Resource_a430n"), SubResource("Resource_hg73c"), SubResource("Resource_7mnsj"), SubResource("Resource_q55a1"), SubResource("Resource_h052w"), SubResource("Resource_p83b4"), SubResource("Resource_xb67c"), SubResource("Resource_2cwvn"), SubResource("Resource_107cb"), SubResource("Resource_hk6qp"), SubResource("Resource_vxixm"), SubResource("Resource_etbwc"), SubResource("Resource_khp28"), SubResource("Resource_ulrvg")])
 metadata/_custom_type_script = "uid://chrsg1fc53qs3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_slash_left"]
@@ -3666,7 +4302,7 @@ position = Vector2(0, -72)
 collision_layer = 8388612
 collision_mask = 32
 script = ExtResource("8_bi3sa")
-actions = Array[ExtResource("9_bi3sa")]([SubResource("Resource_cpfru"), SubResource("Resource_bi3sa"), SubResource("Resource_3y3uq"), SubResource("Resource_xb3b7"), SubResource("Resource_kwnpx"), SubResource("Resource_2hfin"), SubResource("Resource_0wp2j"), SubResource("Resource_hs62l"), SubResource("Resource_xfrxj"), SubResource("Resource_6kbip"), SubResource("Resource_otv5e"), SubResource("Resource_kirah"), SubResource("Resource_yf68y"), SubResource("Resource_h4y7o"), SubResource("Resource_eq0dc"), SubResource("Resource_3714p"), SubResource("Resource_qsol8"), SubResource("Resource_gqqn2"), SubResource("Resource_83w72"), SubResource("Resource_tdulr"), SubResource("Resource_ij7vf"), SubResource("Resource_ewsxd"), SubResource("Resource_j8lyb"), SubResource("Resource_dl4j0"), SubResource("Resource_igwlu"), SubResource("Resource_m4eqa"), SubResource("Resource_4s1qc"), SubResource("Resource_dojct"), SubResource("Resource_lsrqf"), SubResource("Resource_7dj8f"), SubResource("Resource_bh2e3"), SubResource("Resource_dm7ik"), SubResource("Resource_lxagl"), SubResource("Resource_58lyi"), SubResource("Resource_j64p8"), SubResource("Resource_3gb1c"), SubResource("Resource_bfgl8"), SubResource("Resource_mswd7"), SubResource("Resource_8lwli"), SubResource("Resource_3207t"), SubResource("Resource_ekdts"), SubResource("Resource_1se2t"), SubResource("Resource_aeq4v"), SubResource("Resource_iy147"), SubResource("Resource_15qn4"), SubResource("Resource_2jt06"), SubResource("Resource_gorwh"), SubResource("Resource_uobdv"), SubResource("Resource_r6hda"), SubResource("Resource_o3lg7"), SubResource("Resource_c82uq"), SubResource("Resource_n0qvw"), SubResource("Resource_2i123"), SubResource("Resource_fmm5h"), SubResource("Resource_kkqii"), SubResource("Resource_us811"), SubResource("Resource_jpfsm"), SubResource("Resource_5pkdb"), SubResource("Resource_tcem5"), SubResource("Resource_33sqc"), SubResource("Resource_vg8mq"), SubResource("Resource_wg66i"), SubResource("Resource_bet15"), SubResource("Resource_0umgi"), SubResource("Resource_bk0wd"), SubResource("Resource_muapb"), SubResource("Resource_2etox"), SubResource("Resource_upxf1"), SubResource("Resource_pt32e"), SubResource("Resource_a4j3l"), SubResource("Resource_f5lu0"), SubResource("Resource_lkt47"), SubResource("Resource_h6dtb"), SubResource("Resource_hn1gm"), SubResource("Resource_ed6po"), SubResource("Resource_fqgjd"), SubResource("Resource_cd13e"), SubResource("Resource_2ccpt"), SubResource("Resource_vu7pg"), SubResource("Resource_sccx8"), SubResource("Resource_dwf70"), SubResource("Resource_0afqm"), SubResource("Resource_3ht8u"), SubResource("Resource_a3tga"), SubResource("Resource_gqyrb"), SubResource("Resource_4t8mx"), SubResource("Resource_keima"), SubResource("Resource_ayoao"), SubResource("Resource_a4dl5"), SubResource("Resource_0bbl7"), SubResource("Resource_4bgcm"), SubResource("Resource_vt5hx"), SubResource("Resource_e3p0p"), SubResource("Resource_6mni3"), SubResource("Resource_885gy"), SubResource("Resource_64b11"), SubResource("Resource_x3xoe"), SubResource("Resource_b5cha"), SubResource("Resource_118a8"), SubResource("Resource_clcxu"), SubResource("Resource_n0ct3")])
+actions = Array[ExtResource("9_bi3sa")]([SubResource("Resource_cpfru"), SubResource("Resource_bi3sa"), SubResource("Resource_3y3uq"), SubResource("Resource_xb3b7"), SubResource("Resource_kwnpx"), SubResource("Resource_2hfin"), SubResource("Resource_0wp2j"), SubResource("Resource_hs62l"), SubResource("Resource_xfrxj"), SubResource("Resource_6kbip"), SubResource("Resource_otv5e"), SubResource("Resource_kirah"), SubResource("Resource_yf68y"), SubResource("Resource_h4y7o"), SubResource("Resource_eq0dc"), SubResource("Resource_3714p"), SubResource("Resource_qsol8"), SubResource("Resource_gqqn2"), SubResource("Resource_83w72"), SubResource("Resource_tdulr"), SubResource("Resource_ij7vf"), SubResource("Resource_ewsxd"), SubResource("Resource_j8lyb"), SubResource("Resource_dl4j0"), SubResource("Resource_igwlu"), SubResource("Resource_m4eqa"), SubResource("Resource_4s1qc"), SubResource("Resource_dojct"), SubResource("Resource_lsrqf"), SubResource("Resource_7dj8f"), SubResource("Resource_bh2e3"), SubResource("Resource_dm7ik"), SubResource("Resource_lxagl"), SubResource("Resource_58lyi"), SubResource("Resource_j64p8"), SubResource("Resource_3gb1c"), SubResource("Resource_bfgl8"), SubResource("Resource_mswd7"), SubResource("Resource_8lwli"), SubResource("Resource_3207t"), SubResource("Resource_ekdts"), SubResource("Resource_1se2t"), SubResource("Resource_aeq4v"), SubResource("Resource_iy147"), SubResource("Resource_15qn4"), SubResource("Resource_2jt06"), SubResource("Resource_gorwh"), SubResource("Resource_uobdv"), SubResource("Resource_r6hda"), SubResource("Resource_o3lg7"), SubResource("Resource_c82uq"), SubResource("Resource_n0qvw"), SubResource("Resource_2i123"), SubResource("Resource_fmm5h"), SubResource("Resource_kkqii"), SubResource("Resource_us811"), SubResource("Resource_jpfsm"), SubResource("Resource_5pkdb"), SubResource("Resource_tcem5"), SubResource("Resource_33sqc"), SubResource("Resource_vg8mq"), SubResource("Resource_wg66i"), SubResource("Resource_bet15"), SubResource("Resource_0umgi"), SubResource("Resource_bk0wd"), SubResource("Resource_muapb"), SubResource("Resource_2etox"), SubResource("Resource_upxf1"), SubResource("Resource_pt32e"), SubResource("Resource_a4j3l"), SubResource("Resource_f5lu0"), SubResource("Resource_lkt47"), SubResource("Resource_h6dtb"), SubResource("Resource_hn1gm"), SubResource("Resource_ed6po"), SubResource("Resource_fqgjd"), SubResource("Resource_cd13e"), SubResource("Resource_2ccpt"), SubResource("Resource_vu7pg"), SubResource("Resource_sccx8"), SubResource("Resource_dwf70"), SubResource("Resource_0afqm"), SubResource("Resource_3ht8u"), SubResource("Resource_a3tga"), SubResource("Resource_gqyrb"), SubResource("Resource_4t8mx"), SubResource("Resource_keima"), SubResource("Resource_ayoao"), SubResource("Resource_a4dl5"), SubResource("Resource_0bbl7"), SubResource("Resource_4bgcm"), SubResource("Resource_vt5hx"), SubResource("Resource_e3p0p"), SubResource("Resource_6mni3"), SubResource("Resource_885gy"), SubResource("Resource_64b11"), SubResource("Resource_x3xoe"), SubResource("Resource_b5cha"), SubResource("Resource_118a8"), SubResource("Resource_clcxu"), SubResource("Resource_n0ct3"), SubResource("Resource_s0tvi"), SubResource("Resource_kxvqq"), SubResource("Resource_7k20a"), SubResource("Resource_wqd5d"), SubResource("Resource_cxbc5"), SubResource("Resource_mm732"), SubResource("Resource_x32x3"), SubResource("Resource_2w7l2"), SubResource("Resource_2quol"), SubResource("Resource_7fohj"), SubResource("Resource_rbdff"), SubResource("Resource_ussq6"), SubResource("Resource_isuvg"), SubResource("Resource_qhufo"), SubResource("Resource_qmw4j")])
 metadata/_custom_type_script = "uid://chrsg1fc53qs3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_slash_up"]
@@ -3679,7 +4315,7 @@ visible = false
 collision_layer = 8388612
 collision_mask = 32
 script = ExtResource("8_bi3sa")
-actions = Array[ExtResource("9_bi3sa")]([SubResource("Resource_cpfru"), SubResource("Resource_bi3sa"), SubResource("Resource_3y3uq"), SubResource("Resource_xb3b7"), SubResource("Resource_kwnpx"), SubResource("Resource_2hfin"), SubResource("Resource_0wp2j"), SubResource("Resource_hs62l"), SubResource("Resource_xfrxj"), SubResource("Resource_6kbip"), SubResource("Resource_otv5e"), SubResource("Resource_kirah"), SubResource("Resource_yf68y"), SubResource("Resource_h4y7o"), SubResource("Resource_eq0dc"), SubResource("Resource_3714p"), SubResource("Resource_qsol8"), SubResource("Resource_gqqn2"), SubResource("Resource_qb0u7"), SubResource("Resource_ryvtr"), SubResource("Resource_cqwjq"), SubResource("Resource_cau2h"), SubResource("Resource_83tkq"), SubResource("Resource_hk7vc"), SubResource("Resource_ucrbg"), SubResource("Resource_bb3hx"), SubResource("Resource_nuvgk"), SubResource("Resource_efn6a"), SubResource("Resource_wo2qb"), SubResource("Resource_ludxb"), SubResource("Resource_0vmlx"), SubResource("Resource_4xyjj"), SubResource("Resource_8s5bf"), SubResource("Resource_4c2gy"), SubResource("Resource_7j27w"), SubResource("Resource_ks2qc"), SubResource("Resource_21p0i"), SubResource("Resource_lta4d"), SubResource("Resource_640em"), SubResource("Resource_iq2wy"), SubResource("Resource_fh4t0"), SubResource("Resource_jg223"), SubResource("Resource_1sv2u"), SubResource("Resource_tmmwb"), SubResource("Resource_v7hws"), SubResource("Resource_twfei"), SubResource("Resource_2bu3e"), SubResource("Resource_g5cgc"), SubResource("Resource_84j1n"), SubResource("Resource_at57d"), SubResource("Resource_mmyr8"), SubResource("Resource_tg8e1"), SubResource("Resource_3hny3"), SubResource("Resource_76lrd"), SubResource("Resource_gy6nv"), SubResource("Resource_gtghx"), SubResource("Resource_4ls3b"), SubResource("Resource_jfccr"), SubResource("Resource_hy37o"), SubResource("Resource_f4qx5"), SubResource("Resource_btdxl"), SubResource("Resource_qcnvu"), SubResource("Resource_et8al"), SubResource("Resource_fwgn6"), SubResource("Resource_bnn7p"), SubResource("Resource_p7hio"), SubResource("Resource_4j05v"), SubResource("Resource_jirpq"), SubResource("Resource_7qfco"), SubResource("Resource_bbtih"), SubResource("Resource_vgyeo"), SubResource("Resource_iaera"), SubResource("Resource_jhlm5"), SubResource("Resource_of7qn"), SubResource("Resource_u5nhw"), SubResource("Resource_x700w"), SubResource("Resource_ja74e"), SubResource("Resource_267gd"), SubResource("Resource_las2y"), SubResource("Resource_86dqe"), SubResource("Resource_q1bvn"), SubResource("Resource_hgj7x"), SubResource("Resource_kxnm4"), SubResource("Resource_cc8vt"), SubResource("Resource_cajqn"), SubResource("Resource_2vs0n"), SubResource("Resource_qk5bb"), SubResource("Resource_8k1s2"), SubResource("Resource_7836r"), SubResource("Resource_7ca4f"), SubResource("Resource_s7jkb"), SubResource("Resource_hjpa1"), SubResource("Resource_qjvcv"), SubResource("Resource_17bva"), SubResource("Resource_jjgv8"), SubResource("Resource_fneqh"), SubResource("Resource_n4tlk"), SubResource("Resource_hroca"), SubResource("Resource_vw0ri"), SubResource("Resource_30j52"), SubResource("Resource_mgv2c"), SubResource("Resource_42qyv")])
+actions = Array[ExtResource("9_bi3sa")]([SubResource("Resource_cpfru"), SubResource("Resource_bi3sa"), SubResource("Resource_3y3uq"), SubResource("Resource_xb3b7"), SubResource("Resource_kwnpx"), SubResource("Resource_2hfin"), SubResource("Resource_0wp2j"), SubResource("Resource_hs62l"), SubResource("Resource_xfrxj"), SubResource("Resource_6kbip"), SubResource("Resource_otv5e"), SubResource("Resource_kirah"), SubResource("Resource_yf68y"), SubResource("Resource_h4y7o"), SubResource("Resource_eq0dc"), SubResource("Resource_3714p"), SubResource("Resource_qsol8"), SubResource("Resource_gqqn2"), SubResource("Resource_qb0u7"), SubResource("Resource_ryvtr"), SubResource("Resource_cqwjq"), SubResource("Resource_cau2h"), SubResource("Resource_83tkq"), SubResource("Resource_hk7vc"), SubResource("Resource_ucrbg"), SubResource("Resource_bb3hx"), SubResource("Resource_nuvgk"), SubResource("Resource_efn6a"), SubResource("Resource_wo2qb"), SubResource("Resource_ludxb"), SubResource("Resource_0vmlx"), SubResource("Resource_4xyjj"), SubResource("Resource_8s5bf"), SubResource("Resource_4c2gy"), SubResource("Resource_7j27w"), SubResource("Resource_ks2qc"), SubResource("Resource_21p0i"), SubResource("Resource_lta4d"), SubResource("Resource_640em"), SubResource("Resource_iq2wy"), SubResource("Resource_fh4t0"), SubResource("Resource_jg223"), SubResource("Resource_1sv2u"), SubResource("Resource_tmmwb"), SubResource("Resource_v7hws"), SubResource("Resource_twfei"), SubResource("Resource_2bu3e"), SubResource("Resource_g5cgc"), SubResource("Resource_84j1n"), SubResource("Resource_at57d"), SubResource("Resource_mmyr8"), SubResource("Resource_tg8e1"), SubResource("Resource_3hny3"), SubResource("Resource_76lrd"), SubResource("Resource_gy6nv"), SubResource("Resource_gtghx"), SubResource("Resource_4ls3b"), SubResource("Resource_jfccr"), SubResource("Resource_hy37o"), SubResource("Resource_f4qx5"), SubResource("Resource_btdxl"), SubResource("Resource_qcnvu"), SubResource("Resource_et8al"), SubResource("Resource_fwgn6"), SubResource("Resource_bnn7p"), SubResource("Resource_p7hio"), SubResource("Resource_4j05v"), SubResource("Resource_jirpq"), SubResource("Resource_7qfco"), SubResource("Resource_bbtih"), SubResource("Resource_vgyeo"), SubResource("Resource_iaera"), SubResource("Resource_jhlm5"), SubResource("Resource_of7qn"), SubResource("Resource_u5nhw"), SubResource("Resource_x700w"), SubResource("Resource_ja74e"), SubResource("Resource_267gd"), SubResource("Resource_las2y"), SubResource("Resource_86dqe"), SubResource("Resource_q1bvn"), SubResource("Resource_hgj7x"), SubResource("Resource_kxnm4"), SubResource("Resource_cc8vt"), SubResource("Resource_cajqn"), SubResource("Resource_2vs0n"), SubResource("Resource_qk5bb"), SubResource("Resource_8k1s2"), SubResource("Resource_7836r"), SubResource("Resource_7ca4f"), SubResource("Resource_s7jkb"), SubResource("Resource_hjpa1"), SubResource("Resource_qjvcv"), SubResource("Resource_17bva"), SubResource("Resource_jjgv8"), SubResource("Resource_fneqh"), SubResource("Resource_n4tlk"), SubResource("Resource_hroca"), SubResource("Resource_vw0ri"), SubResource("Resource_30j52"), SubResource("Resource_mgv2c"), SubResource("Resource_42qyv"), SubResource("Resource_8g1np"), SubResource("Resource_nak7f"), SubResource("Resource_nyj4m"), SubResource("Resource_crnl7"), SubResource("Resource_282px"), SubResource("Resource_j572s"), SubResource("Resource_hxqs8"), SubResource("Resource_rgb7k"), SubResource("Resource_b02q1"), SubResource("Resource_ok5aq"), SubResource("Resource_hjr8s"), SubResource("Resource_bknqt"), SubResource("Resource_1kl8n"), SubResource("Resource_qm4xw"), SubResource("Resource_nu8to")])
 metadata/_custom_type_script = "uid://chrsg1fc53qs3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_slash_down"]
@@ -3692,7 +4328,7 @@ visible = false
 collision_layer = 8388612
 collision_mask = 32
 script = ExtResource("8_bi3sa")
-actions = Array[ExtResource("9_bi3sa")]([SubResource("Resource_cpfru"), SubResource("Resource_bi3sa"), SubResource("Resource_3y3uq"), SubResource("Resource_xb3b7"), SubResource("Resource_kwnpx"), SubResource("Resource_2hfin"), SubResource("Resource_0wp2j"), SubResource("Resource_hs62l"), SubResource("Resource_xfrxj"), SubResource("Resource_6kbip"), SubResource("Resource_otv5e"), SubResource("Resource_kirah"), SubResource("Resource_yf68y"), SubResource("Resource_h4y7o"), SubResource("Resource_eq0dc"), SubResource("Resource_3714p"), SubResource("Resource_qsol8"), SubResource("Resource_gqqn2"), SubResource("Resource_qb0u7"), SubResource("Resource_bbfe1"), SubResource("Resource_pqbsa"), SubResource("Resource_fanfg"), SubResource("Resource_6mveh"), SubResource("Resource_1y4qh"), SubResource("Resource_v5hv3"), SubResource("Resource_xla4k"), SubResource("Resource_trpxm"), SubResource("Resource_xqbu3"), SubResource("Resource_6jjp7"), SubResource("Resource_rw4fc"), SubResource("Resource_w1yul"), SubResource("Resource_y20te"), SubResource("Resource_rna05"), SubResource("Resource_43jnu"), SubResource("Resource_6emft"), SubResource("Resource_kf620"), SubResource("Resource_0r216"), SubResource("Resource_ur67c"), SubResource("Resource_p0pm0"), SubResource("Resource_twul7"), SubResource("Resource_anwq2"), SubResource("Resource_ym7t5"), SubResource("Resource_g4088"), SubResource("Resource_kl21t"), SubResource("Resource_a0krs"), SubResource("Resource_bcwac"), SubResource("Resource_em0ta"), SubResource("Resource_qqekm"), SubResource("Resource_c8lk0"), SubResource("Resource_2tyxv"), SubResource("Resource_sbpc8"), SubResource("Resource_778et"), SubResource("Resource_hs81y"), SubResource("Resource_qa0qn"), SubResource("Resource_ayl2n"), SubResource("Resource_y4081"), SubResource("Resource_7v0a6"), SubResource("Resource_70bjc"), SubResource("Resource_l44hf"), SubResource("Resource_8mmu4"), SubResource("Resource_o0okx"), SubResource("Resource_lwenv"), SubResource("Resource_2sgmq"), SubResource("Resource_oiqvw"), SubResource("Resource_yk2xp"), SubResource("Resource_8516w"), SubResource("Resource_3m3gv"), SubResource("Resource_cgpmb"), SubResource("Resource_0cq76"), SubResource("Resource_6tnlu"), SubResource("Resource_ormbo"), SubResource("Resource_odseg"), SubResource("Resource_whtgr"), SubResource("Resource_c3oto"), SubResource("Resource_0hpu2"), SubResource("Resource_r66rs"), SubResource("Resource_svd3k"), SubResource("Resource_clqjp"), SubResource("Resource_kom1c"), SubResource("Resource_mse73"), SubResource("Resource_hs80a"), SubResource("Resource_3jn0p"), SubResource("Resource_tnbwo"), SubResource("Resource_8s8v1"), SubResource("Resource_ovqrr"), SubResource("Resource_rdr2k"), SubResource("Resource_qj3r6"), SubResource("Resource_osdcx"), SubResource("Resource_y4lor"), SubResource("Resource_4j60n"), SubResource("Resource_ptxjw"), SubResource("Resource_5ffgc"), SubResource("Resource_64qa1"), SubResource("Resource_gquno"), SubResource("Resource_gnsst"), SubResource("Resource_aimhm"), SubResource("Resource_4du57"), SubResource("Resource_pj5hn"), SubResource("Resource_8qoyq"), SubResource("Resource_xiv44"), SubResource("Resource_pweel"), SubResource("Resource_8dekx"), SubResource("Resource_uhhr3")])
+actions = Array[ExtResource("9_bi3sa")]([SubResource("Resource_cpfru"), SubResource("Resource_bi3sa"), SubResource("Resource_3y3uq"), SubResource("Resource_xb3b7"), SubResource("Resource_kwnpx"), SubResource("Resource_2hfin"), SubResource("Resource_0wp2j"), SubResource("Resource_hs62l"), SubResource("Resource_xfrxj"), SubResource("Resource_6kbip"), SubResource("Resource_otv5e"), SubResource("Resource_kirah"), SubResource("Resource_yf68y"), SubResource("Resource_h4y7o"), SubResource("Resource_eq0dc"), SubResource("Resource_3714p"), SubResource("Resource_qsol8"), SubResource("Resource_gqqn2"), SubResource("Resource_qb0u7"), SubResource("Resource_bbfe1"), SubResource("Resource_pqbsa"), SubResource("Resource_fanfg"), SubResource("Resource_6mveh"), SubResource("Resource_1y4qh"), SubResource("Resource_v5hv3"), SubResource("Resource_xla4k"), SubResource("Resource_trpxm"), SubResource("Resource_xqbu3"), SubResource("Resource_6jjp7"), SubResource("Resource_rw4fc"), SubResource("Resource_w1yul"), SubResource("Resource_y20te"), SubResource("Resource_rna05"), SubResource("Resource_43jnu"), SubResource("Resource_6emft"), SubResource("Resource_kf620"), SubResource("Resource_0r216"), SubResource("Resource_ur67c"), SubResource("Resource_p0pm0"), SubResource("Resource_twul7"), SubResource("Resource_anwq2"), SubResource("Resource_ym7t5"), SubResource("Resource_g4088"), SubResource("Resource_kl21t"), SubResource("Resource_a0krs"), SubResource("Resource_bcwac"), SubResource("Resource_em0ta"), SubResource("Resource_qqekm"), SubResource("Resource_c8lk0"), SubResource("Resource_2tyxv"), SubResource("Resource_sbpc8"), SubResource("Resource_778et"), SubResource("Resource_hs81y"), SubResource("Resource_qa0qn"), SubResource("Resource_ayl2n"), SubResource("Resource_y4081"), SubResource("Resource_7v0a6"), SubResource("Resource_70bjc"), SubResource("Resource_l44hf"), SubResource("Resource_8mmu4"), SubResource("Resource_o0okx"), SubResource("Resource_lwenv"), SubResource("Resource_2sgmq"), SubResource("Resource_oiqvw"), SubResource("Resource_yk2xp"), SubResource("Resource_8516w"), SubResource("Resource_3m3gv"), SubResource("Resource_cgpmb"), SubResource("Resource_0cq76"), SubResource("Resource_6tnlu"), SubResource("Resource_ormbo"), SubResource("Resource_odseg"), SubResource("Resource_whtgr"), SubResource("Resource_c3oto"), SubResource("Resource_0hpu2"), SubResource("Resource_r66rs"), SubResource("Resource_svd3k"), SubResource("Resource_clqjp"), SubResource("Resource_kom1c"), SubResource("Resource_mse73"), SubResource("Resource_hs80a"), SubResource("Resource_3jn0p"), SubResource("Resource_tnbwo"), SubResource("Resource_8s8v1"), SubResource("Resource_ovqrr"), SubResource("Resource_rdr2k"), SubResource("Resource_qj3r6"), SubResource("Resource_osdcx"), SubResource("Resource_y4lor"), SubResource("Resource_4j60n"), SubResource("Resource_ptxjw"), SubResource("Resource_5ffgc"), SubResource("Resource_64qa1"), SubResource("Resource_gquno"), SubResource("Resource_gnsst"), SubResource("Resource_aimhm"), SubResource("Resource_4du57"), SubResource("Resource_pj5hn"), SubResource("Resource_8qoyq"), SubResource("Resource_xiv44"), SubResource("Resource_pweel"), SubResource("Resource_8dekx"), SubResource("Resource_uhhr3"), SubResource("Resource_6qqg8"), SubResource("Resource_o7hvl"), SubResource("Resource_bvwk7"), SubResource("Resource_hovr5"), SubResource("Resource_hx5ld"), SubResource("Resource_opiri"), SubResource("Resource_bmlv8"), SubResource("Resource_nk7u5"), SubResource("Resource_a8rnp"), SubResource("Resource_4b1lm"), SubResource("Resource_h5on0"), SubResource("Resource_q05ja"), SubResource("Resource_jvq80"), SubResource("Resource_fn335"), SubResource("Resource_rtdsx")])
 metadata/_custom_type_script = "uid://chrsg1fc53qs3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_smash_left"]
@@ -3705,7 +4341,7 @@ visible = false
 collision_layer = 8388612
 collision_mask = 32
 script = ExtResource("8_bi3sa")
-actions = Array[ExtResource("9_bi3sa")]([SubResource("Resource_cpfru"), SubResource("Resource_bi3sa"), SubResource("Resource_3y3uq"), SubResource("Resource_xb3b7"), SubResource("Resource_kwnpx"), SubResource("Resource_2hfin"), SubResource("Resource_0wp2j"), SubResource("Resource_hs62l"), SubResource("Resource_xfrxj"), SubResource("Resource_6kbip"), SubResource("Resource_otv5e"), SubResource("Resource_kirah"), SubResource("Resource_yf68y"), SubResource("Resource_h4y7o"), SubResource("Resource_eq0dc"), SubResource("Resource_3714p"), SubResource("Resource_qsol8"), SubResource("Resource_gqqn2"), SubResource("Resource_qb0u7"), SubResource("Resource_bbfe1"), SubResource("Resource_do8v2"), SubResource("Resource_w817k"), SubResource("Resource_jqvsd"), SubResource("Resource_1vkxb"), SubResource("Resource_tbxrg"), SubResource("Resource_ej802"), SubResource("Resource_8vfjl"), SubResource("Resource_inwve"), SubResource("Resource_kj13h"), SubResource("Resource_5ti6s"), SubResource("Resource_nfulh"), SubResource("Resource_iiith"), SubResource("Resource_wheje"), SubResource("Resource_2b6qx"), SubResource("Resource_nmw2a"), SubResource("Resource_cdxtv"), SubResource("Resource_2vv71"), SubResource("Resource_wvdpy"), SubResource("Resource_eadyq"), SubResource("Resource_2t0wc"), SubResource("Resource_msm0p"), SubResource("Resource_y32s4"), SubResource("Resource_caxnv"), SubResource("Resource_7djd0"), SubResource("Resource_7n6qc"), SubResource("Resource_lewyq"), SubResource("Resource_cb5vb"), SubResource("Resource_d5yb5"), SubResource("Resource_6u11u"), SubResource("Resource_1u2cf"), SubResource("Resource_curxp"), SubResource("Resource_en5fp"), SubResource("Resource_4cylu"), SubResource("Resource_5riri"), SubResource("Resource_xdvgj"), SubResource("Resource_ukbdn"), SubResource("Resource_ikol3"), SubResource("Resource_lyghd"), SubResource("Resource_wux4i"), SubResource("Resource_fafu6"), SubResource("Resource_h5y0s"), SubResource("Resource_163j1"), SubResource("Resource_578k5"), SubResource("Resource_v07wy"), SubResource("Resource_ou4lw"), SubResource("Resource_jcepa"), SubResource("Resource_sjvd8"), SubResource("Resource_wtpwn"), SubResource("Resource_x16mx"), SubResource("Resource_vd71r"), SubResource("Resource_eyvl7"), SubResource("Resource_6tmrm"), SubResource("Resource_dwsed"), SubResource("Resource_0no7a"), SubResource("Resource_gowsn"), SubResource("Resource_3ewht"), SubResource("Resource_srbfp"), SubResource("Resource_tbwfj"), SubResource("Resource_3kgiv"), SubResource("Resource_wpgqm"), SubResource("Resource_7ecn8"), SubResource("Resource_44d7c"), SubResource("Resource_1kqk3"), SubResource("Resource_xxqlr"), SubResource("Resource_2pnln"), SubResource("Resource_5b18w"), SubResource("Resource_t6ll0"), SubResource("Resource_3n13b"), SubResource("Resource_muoil"), SubResource("Resource_kt5gd"), SubResource("Resource_kudsx"), SubResource("Resource_sf8c0"), SubResource("Resource_3mfql"), SubResource("Resource_6cocb"), SubResource("Resource_5arke"), SubResource("Resource_hdwi8"), SubResource("Resource_6teia"), SubResource("Resource_p3jgl"), SubResource("Resource_5nga0"), SubResource("Resource_0u5of"), SubResource("Resource_8flyf"), SubResource("Resource_um6mx"), SubResource("Resource_4c66i"), SubResource("Resource_sxp4p")])
+actions = Array[ExtResource("9_bi3sa")]([SubResource("Resource_cpfru"), SubResource("Resource_bi3sa"), SubResource("Resource_3y3uq"), SubResource("Resource_xb3b7"), SubResource("Resource_kwnpx"), SubResource("Resource_2hfin"), SubResource("Resource_0wp2j"), SubResource("Resource_hs62l"), SubResource("Resource_xfrxj"), SubResource("Resource_6kbip"), SubResource("Resource_otv5e"), SubResource("Resource_kirah"), SubResource("Resource_yf68y"), SubResource("Resource_h4y7o"), SubResource("Resource_eq0dc"), SubResource("Resource_3714p"), SubResource("Resource_qsol8"), SubResource("Resource_gqqn2"), SubResource("Resource_qb0u7"), SubResource("Resource_bbfe1"), SubResource("Resource_do8v2"), SubResource("Resource_w817k"), SubResource("Resource_jqvsd"), SubResource("Resource_1vkxb"), SubResource("Resource_tbxrg"), SubResource("Resource_ej802"), SubResource("Resource_8vfjl"), SubResource("Resource_inwve"), SubResource("Resource_kj13h"), SubResource("Resource_5ti6s"), SubResource("Resource_nfulh"), SubResource("Resource_iiith"), SubResource("Resource_wheje"), SubResource("Resource_2b6qx"), SubResource("Resource_nmw2a"), SubResource("Resource_cdxtv"), SubResource("Resource_2vv71"), SubResource("Resource_wvdpy"), SubResource("Resource_eadyq"), SubResource("Resource_2t0wc"), SubResource("Resource_msm0p"), SubResource("Resource_y32s4"), SubResource("Resource_caxnv"), SubResource("Resource_7djd0"), SubResource("Resource_7n6qc"), SubResource("Resource_lewyq"), SubResource("Resource_cb5vb"), SubResource("Resource_d5yb5"), SubResource("Resource_6u11u"), SubResource("Resource_1u2cf"), SubResource("Resource_curxp"), SubResource("Resource_en5fp"), SubResource("Resource_4cylu"), SubResource("Resource_5riri"), SubResource("Resource_xdvgj"), SubResource("Resource_ukbdn"), SubResource("Resource_ikol3"), SubResource("Resource_lyghd"), SubResource("Resource_wux4i"), SubResource("Resource_fafu6"), SubResource("Resource_h5y0s"), SubResource("Resource_163j1"), SubResource("Resource_578k5"), SubResource("Resource_v07wy"), SubResource("Resource_ou4lw"), SubResource("Resource_jcepa"), SubResource("Resource_sjvd8"), SubResource("Resource_wtpwn"), SubResource("Resource_x16mx"), SubResource("Resource_vd71r"), SubResource("Resource_eyvl7"), SubResource("Resource_6tmrm"), SubResource("Resource_dwsed"), SubResource("Resource_0no7a"), SubResource("Resource_gowsn"), SubResource("Resource_3ewht"), SubResource("Resource_srbfp"), SubResource("Resource_tbwfj"), SubResource("Resource_3kgiv"), SubResource("Resource_wpgqm"), SubResource("Resource_7ecn8"), SubResource("Resource_44d7c"), SubResource("Resource_1kqk3"), SubResource("Resource_xxqlr"), SubResource("Resource_2pnln"), SubResource("Resource_5b18w"), SubResource("Resource_t6ll0"), SubResource("Resource_3n13b"), SubResource("Resource_muoil"), SubResource("Resource_kt5gd"), SubResource("Resource_kudsx"), SubResource("Resource_sf8c0"), SubResource("Resource_3mfql"), SubResource("Resource_6cocb"), SubResource("Resource_5arke"), SubResource("Resource_hdwi8"), SubResource("Resource_6teia"), SubResource("Resource_p3jgl"), SubResource("Resource_5nga0"), SubResource("Resource_0u5of"), SubResource("Resource_8flyf"), SubResource("Resource_um6mx"), SubResource("Resource_4c66i"), SubResource("Resource_sxp4p"), SubResource("Resource_pv55m"), SubResource("Resource_3dkbp"), SubResource("Resource_14eqd"), SubResource("Resource_u6xdm"), SubResource("Resource_2gi1u"), SubResource("Resource_sdfst"), SubResource("Resource_m7i8j"), SubResource("Resource_1aqr3"), SubResource("Resource_4kw7c"), SubResource("Resource_itkbc"), SubResource("Resource_sxprh"), SubResource("Resource_a8xsa"), SubResource("Resource_fnacw"), SubResource("Resource_dafth"), SubResource("Resource_buhy0")])
 metadata/_custom_type_script = "uid://chrsg1fc53qs3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_smash_right"]

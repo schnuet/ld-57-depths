@@ -1,0 +1,206 @@
+[gd_scene load_steps=45 format=3 uid="uid://b41fu1evkx8je"]
+
+[ext_resource type="Script" uid="uid://c1sdhgs6cgfio" path="res://enemies/Boss/boss.gd" id="1_vb1ri"]
+[ext_resource type="Texture2D" uid="uid://bgsy3osmb53w1" path="res://enemies/Boss/animations/idle/01 Idle_00000.png" id="2_7wdbc"]
+[ext_resource type="Script" uid="uid://dr8bvnfebp76" path="res://addons/health_hitbox_hurtbox/health/health.gd" id="2_vj4fe"]
+[ext_resource type="Texture2D" uid="uid://csmmrcitk8134" path="res://enemies/Boss/animations/idle/01 Idle_00001.png" id="3_yalvr"]
+[ext_resource type="Texture2D" uid="uid://chf4ugwdibc1h" path="res://enemies/Boss/animations/idle/01 Idle_00002.png" id="4_vw0p4"]
+[ext_resource type="Texture2D" uid="uid://m104a3nfdnvw" path="res://enemies/Boss/animations/idle/01 Idle_00003.png" id="5_vj4fe"]
+[ext_resource type="Texture2D" uid="uid://cfgwwue83w7to" path="res://enemies/Boss/animations/idle/01 Idle_00004.png" id="6_w4uqg"]
+[ext_resource type="Texture2D" uid="uid://c8xg56uhpqs4m" path="res://enemies/Boss/animations/idle/01 Idle_00005.png" id="7_tw6mn"]
+[ext_resource type="Texture2D" uid="uid://bn1lcire3ntx0" path="res://enemies/Boss/animations/idle/01 Idle_00006.png" id="8_vmky8"]
+[ext_resource type="Texture2D" uid="uid://br7xj8ir8j3e1" path="res://enemies/Boss/animations/idle/01 Idle_00007.png" id="9_q7flq"]
+[ext_resource type="Texture2D" uid="uid://c8lcxsw24qjtf" path="res://enemies/Boss/animations/idle/01 Idle_00008.png" id="10_3lacx"]
+[ext_resource type="Texture2D" uid="uid://dtyofvkm3oyjh" path="res://enemies/Boss/animations/idle/01 Idle_00009.png" id="11_hwh5b"]
+[ext_resource type="Texture2D" uid="uid://bpm4hn41c8lsn" path="res://enemies/Boss/animations/idle/01 Idle_00010.png" id="12_1hb6s"]
+[ext_resource type="Texture2D" uid="uid://cwru1orhoexmg" path="res://enemies/Boss/animations/idle/01 Idle_00011.png" id="13_tlr85"]
+[ext_resource type="Texture2D" uid="uid://e2v7myrfjp7n" path="res://enemies/Boss/animations/idle/01 Idle_00012.png" id="14_hv7nw"]
+[ext_resource type="Texture2D" uid="uid://csgoyebg0nryb" path="res://enemies/Boss/animations/idle/01 Idle_00013.png" id="15_8c6fj"]
+[ext_resource type="Texture2D" uid="uid://c6jypdnpcww4x" path="res://enemies/Boss/animations/idle/01 Idle_00014.png" id="16_snryk"]
+[ext_resource type="Texture2D" uid="uid://d4kx05sw5y2bb" path="res://enemies/Boss/animations/idle/01 Idle_00015.png" id="17_jh63l"]
+[ext_resource type="Texture2D" uid="uid://dd2snlc3jcc2x" path="res://enemies/Boss/animations/idle/01 Idle_00016.png" id="18_tw1u5"]
+[ext_resource type="Texture2D" uid="uid://xtpaqb8m4a3l" path="res://enemies/Boss/animations/idle/01 Idle_00017.png" id="19_l76dl"]
+[ext_resource type="Texture2D" uid="uid://cbah18wvilvnu" path="res://enemies/Boss/animations/idle/01 Idle_00018.png" id="20_c01u4"]
+[ext_resource type="Texture2D" uid="uid://bdk38dnnorsnq" path="res://enemies/Boss/animations/idle/01 Idle_00019.png" id="21_3b01t"]
+[ext_resource type="Texture2D" uid="uid://cemtwp6ckw87l" path="res://enemies/Boss/animations/idle/01 Idle_00020.png" id="22_r0m1m"]
+[ext_resource type="Texture2D" uid="uid://botft6t6wmpwh" path="res://enemies/Boss/animations/idle/01 Idle_00021.png" id="23_6qft8"]
+[ext_resource type="Texture2D" uid="uid://caisx5glgb5fu" path="res://enemies/Boss/animations/idle/01 Idle_00022.png" id="24_cttcv"]
+[ext_resource type="Texture2D" uid="uid://c1qomt6pw1ukr" path="res://enemies/Boss/animations/idle/01 Idle_00023.png" id="25_qihxp"]
+[ext_resource type="Texture2D" uid="uid://dxrcpbn6gtbre" path="res://enemies/Boss/animations/idle/01 Idle_00024.png" id="26_6b6nm"]
+[ext_resource type="Texture2D" uid="uid://bwch54wgbsly4" path="res://enemies/Boss/animations/idle/01 Idle_00025.png" id="27_4qgdp"]
+[ext_resource type="Texture2D" uid="uid://b1afk3o2wlmuk" path="res://enemies/Boss/animations/idle/01 Idle_00026.png" id="28_0yl5w"]
+[ext_resource type="Texture2D" uid="uid://nw56brcfntq" path="res://enemies/Boss/animations/idle/01 Idle_00027.png" id="29_8351h"]
+[ext_resource type="Texture2D" uid="uid://sq13sdk5ftth" path="res://enemies/Boss/animations/idle/01 Idle_00028.png" id="30_4s78q"]
+[ext_resource type="Texture2D" uid="uid://bluw71kimflb4" path="res://enemies/Boss/animations/idle/01 Idle_00029.png" id="31_k0jys"]
+[ext_resource type="Texture2D" uid="uid://rfb11wpv1wta" path="res://enemies/Boss/animations/idle/01 Idle_00030.png" id="32_ua6qq"]
+[ext_resource type="Texture2D" uid="uid://bpwn58ba1n5f8" path="res://enemies/Boss/animations/idle/01 Idle_00031.png" id="33_d7g4l"]
+[ext_resource type="Texture2D" uid="uid://bdx4uaullv7k6" path="res://enemies/Boss/animations/idle/01 Idle_00032.png" id="34_asc3u"]
+[ext_resource type="Texture2D" uid="uid://bne83ks8s5ahv" path="res://enemies/Boss/animations/idle/01 Idle_00033.png" id="35_fk4vf"]
+[ext_resource type="Texture2D" uid="uid://c0x7oxuyljmno" path="res://enemies/Boss/animations/idle/01 Idle_00034.png" id="36_5v703"]
+[ext_resource type="Script" uid="uid://dtfoilkdcfvgv" path="res://addons/health_hitbox_hurtbox/2d/hurt_box_2d/basic_hurt_box_2d.gd" id="37_vw0p4"]
+[ext_resource type="Script" uid="uid://cobp4qehnuq77" path="res://addons/health_hitbox_hurtbox/resources/modifier.gd" id="38_vj4fe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vb1ri"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vb1ri"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7wdbc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_yalvr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vw0p4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vj4fe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_w4uqg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_tw6mn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vmky8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_q7flq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_3lacx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_hwh5b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_1hb6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_tlr85")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_hv7nw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_8c6fj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_snryk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_jh63l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_tw1u5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_l76dl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_c01u4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_3b01t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_r0m1m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_6qft8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_cttcv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_qihxp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_6b6nm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_4qgdp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_0yl5w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_8351h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_4s78q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_k0jys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_ua6qq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_d7g4l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_asc3u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_fk4vf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_5v703")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="Resource" id="Resource_vj4fe"]
+script = ExtResource("38_vj4fe")
+incrementer = 0
+multiplier = 1.0
+convert_affect = 0
+convert_type = 0
+
+[sub_resource type="Resource" id="Resource_w4uqg"]
+script = ExtResource("38_vj4fe")
+incrementer = 0
+multiplier = 1.0
+convert_affect = 0
+convert_type = 0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vmky8"]
+radius = 128.0
+
+[node name="Boss" type="CharacterBody2D"]
+collision_layer = 2147483648
+collision_mask = 0
+script = ExtResource("1_vb1ri")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_vj4fe")
+current = 10
+max = 10
+metadata/_custom_type_script = "uid://dr8bvnfebp76"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vb1ri")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vb1ri")
+
+[node name="BasicHurtBox2D" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+collision_layer = 32
+collision_mask = 4
+script = ExtResource("37_vw0p4")
+health = NodePath("../Health")
+modifiers = Dictionary[int, ExtResource("38_vj4fe")]({
+1: SubResource("Resource_w4uqg"),
+2: SubResource("Resource_vj4fe")
+})
+metadata/_custom_type_script = "uid://dtfoilkdcfvgv"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BasicHurtBox2D"]
+shape = SubResource("CircleShape2D_vmky8")
+
+[connection signal="damaged" from="Health" to="." method="_on_health_damaged"]

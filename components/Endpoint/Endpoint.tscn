@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw24h4ypqej1h"]
+
+[ext_resource type="Script" uid="uid://cwaksi124jhdv" path="res://components/Endpoint/endpoint.gd" id="1_6uu8u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mo3y8"]
+size = Vector2(256, 192)
+
+[node name="Endpoint" type="Area2D"]
+collision_layer = 2147483648
+collision_mask = 16
+script = ExtResource("1_6uu8u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(128, 96)
+shape = SubResource("RectangleShape2D_mo3y8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
