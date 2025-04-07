@@ -93,27 +93,35 @@ func enter_stage(new_stage: Stage):
 		
 		enter_stage(Stage.FLOATING_PROJECTILES);
 	
+
+
 	if new_stage == Stage.FLOATING_PROJECTILES:
 		print("enter stage floating projectiles");
 		
 		var move_tween = get_tree().create_tween();
-		move_tween.tween_property(boss, "position", Vector2(960, 256), 0.3);
+		move_tween.tween_property(boss, "position", Vector2(960, 256), 0.5);
 		await move_tween.finished;
 		player.enabled = true;
 		
 		shake_rumble.play_shake();
-		shake_rumble.shake_finished;
-		
+
+		var non_floating_projectiles = get_non_floating_projectiles();
 		var missing_floating_rocks = 8 - floating_projectiles.size();
 		
-		for projectile in active_projectiles:
-			if not floating_projectiles.has(projectile):
-				floating_projectiles.append(projectile);
+		while missing_floating_rocks > 0:
+			if non_floating_projectiles.size() == 0:
+				break;
+			
+			# get a random projectile from the non floating projectiles
+			var random_index = randi_range(0, non_floating_projectiles.size() - 1);
+			var random_projectile = non_floating_projectiles[random_index];
+
+			floating_projectiles.append(random_projectile);
+			non_floating_projectiles.remove(random_projectile);
 		
 		#active_projectiles.clear();
 		
-		var amount = floating_projectiles.size();
-		var section_degrees = 360 / (amount + 4);
+		var section_degrees = 30; # 360 / 12;
 		var offset = randi_range(0, 360);
 		
 		var index = 0;
@@ -157,8 +165,13 @@ func enter_stage(new_stage: Stage):
 		enter_stage(next_state);
 
 
-func take_random_active_projectile():
+func get_non_floating_projectiles():
 	var non_floating_projectiles = [];
+	for projectile in active_projectiles:
+		if not floating_projectiles.has(projectile):
+			non_floating_projectiles.append(projectile);
+	return non_floating_projectiles;
+
 
 func make_turning(projectile: Node2D):
 	projectile.moving_around_center = true;
