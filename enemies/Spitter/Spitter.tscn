@@ -1,10 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://hvhc1se8n78j"]
+[gd_scene load_steps=18 format=3 uid="uid://hvhc1se8n78j"]
 
 [ext_resource type="Script" uid="uid://f6paob8dsqvt" path="res://enemies/Spitter/spitter.gd" id="1_o4d81"]
 [ext_resource type="Script" uid="uid://dr8bvnfebp76" path="res://addons/health_hitbox_hurtbox/health/health.gd" id="2_fdpw6"]
 [ext_resource type="PackedScene" uid="uid://bfvvc1f6rf8gv" path="res://components/HealthBar/HealthBar.tscn" id="3_sef37"]
 [ext_resource type="Script" uid="uid://dtfoilkdcfvgv" path="res://addons/health_hitbox_hurtbox/2d/hurt_box_2d/basic_hurt_box_2d.gd" id="4_ie3dq"]
 [ext_resource type="Script" uid="uid://cobp4qehnuq77" path="res://addons/health_hitbox_hurtbox/resources/modifier.gd" id="5_r7ge4"]
+[ext_resource type="Texture2D" uid="uid://bom7qa6mjcy57" path="res://enemies/Spitter/spit/01 Spucki_00000.png" id="6_eyp17"]
+[ext_resource type="Texture2D" uid="uid://csvfdp7ai0ow6" path="res://enemies/Spitter/spit/01 Spucki_00001.png" id="7_eji7b"]
+[ext_resource type="Texture2D" uid="uid://dyq3203wlcgeo" path="res://enemies/Spitter/spit/01 Spucki_00002.png" id="8_g1hkq"]
+[ext_resource type="Texture2D" uid="uid://bra02lvhpmot5" path="res://enemies/Spitter/spit/01 Spucki_00003.png" id="9_lb66b"]
+[ext_resource type="Texture2D" uid="uid://1tdi2yhst4i5" path="res://enemies/Spitter/spit/01 Spucki_00004.png" id="10_0k6li"]
+[ext_resource type="Texture2D" uid="uid://de2iw0wimsiqw" path="res://enemies/Spitter/spit/01 Spucki_00005.png" id="11_ka1g5"]
+[ext_resource type="Texture2D" uid="uid://y5n1nmselnns" path="res://enemies/Spitter/spit/01 Spucki_00006.png" id="12_ku4a0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fdpw6"]
 size = Vector2(50, 50)
@@ -25,6 +32,35 @@ convert_type = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrlf0"]
 size = Vector2(70, 70)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fdpw6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_eyp17")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_eji7b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_g1hkq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_lb66b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_0k6li")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ka1g5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ku4a0")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
 
 [node name="Spitter" type="CharacterBody2D"]
 collision_layer = 256
@@ -63,6 +99,10 @@ shape = SubResource("RectangleShape2D_xrlf0")
 
 [node name="attack_timer" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fdpw6")
+offset = Vector2(36, -18.105)
 
 [connection signal="damaged" from="Health" to="." method="_on_health_damaged"]
 [connection signal="died" from="Health" to="." method="_on_health_died"]

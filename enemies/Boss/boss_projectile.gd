@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var animated_sprite = $AnimatedSprite2D;
 
 var floating = true;
+var thrown = false;
 var moving_around_center = false;
 var center: Node2D;
 
@@ -23,6 +24,11 @@ func _physics_process(delta: float) -> void:
 		
 		turnaround_circle_offset = (turnaround_circle_offset + 1) % 360;
 		var angle = deg_to_rad(turnaround_circle_offset);
+		if center == null:
+			moving_around_center = false;
+			floating = false;
+			return;
+			
 		var x = center.global_position.x + cos(angle) * DISTANCE_TO_CENTER;
 		var y = center.global_position.y + sin(angle) * DISTANCE_TO_CENTER;
 		var wanted_position = Vector2(x, y);
@@ -37,8 +43,10 @@ func _physics_process(delta: float) -> void:
 	
 	animated_sprite.animation = "flying";
 	
-	velocity = Vector2(0, randi_range(500, 600)) * delta;
+	velocity += Vector2(0, randi_range(250, 300)) * delta;
 	
-	var collision = move_and_collide(velocity);
+	var collision = move_and_collide(velocity * delta);
 	if collision != null:
+		if thrown:
+			queue_free();
 		floating = true;

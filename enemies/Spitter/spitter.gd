@@ -4,6 +4,7 @@ var shots_available = 0;
 
 var Projectile = preload("res://enemies/Projectile/Projectile.tscn");
 @onready var health_bar = $HealthBar;
+@onready var animated_sprite = $AnimatedSprite2D;
 
 @onready var cooldown_timer = $cooldown_timer;
 @onready var attack_timer = $attack_timer;
@@ -36,6 +37,7 @@ func shoot():
 		projectile.velocity = direction * 500;
 		get_parent().add_child(projectile);
 		projectile.global_position = origin;
+		animated_sprite.play("default");
 	else:
 		print("no player!");
 
@@ -45,10 +47,12 @@ func find_player() -> Jumper:
 	if players.size() == 0:
 		return null;
 	return players[0];
-	
+
+
 func get_projectile_origin():
 	return global_position + get_side_offset();
-	
+
+
 func get_side_offset() -> Vector2:
 	if base_side == SIDE.TOP:
 		return Vector2(0, 64);
@@ -86,3 +90,11 @@ func start_timers():
 
 func awaken():
 	start_timers();
+	if base_side == SIDE.RIGHT:
+		animated_sprite.rotation_degrees = 0;
+	elif base_side == SIDE.LEFT:
+		animated_sprite.rotation_degrees = 180;
+	elif base_side == SIDE.BOTTOM:
+		animated_sprite.rotation_degrees = 90;
+	elif base_side == SIDE.TOP:
+		animated_sprite.rotation_degrees = 270;

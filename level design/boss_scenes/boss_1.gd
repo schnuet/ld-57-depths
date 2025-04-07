@@ -15,7 +15,8 @@ enum Stage {
 	TENTACLES,
 	VULNERABLE,
 	FALLING_PROJECTILES,
-	FLOATING_PROJECTILES
+	FLOATING_PROJECTILES,
+	THROWING_PROJECTILES
 }
 
 var in_stage: bool = false;
@@ -26,40 +27,78 @@ const FLOOR_Y = 896;
 var active_projectiles = [];
 var floating_projectiles = [];
 
+var needed_hits = 3;
+
 
 func _ready() -> void:
-	player.enabled = false;
-	enter_stage(Stage.FALLING_PROJECTILES);
 	boss.position = Vector2(930, 560);
+	player.enabled = false;
+	await growl();
+	await wait(0.5);
+	
+	enter_stage(Stage.TENTACLES);
 
 
 func enter_stage(new_stage: Stage):
 	if new_stage == Stage.TENTACLES:
-		in_stage = true;
-		
-		await wait(1);
+		var move_tween = get_tree().create_tween();
+		move_tween.tween_property(boss, "position", Vector2(960, 256), 0.3);
+		await move_tween.finished;
+		player.enabled = true;
 		
 		shake_rumble.play_shake();
 		await shake_rumble.shake_finished;
 		await wait(0.25);
 		
+		if randi_range(1, 2) == 1:
+			add_arm(1600);
+			await wait(1.5);
+			add_arm(1600);
+			await wait(1.5);
+			add_arm(1600);
+		else:
+			add_arm(200);
+			await wait(1.5);
+			add_arm(200);
+			await wait(1.5);
+			add_arm(200);
+		
+		await wait(2);
+		
+		enter_stage(Stage.VULNERABLE);
+	
+	if new_stage == Stage.THROWING_PROJECTILES:
 		var move_tween = get_tree().create_tween();
-		move_tween.tween_property(boss, "position", Vector2(960, 256), 0.3);
+		if randi_range(1, 2) == 1:
+			move_tween.tween_property(boss, "position", Vector2(1500, 256), 0.4);
+		else:
+			move_tween.tween_property(boss, "position", Vector2(384, 320), 0.4);
 		await move_tween.finished;
-		player.enabled = true;
-
-		add_arm(1600);
-		await wait(1.5);
-		add_arm(1600);
-		await wait(1.5);
-		add_arm(1600);
-		await wait(5);
-		add_arm(200);
-		await wait(1.5);
-		add_arm(200);
-		await wait(1.5);
-		add_arm(200);
-		await wait(5);
+		
+		var throws = 3;
+		
+		while throws > 0:
+			if floating_projectiles.size() == 0:
+				break;
+			
+			var projectile = floating_projectiles[randi() % floating_projectiles.size()];
+			floating_projectiles.erase(projectile);
+			projectile.floating = true;
+			projectile.moving_around_center = false;
+			
+			var tween = get_tree().create_tween();
+			tween.tween_property(projectile, "global_position", boss.global_position, 0.2);
+			await tween.finished;
+			
+			var dir = (player.global_position - Vector2(0, 140) - boss.global_position).normalized();
+			projectile.thrown = true;
+			projectile.velocity = dir * 800;
+			projectile.velocity.limit_length(800);
+			projectile.floating = false;
+			
+			
+			throws -= 1;
+			await wait(0.75);
 		
 		enter_stage(Stage.VULNERABLE);
 	
@@ -112,14 +151,16 @@ func enter_stage(new_stage: Stage):
 			if non_floating_projectiles.size() == 0:
 				break;
 			
+			missing_floating_rocks -= 1;
+			
 			# get a random projectile from the non floating projectiles
 			var random_index = randi_range(0, non_floating_projectiles.size() - 1);
 			var random_projectile = non_floating_projectiles[random_index];
 
 			floating_projectiles.append(random_projectile);
-			non_floating_projectiles.remove(random_projectile);
-		
-		#active_projectiles.clear();
+			non_floating_projectiles.erase(random_projectile);
+			active_projectiles.erase(random_projectile);
+	
 		
 		var section_degrees = 30; # 360 / 12;
 		var offset = randi_range(0, 360);
@@ -133,8 +174,10 @@ func enter_stage(new_stage: Stage):
 			var projectile_pos: Vector2;
 
 			var distance = 200;
+			
+			var angle = (section_degrees * index + offset) % 360;
 
-			var angle_radians: float = deg_to_rad(section_degrees * index + offset);
+			var angle_radians: float = deg_to_rad(angle);
 			
 			var adjacent: float = distance * cos(angle_radians)
 			var opposite: float = distance * sin(angle_radians)
@@ -144,7 +187,7 @@ func enter_stage(new_stage: Stage):
 			projectile_pos.y = boss_position.y + opposite;
 			tween.tween_property(projectile, "global_position", projectile_pos, 1);
 			
-			projectile.turnaround_circle_offset = section_degrees * index;
+			projectile.turnaround_circle_offset = angle;
 			
 			projectile.center = boss;
 			index += 1;
@@ -152,18 +195,31 @@ func enter_stage(new_stage: Stage):
 		
 		await wait(3);
 		
-		enter_stage(Stage.VULNERABLE);
+		enter_stage(Stage.THROWING_PROJECTILES);
+	
 	
 	if new_stage == Stage.VULNERABLE:
 		var move_tween = get_tree().create_tween();
-		move_tween.tween_property(boss, "position", Vector2(960, 550), 0.3);
+		if randi_range(1, 2) == 1:
+			move_tween.tween_property(boss, "position", Vector2(1200, 560), 1);
+		else:
+			move_tween.tween_property(boss, "position", Vector2(720, 560), 1);
+		
 		await move_tween.finished;
 		
+		needed_hits = 3;
+		
+		wait(10);
 		await boss_hit_or_time_expired;
 
 		var next_state = get_random_next_state();
 		enter_stage(next_state);
 
+
+func growl():
+	shake_rumble.play_shake();
+	await shake_rumble.shake_finished;
+	await wait(0.25);
 
 func get_non_floating_projectiles():
 	var non_floating_projectiles = [];
@@ -182,12 +238,20 @@ func is_stage_done():
 	
 
 func get_random_next_state():
-	var next_state = randi_range(1, 2);
+	var possible_states = [
+		Stage.TENTACLES
+	];
 	
-	if next_state == 1:
-		return Stage.FALLING_PROJECTILES;
-		
-	return Stage.TENTACLES;
+	if active_projectiles.size() <= 2 and floating_projectiles.size() <= 4:
+		possible_states.append(Stage.FALLING_PROJECTILES);
+
+	if floating_projectiles.size() <= 4 and active_projectiles.size() > 0:
+		possible_states.append(Stage.FLOATING_PROJECTILES);
+	
+	if floating_projectiles.size() > 0:
+		possible_states.append(Stage.THROWING_PROJECTILES);
+	
+	return possible_states[randi_range(0, possible_states.size() - 1)];
 
 
 # TENTACLES
@@ -211,4 +275,8 @@ func _on_wait_timeout():
 	wait_expired.emit();
 
 func _on_boss_was_hit() -> void:
-	boss_hit_or_time_expired.emit()
+	shake_rumble.play_shake();
+	needed_hits -= 1;
+	print("NEEDED HITS ", needed_hits);
+	if needed_hits <= 0:
+		boss_hit_or_time_expired.emit()

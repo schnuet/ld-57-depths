@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://44mejeky0pp8" path="res://music/MusicPlayer.gd" id="1_ygrd7"]
 [ext_resource type="AudioStream" uid="uid://dvuiop7m807dv" path="res://music/Space-Garden-Theme.ogg" id="2_slng5"]
 [ext_resource type="AudioStream" uid="uid://dr4ivh0pyajvj" path="res://music/Space-Garden-Theme-Radio.ogg" id="3_gw7f3"]
-[ext_resource type="AudioStream" uid="uid://ci2ddfwku5ubg" path="res://music/Horror Musik.ogg" id="4_2rvia"]
+[ext_resource type="AudioStream" uid="uid://x6k2yqwh6jaj" path="res://music/Slow Decline.ogg" id="4_2rvia"]
 
 [node name="MusicPlayer" type="Node"]
 script = ExtResource("1_ygrd7")

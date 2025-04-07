@@ -312,7 +312,7 @@ debug_color = Color(0.97853, 0, 0.395442, 0.42)
 position = Vector2(8, -216)
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_gbm8s")
-animation = &"wiggle"
+animation = &"rise"
 
 [node name="cooldown_timer" type="Timer" parent="."]
 one_shot = true

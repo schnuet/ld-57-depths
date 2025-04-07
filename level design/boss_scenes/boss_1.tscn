@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=4 uid="uid://b4tvbchdqatwo"]
+[gd_scene load_steps=15 format=4 uid="uid://b4tvbchdqatwo"]
 
 [ext_resource type="Script" uid="uid://cwylr2w67w0o" path="res://level design/boss_scenes/boss_1.gd" id="1_c1k21"]
 [ext_resource type="TileSet" uid="uid://dld60hu50porp" path="res://level design/base_tileset.tres" id="2_6b3ot"]
+[ext_resource type="Texture2D" uid="uid://bapoau3vul607" path="res://level design/deco/background/IMG_0787.PNG" id="2_r0o1x"]
 [ext_resource type="Script" uid="uid://bj5iukj0scggh" path="res://addons/shaker/src/Vector2/shaker_component2D.gd" id="2_rf4qh"]
 [ext_resource type="Script" uid="uid://bprhp6r4msk2v" path="res://addons/shaker/data/Vector2/BaseShakerType2D.gd" id="3_776vs"]
+[ext_resource type="Texture2D" uid="uid://cho8enonqiwlr" path="res://level design/deco/background/Background.png" id="3_rqj48"]
 [ext_resource type="PackedScene" uid="uid://b41fu1evkx8je" path="res://enemies/Boss/Boss.tscn" id="4_c1k21"]
 [ext_resource type="Script" uid="uid://wbt3t7a5nbfl" path="res://addons/shaker/data/Vector2/ShakerTypeRandom2D.gd" id="4_r0o1x"]
 [ext_resource type="PackedScene" uid="uid://duigv8nwli4ia" path="res://player/Jumper/Jumper.tscn" id="5_7i60n"]
@@ -38,6 +40,14 @@ metadata/_custom_type_script = "uid://hbg4g7c2upf6"
 script = ExtResource("1_c1k21")
 metadata/_edit_lock_ = true
 
+[node name="Img0787" type="Sprite2D" parent="."]
+position = Vector2(984, 520)
+texture = ExtResource("2_r0o1x")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("3_rqj48")
+centered = false
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960.142, 540.491)
 
@@ -59,7 +69,7 @@ MID_AIR_JUMPS = 1
 
 [node name="Boss" parent="." instance=ExtResource("4_c1k21")]
 z_index = 52
-position = Vector2(960, 256)
+position = Vector2(384, 320)
 
 [node name="ForegroundTilemap" type="TileMapLayer" parent="."]
 z_index = 50
@@ -128,5 +138,7 @@ rotation = -1.5708
 [node name="BossProjectile7" parent="projectiles_b" instance=ExtResource("10_776vs")]
 position = Vector2(1504, -160)
 rotation = -1.5708
+
+[node name="Foreground" type="Node2D" parent="."]
 
 [connection signal="was_hit" from="Boss" to="." method="_on_boss_was_hit"]

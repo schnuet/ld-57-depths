@@ -62,7 +62,7 @@ func _on_health_died(_entity: Node) -> void:
 func rise():
 	await get_tree().physics_frame;
 	
-	animated_sprite.frame = 0;
+	animated_sprite.stop();
 	animated_sprite.play("rise");
 	
 	if global_position.x > 960:
