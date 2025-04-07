@@ -140,7 +140,7 @@ func generate_level(min_level_size: int = 30) -> void:
 		for side in blocked_sides:
 			criteria[side] = false;
 		criteria[last_side] = true;
-		print("Blocked: ", blocked_sides);
+		#print("Blocked: ", blocked_sides);
 
 	# Add the last section
 	criteria.erase("min_openings");
@@ -195,7 +195,7 @@ func get_random_level_section(criteria: Dictionary, index: int = 50) -> LevelSec
 	var valid_sections: Array[LevelSection] = [];
 
 	if index <= ORB_2_LEVEL:
-		if criteria["top"] != true:
+		if not criteria.has("top"):
 			criteria["top"] = false;
 
 	for section in sections:
