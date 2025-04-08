@@ -14,12 +14,20 @@ scale = Vector2(0.75, 0.75)
 transform = Transform2D(0.75, 0, 0, 0.75, 0, 0)
 script = ExtResource("1_nlt2t")
 
-[node name="HealthbarHintergrundBoss" type="Sprite2D" parent="."]
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HealthbarHintergrundBoss" type="Sprite2D" parent="Control"]
 position = Vector2(1205.46, 1302.91)
 scale = Vector2(0.651641, 0.651641)
 texture = ExtResource("2_7n67j")
 
-[node name="TextureProgressBar" type="ProgressBar" parent="."]
+[node name="TextureProgressBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
 offset_left = 940.0
 offset_top = 1260.0
 offset_right = 1990.0
@@ -31,7 +39,7 @@ max_value = 5.0
 value = 5.0
 show_percentage = false
 
-[node name="healthbar_boss_outside" type="Sprite2D" parent="."]
+[node name="healthbar_boss_outside" type="Sprite2D" parent="Control"]
 position = Vector2(1206.35, 1302.4)
 scale = Vector2(0.651641, 0.651641)
 texture = ExtResource("4_b7jew")

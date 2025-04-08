@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://b4tvbchdqatwo"]
+[gd_scene load_steps=81 format=4 uid="uid://b4tvbchdqatwo"]
 
 [ext_resource type="Script" uid="uid://cwylr2w67w0o" path="res://level design/boss_scenes/boss_1.gd" id="1_c1k21"]
 [ext_resource type="TileSet" uid="uid://dld60hu50porp" path="res://level design/base_tileset.tres" id="2_6b3ot"]
@@ -12,10 +12,69 @@
 [ext_resource type="Script" uid="uid://nsw1k7n2hdc3" path="res://addons/shaker/data/Single/BaseShakerType1D.gd" id="5_rqj48"]
 [ext_resource type="Script" uid="uid://hbg4g7c2upf6" path="res://addons/shaker/data/Vector2/ShakerPreset2D.gd" id="6_tj8ii"]
 [ext_resource type="PackedScene" uid="uid://d2g0se7bd50qx" path="res://enemies/Boss/BossProjectile.tscn" id="10_776vs"]
+[ext_resource type="Texture2D" uid="uid://d1jiwun1ixyi2" path="res://enemies/Boss/animations/death/10 Death-ENDGEGNER_00000.png" id="12_3576r"]
+[ext_resource type="Texture2D" uid="uid://vi6ug0jka86y" path="res://enemies/Boss/animations/death/10 Death-ENDGEGNER_00001.png" id="13_adyph"]
 [ext_resource type="PackedScene" uid="uid://dp30tk5n2idoy" path="res://gui/Healthbar/HealthbarBoss.tscn" id="13_tj8ii"]
+[ext_resource type="Texture2D" uid="uid://cri42puoja1fg" path="res://enemies/Boss/animations/death/10 Death-ENDGEGNER_00002.png" id="14_pqbnm"]
 [ext_resource type="AudioStream" uid="uid://bdka5o8d5uh3l" path="res://enemies/Boss/sounds/BOSS-Hallo.wav" id="15_8pdho"]
-[ext_resource type="VideoStream" path="res://level design/boss_scenes/02-ENDE.ogv" id="16_g2y0v"]
+[ext_resource type="Texture2D" uid="uid://dou4805i5038g" path="res://enemies/Boss/animations/death/10 Death-ENDGEGNER_00003.png" id="15_uogb0"]
+[ext_resource type="VideoStream" uid="uid://5qaytjataww6" path="res://level design/boss_scenes/02-ENDE.ogv" id="16_g2y0v"]
 [ext_resource type="AudioStream" uid="uid://c30aaeaal28vd" path="res://enemies/Boss/sounds/BOSS-Hit.wav" id="16_mvplk"]
+[ext_resource type="Texture2D" uid="uid://caxo8ru7ni3mg" path="res://enemies/Boss/animations/death/10 Death-ENDGEGNER_00004.png" id="16_va4al"]
+[ext_resource type="Texture2D" uid="uid://d057mes8te1po" path="res://enemies/Boss/animations/death/10 Death-ENDGEGNER_00005.png" id="17_thfit"]
+[ext_resource type="Texture2D" uid="uid://bg4c0mkknoq0a" path="res://enemies/Boss/animations/death/10 Death-ENDGEGNER_00006.png" id="18_5c5c6"]
+[ext_resource type="Texture2D" uid="uid://dmf4261g1ms7s" path="res://enemies/Boss/animations/death/10 Death-ENDGEGNER_00007.png" id="19_67ybi"]
+[ext_resource type="Texture2D" uid="uid://p0jq2hru05wx" path="res://enemies/Boss/animations/death/10 Death-ENDGEGNER_00008.png" id="20_of7j4"]
+[ext_resource type="Texture2D" uid="uid://drean4gbiwpyt" path="res://enemies/Boss/animations/death/10 Death-ENDGEGNER_00009.png" id="21_irouk"]
+[ext_resource type="Texture2D" uid="uid://gxxsqd3m3ycp" path="res://enemies/Boss/animations/death/10 Death-ENDGEGNER_00010.png" id="22_s7ge4"]
+[ext_resource type="Texture2D" uid="uid://cv8lmh721ov61" path="res://enemies/Boss/animations/death/10 Death-ENDGEGNER_00011.png" id="23_djca8"]
+[ext_resource type="Texture2D" uid="uid://4xakqsyvxt70" path="res://enemies/Boss/animations/death/10 Death-ENDGEGNER_00012.png" id="24_eqaqr"]
+[ext_resource type="Texture2D" uid="uid://bf1kutg4qfanh" path="res://enemies/Boss/animations/death/10 Death-ENDGEGNER_00013.png" id="25_05ofd"]
+[ext_resource type="Texture2D" uid="uid://b5ooo4cpjkola" path="res://enemies/Boss/animations/death/10 Death-ENDGEGNER_00014.png" id="26_svhqg"]
+[ext_resource type="Texture2D" uid="uid://85vrog8vnoyq" path="res://enemies/Boss/animations/death/10 Death-ENDGEGNER_00015.png" id="27_s6ly8"]
+[ext_resource type="Texture2D" uid="uid://c7byusdndixk2" path="res://enemies/Boss/animations/death/10 Death-ENDGEGNER_00016.png" id="28_ymvyx"]
+[ext_resource type="Texture2D" uid="uid://8sjqpijjvu8t" path="res://enemies/Boss/animations/death/10 Death-ENDGEGNER_00017.png" id="29_7m01x"]
+[ext_resource type="Texture2D" uid="uid://dx2igtwuhc8lu" path="res://enemies/Boss/animations/death/10 Death-ENDGEGNER_00018.png" id="30_kgv84"]
+[ext_resource type="Texture2D" uid="uid://dfbuivuj26ptp" path="res://enemies/Boss/animations/death/10 Death-ENDGEGNER_00019.png" id="31_g7vjb"]
+[ext_resource type="Texture2D" uid="uid://ddpog2fu75ywi" path="res://enemies/Boss/animations/death/10 Death-ENDGEGNER_00020.png" id="32_npj3i"]
+[ext_resource type="Texture2D" uid="uid://dt1m1prsw8g6c" path="res://enemies/Boss/animations/death/10 Death-ENDGEGNER_00021.png" id="33_4rlep"]
+[ext_resource type="Texture2D" uid="uid://rv267bbhubgn" path="res://enemies/Boss/animations/death/10 Death-ENDGEGNER_00022.png" id="34_hudg0"]
+[ext_resource type="Texture2D" uid="uid://dc6cdfwaf2hqk" path="res://enemies/Boss/animations/death/10 Death-ENDGEGNER_00023.png" id="35_aejaa"]
+[ext_resource type="Texture2D" uid="uid://bgsy3osmb53w1" path="res://enemies/Boss/animations/idle/01 Idle_00000.png" id="36_ieekj"]
+[ext_resource type="Texture2D" uid="uid://csmmrcitk8134" path="res://enemies/Boss/animations/idle/01 Idle_00001.png" id="37_jxkon"]
+[ext_resource type="Texture2D" uid="uid://chf4ugwdibc1h" path="res://enemies/Boss/animations/idle/01 Idle_00002.png" id="38_5flm8"]
+[ext_resource type="Texture2D" uid="uid://m104a3nfdnvw" path="res://enemies/Boss/animations/idle/01 Idle_00003.png" id="39_ki3jx"]
+[ext_resource type="Texture2D" uid="uid://cfgwwue83w7to" path="res://enemies/Boss/animations/idle/01 Idle_00004.png" id="40_skvli"]
+[ext_resource type="Texture2D" uid="uid://c8xg56uhpqs4m" path="res://enemies/Boss/animations/idle/01 Idle_00005.png" id="41_u7054"]
+[ext_resource type="Texture2D" uid="uid://bn1lcire3ntx0" path="res://enemies/Boss/animations/idle/01 Idle_00006.png" id="42_e1m5i"]
+[ext_resource type="Texture2D" uid="uid://br7xj8ir8j3e1" path="res://enemies/Boss/animations/idle/01 Idle_00007.png" id="43_xjiqy"]
+[ext_resource type="Texture2D" uid="uid://c8lcxsw24qjtf" path="res://enemies/Boss/animations/idle/01 Idle_00008.png" id="44_e26fq"]
+[ext_resource type="Texture2D" uid="uid://dtyofvkm3oyjh" path="res://enemies/Boss/animations/idle/01 Idle_00009.png" id="45_4aixk"]
+[ext_resource type="Texture2D" uid="uid://bpm4hn41c8lsn" path="res://enemies/Boss/animations/idle/01 Idle_00010.png" id="46_3nskk"]
+[ext_resource type="Texture2D" uid="uid://cwru1orhoexmg" path="res://enemies/Boss/animations/idle/01 Idle_00011.png" id="47_jnvdt"]
+[ext_resource type="Texture2D" uid="uid://e2v7myrfjp7n" path="res://enemies/Boss/animations/idle/01 Idle_00012.png" id="48_eemdd"]
+[ext_resource type="Texture2D" uid="uid://csgoyebg0nryb" path="res://enemies/Boss/animations/idle/01 Idle_00013.png" id="49_qqijy"]
+[ext_resource type="Texture2D" uid="uid://c6jypdnpcww4x" path="res://enemies/Boss/animations/idle/01 Idle_00014.png" id="50_rlwvh"]
+[ext_resource type="Texture2D" uid="uid://d4kx05sw5y2bb" path="res://enemies/Boss/animations/idle/01 Idle_00015.png" id="51_k1u8m"]
+[ext_resource type="Texture2D" uid="uid://dd2snlc3jcc2x" path="res://enemies/Boss/animations/idle/01 Idle_00016.png" id="52_t6lk0"]
+[ext_resource type="Texture2D" uid="uid://xtpaqb8m4a3l" path="res://enemies/Boss/animations/idle/01 Idle_00017.png" id="53_ljl84"]
+[ext_resource type="Texture2D" uid="uid://cbah18wvilvnu" path="res://enemies/Boss/animations/idle/01 Idle_00018.png" id="54_4s41e"]
+[ext_resource type="Texture2D" uid="uid://bdk38dnnorsnq" path="res://enemies/Boss/animations/idle/01 Idle_00019.png" id="55_mqn36"]
+[ext_resource type="Texture2D" uid="uid://cemtwp6ckw87l" path="res://enemies/Boss/animations/idle/01 Idle_00020.png" id="56_kvyua"]
+[ext_resource type="Texture2D" uid="uid://botft6t6wmpwh" path="res://enemies/Boss/animations/idle/01 Idle_00021.png" id="57_jt6yh"]
+[ext_resource type="Texture2D" uid="uid://caisx5glgb5fu" path="res://enemies/Boss/animations/idle/01 Idle_00022.png" id="58_lcjy2"]
+[ext_resource type="Texture2D" uid="uid://c1qomt6pw1ukr" path="res://enemies/Boss/animations/idle/01 Idle_00023.png" id="59_pe0w6"]
+[ext_resource type="Texture2D" uid="uid://dxrcpbn6gtbre" path="res://enemies/Boss/animations/idle/01 Idle_00024.png" id="60_8ibyc"]
+[ext_resource type="Texture2D" uid="uid://bwch54wgbsly4" path="res://enemies/Boss/animations/idle/01 Idle_00025.png" id="61_0is08"]
+[ext_resource type="Texture2D" uid="uid://b1afk3o2wlmuk" path="res://enemies/Boss/animations/idle/01 Idle_00026.png" id="62_7x5hw"]
+[ext_resource type="Texture2D" uid="uid://nw56brcfntq" path="res://enemies/Boss/animations/idle/01 Idle_00027.png" id="63_gop6w"]
+[ext_resource type="Texture2D" uid="uid://sq13sdk5ftth" path="res://enemies/Boss/animations/idle/01 Idle_00028.png" id="64_8j2yr"]
+[ext_resource type="Texture2D" uid="uid://bluw71kimflb4" path="res://enemies/Boss/animations/idle/01 Idle_00029.png" id="65_gdaha"]
+[ext_resource type="Texture2D" uid="uid://rfb11wpv1wta" path="res://enemies/Boss/animations/idle/01 Idle_00030.png" id="66_emylc"]
+[ext_resource type="Texture2D" uid="uid://bpwn58ba1n5f8" path="res://enemies/Boss/animations/idle/01 Idle_00031.png" id="67_434to"]
+[ext_resource type="Texture2D" uid="uid://bdx4uaullv7k6" path="res://enemies/Boss/animations/idle/01 Idle_00032.png" id="68_iq58m"]
+[ext_resource type="Texture2D" uid="uid://bne83ks8s5ahv" path="res://enemies/Boss/animations/idle/01 Idle_00033.png" id="69_iugbh"]
+[ext_resource type="Texture2D" uid="uid://c0x7oxuyljmno" path="res://enemies/Boss/animations/idle/01 Idle_00034.png" id="70_pob5u"]
 
 [sub_resource type="Resource" id="Resource_aytor"]
 script = ExtResource("4_r0o1x")
@@ -40,6 +99,219 @@ bake_internal = 64
 __follow_timeline = false
 metadata/_custom_type_script = "uid://hbg4g7c2upf6"
 
+[sub_resource type="Resource" id="Resource_352xk"]
+script = ExtResource("4_r0o1x")
+seed = 0
+amplitude = Vector2(6, 6)
+offset = Vector2(0, 0)
+BlendingMode = 0
+fade_in = 0.0
+fade_out = 0.0
+start_percent = 0.0
+end_percent = 1.0
+_temp_graph = false
+bake_internal = 64
+metadata/_custom_type_script = "uid://wbt3t7a5nbfl"
+
+[sub_resource type="Resource" id="Resource_g2y0v"]
+script = ExtResource("6_tj8ii")
+PositionShake = Array[ExtResource("3_776vs")]([SubResource("Resource_352xk")])
+RotationShake = Array[ExtResource("5_rqj48")]([])
+ScaleShake = Array[ExtResource("3_776vs")]([])
+bake_internal = 64
+__follow_timeline = false
+metadata/_custom_type_script = "uid://hbg4g7c2upf6"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n6pbe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_3576r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_adyph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_pqbnm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_uogb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_va4al")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_thfit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_5c5c6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_67ybi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_of7j4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_irouk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_s7ge4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_djca8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_eqaqr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_05ofd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_svhqg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_s6ly8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_ymvyx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_7m01x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_kgv84")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_g7vjb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_npj3i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_4rlep")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_hudg0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_aejaa")
+}],
+"loop": false,
+"name": &"death",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("36_ieekj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_jxkon")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_5flm8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_ki3jx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_skvli")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_u7054")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_e1m5i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_xjiqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_e26fq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_4aixk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_3nskk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_jnvdt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_eemdd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_qqijy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_rlwvh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_k1u8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_t6lk0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_ljl84")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_4s41e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_mqn36")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_kvyua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_jt6yh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_lcjy2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_pe0w6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_8ibyc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_0is08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_7x5hw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_gop6w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_8j2yr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_gdaha")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_emylc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_434to")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_iq58m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_iugbh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_pob5u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
 [node name="BossRoom" type="Node2D"]
 script = ExtResource("1_c1k21")
 metadata/_edit_lock_ = true
@@ -62,6 +334,12 @@ duration = 3.0
 shakerPreset = SubResource("Resource_pq38i")
 metadata/_custom_type_script = "uid://bj5iukj0scggh"
 
+[node name="shake_player_hit" type="Node2D" parent="Camera2D"]
+script = ExtResource("2_rf4qh")
+duration = 0.25
+shakerPreset = SubResource("Resource_g2y0v")
+metadata/_custom_type_script = "uid://bj5iukj0scggh"
+
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 modulate = Color(1, 1, 1, 0.188235)
 tile_map_data = PackedByteArray("AAAcAAAAAAAIAAEAAAAdAAAAAAAJAAIAAAABAAAAAAALAAIAAAAAAAAAAAAJAAIAAAAdAP//AAAKAAAAAAABAP//AAALAAAAAAAAAP//AAAKAAAAAAD//wAAAAAIAAEAAAD//wEAAAAIAAEAAAAAAA8AAAAJAAIAAAAAAAIAAAAJAAIAAAAAAAEAAAAJAAIAAAABABAAAAAJAAIAAAACABAAAAAJAAIAAAADABAAAAAJAAIAAAAEABAAAAAJAAIAAAAFABAAAAAJAAIAAAAGABAAAAAJAAIAAAAHABAAAAAJAAIAAAAIABAAAAAJAAIAAAAJABAAAAAJAAIAAAAMABAAAAAJAAIAAAALABAAAAAJAAIAAAAKABAAAAAJAAIAAAANABAAAAAJAAIAAAAOABAAAAAJAAIAAAAPABAAAAAJAAIAAAAQABAAAAAJAAIAAAARABAAAAAJAAIAAAASABAAAAAJAAIAAAATABAAAAAJAAIAAAAUABAAAAAJAAIAAAAVABAAAAAJAAIAAAAWABAAAAAJAAIAAAAXABAAAAAJAAIAAAAYABAAAAAJAAIAAAAZABAAAAAJAAIAAAAaABAAAAAJAAIAAAAbABAAAAAJAAIAAAAcABAAAAAJAAIAAAAdABAAAAAJAAIAAAAeABAAAAALAAIAAAAdABEAAAAJAAMAAAAcABEAAAAJAAMAAAAbABEAAAAJAAMAAAAaABEAAAAJAAMAAAAZABEAAAAJAAMAAAAYABEAAAAJAAMAAAAXABEAAAAJAAMAAAAWABEAAAAJAAMAAAAVABEAAAAJAAMAAAAUABEAAAAJAAMAAAATABEAAAAJAAMAAAASABEAAAAJAAMAAAARABEAAAAJAAMAAAAQABEAAAAJAAMAAAAPABEAAAAJAAMAAAAOABEAAAAJAAMAAAANABEAAAAJAAMAAAAMABEAAAAJAAMAAAALABEAAAAJAAMAAAAKABEAAAAJAAMAAAAJABEAAAAJAAMAAAAIABEAAAAJAAMAAAADABEAAAAJAAMAAAACABEAAAAJAAMAAAABABEAAAAJAAMAAAAEABEAAAAJAAMAAAAFABEAAAAJAAMAAAAGABEAAAAJAAMAAAAHABEAAAAJAAMAAAABAA8AAAAJAAIAAAAGAA8AAAAJAAIAAAAFAA8AAAAJAAIAAAAEAA8AAAAJAAIAAAADAA8AAAAJAAIAAAACAA8AAAAJAAIAAAABAAIAAAALAAIAAAABAAEAAAALAAIAAAAeAAAAAAALAAIAAAAdAAQAAAAJAAIAAAAeAAQAAAALAAIAAAAeAAMAAAALAAIAAAAeAAIAAAALAAIAAAAeAAEAAAALAAIAAAAdAAEAAAAJAAIAAAAdAAIAAAAJAAIAAAAdAAMAAAAJAAIAAAAcAAEAAAAIAAEAAAAdAAUAAAAJAAIAAAAdAAYAAAAJAAIAAAAdAAcAAAAJAAIAAAAdAAgAAAAJAAIAAAAdAAkAAAAJAAIAAAAdAAoAAAAJAAIAAAAcAA8AAAAJAAIAAAAcAA4AAAAFAAEAAAAdAA8AAAAJAAIAAAAeAA8AAAALAAIAAAAeAA4AAAALAAIAAAAeAA0AAAALAAIAAAAdAA4AAAAJAAIAAAAdAA0AAAAJAAIAAAAeAAwAAAALAAIAAAAeAAsAAAALAAIAAAAdAAsAAAAJAAIAAAAdAAwAAAAJAAIAAAAeAAoAAAALAAIAAAAeAAkAAAALAAIAAAAeAAgAAAALAAIAAAAeAAcAAAALAAIAAAAeAAYAAAALAAIAAAAeAAUAAAALAAIAAAALAA8AAAAJAAIAAAAMAA8AAAAJAAIAAAAMAA4AAAAKAAAAAAANAA8AAAAJAAIAAAAAABEAAAAJAAMAAAAAABAAAAAJAAIAAAAKAA8AAAAJAAIAAAAJAA8AAAAJAAIAAAAIAA8AAAAJAAIAAAAHAA8AAAAJAAIAAAD//wIAAAAIAAEAAAAOAA8AAAAJAAIAAAAPAA8AAAAJAAIAAAAQAA8AAAAJAAIAAAARAA8AAAAJAAIAAAASAA8AAAAJAAIAAAATAA8AAAAJAAIAAAAUAA8AAAAJAAIAAAAVAA8AAAAJAAIAAAAWAA8AAAAJAAIAAAAXAA8AAAAJAAIAAAAYAA8AAAAJAAIAAAAZAA8AAAAJAAIAAAAaAA8AAAAJAAIAAAAbAA8AAAAJAAIAAAABAAQAAAALAAIAAAAAAAQAAAAJAAIAAAAAAAUAAAAJAAIAAAABAAYAAAALAAIAAAABAAcAAAALAAIAAAABAAgAAAALAAIAAAABAAUAAAALAAIAAAABAAMAAAALAAIAAAAAAAMAAAAJAAIAAAD//wMAAAAIAAEAAAD//wQAAAAIAAEAAAABAAkAAAALAAIAAAAAAAYAAAAJAAIAAAANAA4AAAAKAAAAAAAOAA4AAAAKAAAAAAAPAA4AAAAKAAAAAAAQAA4AAAAKAAAAAAARAA4AAAAKAAAAAAASAA4AAAAKAAAAAAATAA4AAAAKAAAAAAAbAA4AAAAKAAAAAAAaAA4AAAAKAAAAAAAZAA4AAAAKAAAAAAAYAA4AAAAKAAAAAAAXAA4AAAAKAAAAAAAWAA4AAAAKAAAAAAAVAA4AAAAKAAAAAAAUAA4AAAAKAAAAAAAAAAcAAAAJAAIAAAAAAAgAAAAJAAIAAAAAAAkAAAAJAAIAAAAAAAoAAAAJAAIAAAAAAAsAAAAJAAIAAAAAAAwAAAAJAAIAAAAAAA0AAAAJAAIAAAAAAA4AAAAJAAIAAAABAA4AAAAGAAEAAAABAA0AAAALAAIAAAABAAwAAAALAAIAAAABAAsAAAALAAIAAAABAAoAAAALAAIAAAACAA4AAAAKAAAAAAAcAAIAAAAIAAEAAAAcAAMAAAAIAAEAAAALAA4AAAAKAAAAAAAKAA4AAAAKAAAAAAAJAA4AAAAKAAAAAAAIAA4AAAAKAAAAAAAHAA4AAAAKAAAAAAAGAA4AAAAKAAAAAAAFAA4AAAAKAAAAAAAEAA4AAAAKAAAAAAADAA4AAAAKAAAAAAD//wUAAAAIAAEAAAD//wYAAAAIAAEAAAD//wcAAAAIAAEAAAD//wgAAAAIAAEAAAD//wkAAAAIAAEAAAD//woAAAAIAAEAAAD//wsAAAAIAAEAAAD//wwAAAAIAAEAAAD//w0AAAAIAAEAAAD//w4AAAAIAAEAAAD//w8AAAAIAAEAAAD//xAAAAAIAAEAAAAcAAQAAAAIAAEAAAAcAAUAAAAIAAEAAAAcAAYAAAAIAAEAAAAcAAcAAAAIAAEAAAAcAAgAAAAIAAEAAAAcAAkAAAAIAAEAAAAcAAoAAAAIAAEAAAAcAAsAAAAIAAEAAAAcAAwAAAAIAAEAAAAcAA0AAAAIAAEAAAD/////AAAIAAAAAAD//xEAAAAIAAMAAAAeAP//AAALAAAAAAAeABEAAAALAAMAAAAcAP//AAAIAAAAAAA=")
@@ -75,7 +353,11 @@ attack_upgraded = true
 
 [node name="Boss" parent="." instance=ExtResource("4_c1k21")]
 z_index = 52
-position = Vector2(384, 320)
+position = Vector2(930, 560)
+
+[node name="sprite_copy" type="AnimatedSprite2D" parent="."]
+position = Vector2(930, 560)
+sprite_frames = SubResource("SpriteFrames_n6pbe")
 
 [node name="ForegroundTilemap" type="TileMapLayer" parent="."]
 z_index = 50
@@ -149,15 +431,11 @@ rotation = -1.5708
 
 [node name="healthbar_boss" parent="." instance=ExtResource("13_tj8ii")]
 
-[node name="HealthbarHintergrundBoss" parent="healthbar_boss" index="0"]
-position = Vector2(1205.46, 1325.58)
-
-[node name="TextureProgressBar" parent="healthbar_boss" index="1"]
-offset_top = 1282.67
-offset_bottom = 1365.67
-
-[node name="healthbar_boss_outside" parent="healthbar_boss" index="2"]
-position = Vector2(1206.35, 1325.07)
+[node name="TextureProgressBar" parent="healthbar_boss/Control" index="1"]
+offset_left = 938.667
+offset_top = 1258.67
+offset_right = 1988.67
+offset_bottom = 1341.67
 
 [node name="snd_hello" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_8pdho")
@@ -175,6 +453,7 @@ offset_bottom = 1080.0
 stream = ExtResource("16_g2y0v")
 
 [connection signal="died" from="Jumper" to="." method="_on_jumper_died"]
+[connection signal="hurt" from="Jumper" to="." method="_on_jumper_hurt"]
 [connection signal="died" from="Boss" to="." method="_on_boss_died"]
 [connection signal="was_hit" from="Boss" to="." method="_on_boss_was_hit"]
 

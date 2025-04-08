@@ -77,6 +77,7 @@ max = 5
 metadata/_custom_type_script = "uid://dr8bvnfebp76"
 
 [node name="HealthBar" parent="." node_paths=PackedStringArray("health") instance=ExtResource("3_sef37")]
+visible = false
 offset_top = -52.0
 offset_bottom = -42.0
 health = NodePath("../Health")

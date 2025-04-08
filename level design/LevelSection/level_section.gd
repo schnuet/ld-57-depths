@@ -1,4 +1,3 @@
-@tool
 extends Node2D
 class_name LevelSection
 
@@ -59,8 +58,9 @@ func _ready() -> void:
 	add_child(sprite);
 
 func _draw() -> void:
-	if Engine.is_editor_hint():
-		draw_rect(Rect2i(0,0, size.x * game_dimensions.x, size.y * game_dimensions.y), Color(1, 0, 0, 0.5), false, 4);
+	pass
+	#if Engine.is_editor_hint():
+	#	draw_rect(Rect2i(0,0, size.x * game_dimensions.x, size.y * game_dimensions.y), Color(1, 0, 0, 0.5), false, 4);
 	#else:
 		#draw_rect(Rect2i(0,0, size.x * game_dimensions.x, size.y * game_dimensions.y), Color(1, 0, 0, 0.5), false, 4);
 

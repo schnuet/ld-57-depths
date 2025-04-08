@@ -1,10 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://leab8wj8egah"]
+[gd_scene load_steps=6 format=3 uid="uid://leab8wj8egah"]
 
 [ext_resource type="Script" uid="uid://c4nky56tsnpvi" path="res://gui/Healthbar/healthbar_char.gd" id="1_luohm"]
-[ext_resource type="Texture2D" uid="uid://bfkdlxgxjirmt" path="res://gui/Healthbar/img/Healtbar-Innen-Char.png" id="1_t65eb"]
-[ext_resource type="Texture2D" uid="uid://bwa8uctts3etf" path="res://gui/Healthbar/img/Healthbar-Boss-Innen.png" id="2_luohm"]
 [ext_resource type="Texture2D" uid="uid://b5uk1fv6pncei" path="res://gui/Healthbar/Healtbar_Hintergrund.png" id="2_w7oa4"]
-[ext_resource type="Texture2D" uid="uid://c7x6artdff2iq" path="res://gui/Healthbar/img/Healtbar-Außen.png" id="3_w7oa4"]
 [ext_resource type="Texture2D" uid="uid://by65ddgrqk4au" path="res://gui/Healthbar/img/fill_char.png" id="4_mr6x5"]
 [ext_resource type="Texture2D" uid="uid://dst6aq33ycj4u" path="res://gui/Healthbar/img/Heatlhbar-Char-komplett-statisch.png" id="5_5ww4p"]
 
@@ -15,14 +12,21 @@ scale = Vector2(0.75, 0.75)
 transform = Transform2D(0.75, 0, 0, 0.75, 0, 0)
 script = ExtResource("1_luohm")
 
-[node name="HealtbarHintergrund" type="Sprite2D" parent="."]
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HealtbarHintergrund" type="Sprite2D" parent="Control"]
 position = Vector2(33.3334, 12)
 scale = Vector2(0.495, 0.495)
 texture = ExtResource("2_w7oa4")
 centered = false
 
-[node name="HealthBarChar" type="Control" parent="."]
-layout_mode = 3
+[node name="HealthBarChar" type="Control" parent="Control"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -34,25 +38,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.495, 0.495)
 
-[node name="Healtbar-innen-char" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(430.225, 142.16)
-scale = Vector2(0.495, 0.495)
-texture = ExtResource("1_t65eb")
-
-[node name="Healthbar-boss-innen" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(430.225, 142.16)
-scale = Vector2(0.495, 0.495)
-texture = ExtResource("2_luohm")
-
-[node name="healthbar_boss_outside" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(430.225, 142.16)
-scale = Vector2(0.495, 0.495)
-texture = ExtResource("3_w7oa4")
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Control"]
 offset_left = 249.0
 offset_top = 109.0
 offset_right = 1259.0
@@ -63,7 +49,7 @@ max_value = 5.0
 value = 5.0
 texture_progress = ExtResource("4_mr6x5")
 
-[node name="healthbar_char_outside" type="Sprite2D" parent="."]
+[node name="healthbar_char_outside" type="Sprite2D" parent="Control"]
 position = Vector2(430.225, 142.16)
 scale = Vector2(0.495, 0.495)
 texture = ExtResource("5_5ww4p")

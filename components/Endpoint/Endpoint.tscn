@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dw24h4ypqej1h"]
+[gd_scene load_steps=6 format=3 uid="uid://dw24h4ypqej1h"]
 
 [ext_resource type="Script" uid="uid://cwaksi124jhdv" path="res://components/Endpoint/endpoint.gd" id="1_6uu8u"]
+[ext_resource type="VideoStream" uid="uid://l0nbvdelyubd" path="res://screens/StartScreen/Fall-zum-BOSS.ogv" id="2_saaaj"]
+[ext_resource type="Texture2D" uid="uid://t6rnbu0xl6dc" path="res://components/Endpoint/Loch-Eingang.png" id="3_712mq"]
+[ext_resource type="Texture2D" uid="uid://b2vlnmiulytn1" path="res://components/Endpoint/Loch-Overlay.png" id="4_egd7o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mo3y8"]
 size = Vector2(256, 192)
@@ -13,5 +16,36 @@ script = ExtResource("1_6uu8u")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(128, 96)
 shape = SubResource("RectangleShape2D_mo3y8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="video_fall" type="VideoStreamPlayer" parent="CanvasLayer"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("2_saaaj")
+metadata/_edit_lock_ = true
+
+[node name="image" type="Node2D" parent="."]
+position = Vector2(16, -24)
+scale = Vector2(0.295, 0.295)
+
+[node name="Loch-eingang" type="Sprite2D" parent="image"]
+position = Vector2(372, 552.5)
+texture = ExtResource("3_712mq")
+
+[node name="Loch-overlay" type="Sprite2D" parent="image"]
+z_index = 20
+position = Vector2(372, 552.5)
+texture = ExtResource("4_egd7o")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

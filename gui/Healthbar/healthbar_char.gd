@@ -3,7 +3,7 @@ extends CanvasLayer
 var max = 100;
 var value = 0;
 
-@onready var progress = $TextureProgressBar;
+@onready var progress = $Control/TextureProgressBar;
 
 func _ready() -> void:
 	var player = find_player();
@@ -33,3 +33,15 @@ func find_player():
 	if players.size() == 0:
 		return null;
 	return players[0];
+
+
+func hide_bar():
+	var tween = create_tween();
+	tween.set_ease(Tween.EASE_OUT);
+	tween.tween_property($Control, "modulate", Color.TRANSPARENT, 1);
+
+func show_bar():
+	$Control.show();
+	var tween = create_tween();
+	tween.set_ease(Tween.EASE_OUT);
+	tween.tween_property($Control, "modulate", Color.WHITE, 2);

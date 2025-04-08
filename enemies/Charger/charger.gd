@@ -18,7 +18,7 @@ extends CharacterBody2D
 @onready var excite_timer = $excite_timer;
 @onready var hurt_timer = $hurt_timer;
 
-@export var run_speed = 500;
+@export var run_speed = 600;
 
 var player: Jumper;
 
@@ -75,6 +75,8 @@ func _process(_delta: float) -> void:
 				if not step_detector_right.is_colliding():
 					enter_state(State.IDLE);
 		State.ATTACK:
+			if animated_sprite.frame == 6:
+				$snd_attack.play();
 			if animated_sprite.frame == 9:
 				attack();
 			if not animated_sprite.is_playing():
@@ -140,7 +142,6 @@ func attack():
 	if attacked:
 		return;
 	attacked = true;
-	$snd_attack.play();
 	if dir == DIR.RIGHT:
 		hitbox_right_collisions.disabled = false;
 		hitbox_right.show();
@@ -200,7 +201,7 @@ func _on_excite_timer_timeout() -> void:
 	excited = false;
 	
 
-func _on_health_died(entity: Node) -> void:
+func _on_health_died(_entity: Node) -> void:
 	queue_free()
 
 

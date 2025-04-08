@@ -34,8 +34,6 @@ func _ready():
 	#$IntroVideo.play();
 	await $video_intro.finished;
 	$video_intro.queue_free();
-	
-	start_button.show();
 
 func _process(_delta):
 	pass;
@@ -55,6 +53,7 @@ func _on_start_button_pressed():
 	$video_fall.show();
 	$video_fall.play();
 	await $video_fall.finished;
+	$video_fall.hide();
 	
 	SceneManager.change_scene("res://level design/LevelGenerator/LevelGenerator.tscn");
 

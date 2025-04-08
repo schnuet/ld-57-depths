@@ -5,8 +5,8 @@ var Tentacle = preload("res://enemies/Boss/BossArm.tscn");
 @onready var boss = $Boss;
 @onready var player = $Jumper;
 @onready var shake_rumble = $Camera2D/shake_rumble;
+@onready var healthbar_boss = $healthbar_boss;
 
-signal all_tentacles_defeated;
 signal tentacle_defeated;
 signal boss_hit_or_time_expired;
 signal wait_expired;
@@ -33,15 +33,38 @@ var needed_hits = 3;
 func _ready() -> void:
 	boss.position = Vector2(930, 560);
 	player.enabled = false;
-	await growl();
-	await wait(0.5);
+	$sprite_copy.play();
+	$sprite_copy.hide();
+	boss.hide();
+	MusicPlayer.stop_music();
+	
+	start_level();
+
+func start_level():
+	await wait(2);
+	
+	$sprite_copy.modulate = Color.TRANSPARENT;
+	$sprite_copy.show();
+	growl();
+	
+	var tween = get_tree().create_tween();
+	tween.tween_property($sprite_copy, "modulate", Color.WHITE, 3);
+	await tween.finished;
+	$sprite_copy.hide();
+	boss.show();
+	
+	player.show_healthbar();
+	await wait(1);
 	
 	MusicPlayer.play_music("boss");
+	healthbar_boss.call_deferred("show_bar");
 	
 	enter_stage(Stage.TENTACLES);
 
-
 func enter_stage(new_stage: Stage):
+	if boss == null:
+		return;
+	
 	if new_stage == Stage.TENTACLES:
 		var move_tween = get_tree().create_tween();
 		move_tween.tween_property(boss, "position", Vector2(960, 256), 0.3);
@@ -288,6 +311,7 @@ func _on_boss_was_hit() -> void:
 
 func _on_boss_died() -> void:
 	player.enabled = false;
+	player.hide_healthbar();
 	MusicPlayer.stop_music();
 	$CanvasLayer/credits_video.show();
 	$CanvasLayer/credits_video.play();
@@ -295,3 +319,7 @@ func _on_boss_died() -> void:
 
 func _on_jumper_died() -> void:
 	get_tree().reload_current_scene()
+
+
+func _on_jumper_hurt(_amount: int) -> void:
+	$Camera2D/shake_player_hit.play_shake();

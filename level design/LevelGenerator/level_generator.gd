@@ -55,6 +55,7 @@ func _process(_delta: float) -> void:
 			tutorial_image.hide();
 			var player = get_player();
 			player.enabled = true;
+			player.show_healthbar();
 			return;
 	
 	if Input.is_action_just_pressed("regenerate"):

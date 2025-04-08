@@ -41,7 +41,7 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 func remove():
 	queue_free();
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	if not player.attack_upgraded:
 		player.attack_upgraded = true;
 		show_tutorial("smash");

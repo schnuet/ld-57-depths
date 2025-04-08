@@ -18,7 +18,7 @@ var side: Half = Half.LEFT;
 func _ready() -> void:
 	rise();
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if not risen:
 		return;
 	

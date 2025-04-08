@@ -36,12 +36,13 @@ var enabled = true;
 @onready var hurtbox_collision = $HurtBox2D/CollisionShape2D;
 
 var Healthbar = preload("res://gui/Healthbar/HealthbarChar.tscn");
+var healthbar: CanvasLayer;
 
 signal hurt(amount: int);
 signal died;
 
 func _ready() -> void:
-	var healthbar = Healthbar.instantiate();
+	healthbar = Healthbar.instantiate();
 	var parent = get_parent();
 	parent.call_deferred("add_child", healthbar);
 	
@@ -428,6 +429,8 @@ var slash_cooldown_timer = 0;
 @onready var hitbox_slash_right_upgraded = $hitbox_slash_right_upgraded;
 @onready var hitbox_slash_left_upgraded = $hitbox_slash_left_upgraded;
 
+@onready var attack_tentacles = $attack_tentacles;
+
 func air_slash():
 	#var direction = get_main_input_direction()
 	#if direction == Vector2.ZERO:
@@ -447,6 +450,7 @@ func enter_state_slash_air_side(_state_before: State):
 	slash_timer = SLASH_TIME
 	if attack_upgraded:
 		set_animation("attack_strong");
+		play_attack_tentacles();
 	else:
 		set_animation("attack_ground");
 	has_hit_hurtbox = false;
@@ -469,6 +473,7 @@ func enter_state_slash_air_down(_state_before: State):
 	slash_cooldown_timer = SLASH_COOLDOWN;
 	if attack_upgraded:
 		set_animation("attack_strong");
+		play_attack_tentacles();
 	else:
 		set_animation("attack_air")
 	enable_slash_hitbox()
@@ -489,6 +494,7 @@ func enter_state_slash_air_up(_state_before: State):
 	has_hit_hurtbox = false;
 	if attack_upgraded:
 		set_animation("attack_strong");
+		play_attack_tentacles();
 	else:
 		set_animation("attack_air")
 	enable_slash_hitbox()
@@ -527,11 +533,8 @@ func handle_state_ground_attack_prepare(delta: float):
 var slash_still_pressed = false;
 
 func ground_slash():
-	var direction = last_side;
-	if direction == Vector2.UP:
-		enter_state(State.SLASH_AIR_UP)
-	else:
-		enter_state(State.SLASH_GROUND)
+	enter_state(State.SLASH_GROUND)
+	slash_direction = last_side;
 
 func enter_state_slash_ground_side(_state_before: State):
 	print("START GROUND SLASH");
@@ -540,8 +543,10 @@ func enter_state_slash_ground_side(_state_before: State):
 	slash_timer = SLASH_TIME
 	slash_cooldown_timer = SLASH_COOLDOWN;
 	has_hit_hurtbox = false;
+	slash_direction = last_side;
 	if attack_upgraded:
 		set_animation("attack_strong");
+		play_attack_tentacles();
 	else:
 		set_animation("attack_ground")
 	slash_still_pressed = true;
@@ -644,6 +649,18 @@ func _on_hitbox_slash_up_hurt_box_entered(_hurt_box: HurtBox2D) -> void:
 func _on_hitbox_slash_down_hurt_box_entered(_hurt_box: HurtBox2D) -> void:
 	has_hit_hurtbox = true;
 
+
+func play_attack_tentacles():
+	if slash_direction.x > 0:
+		attack_tentacles.scale.y = 1;
+	else:
+		attack_tentacles.scale.y = -1;
+	attack_tentacles.show();
+	attack_tentacles.play();
+
+
+func _on_attack_tentacles_animation_finished() -> void:
+	attack_tentacles.hide();
 
 # ========================================
 # DEATH
@@ -867,6 +884,12 @@ func _on_health_damaged(_entity: Node, _type: HealthActionType.Enum, _amount: in
 	tween.tween_property(Engine, "time_scale", 1, 0.5);
 	tween.set_ease(Tween.EASE_OUT);
 
+
+func hide_healthbar():
+	healthbar.hide_bar();
+
+func show_healthbar():
+	healthbar.show_bar();
 
 # =====================================
 # CAMERA

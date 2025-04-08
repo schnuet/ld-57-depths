@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://bi2gr0eq70kic" path="res://screens/StartScreen/StartScreen.gd" id="1_dks8u"]
 [ext_resource type="FontFile" uid="uid://b2jbl0piinbrn" path="res://gui/Typography/fonts/MunroSmall-wPZw.ttf" id="2_4bpjc"]
 [ext_resource type="AudioStream" uid="uid://7fui0tdm7b8j" path="res://screens/StartScreen/01-INTRO-01.ogg" id="3_rsv2s"]
-[ext_resource type="VideoStream" path="res://screens/StartScreen/01-INTRO-01.ogv" id="5_3ayag"]
-[ext_resource type="VideoStream" path="res://screens/StartScreen/Fall-zum-BOSS.ogv" id="5_okxca"]
+[ext_resource type="VideoStream" uid="uid://v21xi4fpwc6n" path="res://screens/StartScreen/01-INTRO-01.ogv" id="5_3ayag"]
+[ext_resource type="VideoStream" uid="uid://l0nbvdelyubd" path="res://screens/StartScreen/Fall-zum-BOSS.ogv" id="5_okxca"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0drl7"]
 load_path = "res://.godot/imported/01-INTRO-01_00407.png-faedeb16a1a930f8a5053c278c5b113d.ctex"

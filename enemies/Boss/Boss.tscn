@@ -282,8 +282,8 @@ script = ExtResource("1_vb1ri")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_vj4fe")
-current = 10
-max = 10
+current = 30
+max = 30
 metadata/_custom_type_script = "uid://dr8bvnfebp76"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -299,8 +299,8 @@ collision_mask = 4
 script = ExtResource("37_vw0p4")
 health = NodePath("../Health")
 modifiers = Dictionary[int, ExtResource("38_vj4fe")]({
-1: SubResource("Resource_ua6qq"),
-2: SubResource("Resource_k0jys")
+1: SubResource("Resource_k0jys"),
+2: SubResource("Resource_ua6qq")
 })
 metadata/_custom_type_script = "uid://dtfoilkdcfvgv"
 
