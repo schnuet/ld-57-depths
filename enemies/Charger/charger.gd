@@ -117,7 +117,7 @@ func enter_state(new_state: State):
 		State.IDLE:
 			animated_sprite.play("idle");
 		State.HURT:
-			hurt_timer.start(0.5);
+			hurt_timer.start(0.2);
 			animated_sprite.play("hurt");
 			var tween = get_tree().create_tween()
 			animated_sprite.material.set_shader_parameter("flash_value", 1.0);

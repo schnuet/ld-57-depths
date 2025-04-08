@@ -649,6 +649,12 @@ func _on_hitbox_slash_up_hurt_box_entered(_hurt_box: HurtBox2D) -> void:
 func _on_hitbox_slash_down_hurt_box_entered(_hurt_box: HurtBox2D) -> void:
 	has_hit_hurtbox = true;
 
+func _on_hitbox_slash_left_upgraded_hurt_box_entered(hurt_box: HurtBox2D) -> void:
+	has_hit_hurtbox = true;
+
+func _on_hitbox_slash_right_upgraded_hurt_box_entered(hurt_box: HurtBox2D) -> void:
+	has_hit_hurtbox = true;
+
 
 func play_attack_tentacles():
 	if slash_direction.x > 0:
@@ -907,3 +913,6 @@ func remove_camera_limit(side: String):
 
 func is_player():
 	return true;
+
+func disable_hurtbox():
+	$HurtBox2D/CollisionShape2D.disabled = true;

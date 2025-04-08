@@ -3,6 +3,7 @@ extends Area2D
 func _on_body_entered(_body: Node2D) -> void:
 	var player = get_player();
 	player.enabled = false;
+	player.disable_hurtbox();
 	
 	$CanvasLayer/ColorRect.show();
 	var tween = get_tree().create_tween();
