@@ -94,3 +94,6 @@ tile_set = ExtResource("16_4obn5")
 visible = false
 position = Vector2(938, 541)
 texture = ExtResource("17_3oiy7")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0.129767, 0.155073, 1)

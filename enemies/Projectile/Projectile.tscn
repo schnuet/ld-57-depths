@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://dx21kk55sayf"]
+[gd_scene load_steps=21 format=3 uid="uid://dx21kk55sayf"]
 
 [ext_resource type="Script" uid="uid://chrsg1fc53qs3" path="res://addons/health_hitbox_hurtbox/2d/hit_box_2d/basic_hit_box_2d.gd" id="1_cbkgm"]
 [ext_resource type="Script" uid="uid://bhr27jm68dh71" path="res://enemies/Projectile/projectile.gd" id="1_dwfhy"]
 [ext_resource type="Script" uid="uid://hrwhd52e5mkq" path="res://addons/health_hitbox_hurtbox/resources/action.gd" id="2_17ebt"]
 [ext_resource type="Texture2D" uid="uid://d1nu82ij0w75i" path="res://enemies/Projectile/Rotzbollen-flipped.png" id="4_eyk6i"]
 [ext_resource type="Texture2D" uid="uid://by1eabmj5lrt5" path="res://enemies/Projectile/Rotzbollen.png" id="5_mjlcp"]
+[ext_resource type="Texture2D" uid="uid://dtata7fy3yv0c" path="res://LightRadial_sm.png" id="6_mjlcp"]
 
 [sub_resource type="Resource" id="Resource_6s7kt"]
 script = ExtResource("2_17ebt")
@@ -72,6 +73,12 @@ affect = 1
 type = 2
 amount = 1
 
+[sub_resource type="Resource" id="Resource_l66r8"]
+script = ExtResource("2_17ebt")
+affect = 1
+type = 2
+amount = 1
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_5lwk6"]
 radius = 20.0
 
@@ -96,7 +103,7 @@ script = ExtResource("1_dwfhy")
 collision_layer = 8388608
 collision_mask = 2
 script = ExtResource("1_cbkgm")
-actions = Array[ExtResource("2_17ebt")]([SubResource("Resource_6s7kt"), SubResource("Resource_dwfhy"), SubResource("Resource_82bxc"), SubResource("Resource_eyk6i"), SubResource("Resource_mjlcp"), SubResource("Resource_wlnrn"), SubResource("Resource_4tgx3"), SubResource("Resource_c3cwg"), SubResource("Resource_oupda"), SubResource("Resource_bjfug"), SubResource("Resource_o1fsq")])
+actions = Array[ExtResource("2_17ebt")]([SubResource("Resource_6s7kt"), SubResource("Resource_dwfhy"), SubResource("Resource_82bxc"), SubResource("Resource_eyk6i"), SubResource("Resource_mjlcp"), SubResource("Resource_wlnrn"), SubResource("Resource_4tgx3"), SubResource("Resource_c3cwg"), SubResource("Resource_oupda"), SubResource("Resource_bjfug"), SubResource("Resource_o1fsq"), SubResource("Resource_l66r8")])
 metadata/_custom_type_script = "uid://chrsg1fc53qs3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BasicHitBox2D"]
@@ -115,6 +122,13 @@ sprite_frames = SubResource("SpriteFrames_l66r8")
 frame = 1
 frame_progress = 0.307012
 offset = Vector2(40, 0)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(1, -1)
+color = Color(0.462745, 0.984314, 0.572549, 1)
+energy = 0.5
+texture = ExtResource("6_mjlcp")
+texture_scale = 0.25
 
 [connection signal="action_applied" from="BasicHitBox2D" to="." method="_on_basic_hit_box_2d_action_applied"]
 [connection signal="body_entered" from="WallCollider" to="." method="_on_wall_collider_body_entered"]

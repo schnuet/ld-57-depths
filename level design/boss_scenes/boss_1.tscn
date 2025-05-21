@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=4 uid="uid://b4tvbchdqatwo"]
+[gd_scene load_steps=82 format=4 uid="uid://b4tvbchdqatwo"]
 
 [ext_resource type="Script" uid="uid://cwylr2w67w0o" path="res://level design/boss_scenes/boss_1.gd" id="1_c1k21"]
 [ext_resource type="TileSet" uid="uid://dld60hu50porp" path="res://level design/base_tileset.tres" id="2_6b3ot"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://hbg4g7c2upf6" path="res://addons/shaker/data/Vector2/ShakerPreset2D.gd" id="6_tj8ii"]
 [ext_resource type="PackedScene" uid="uid://d2g0se7bd50qx" path="res://enemies/Boss/BossProjectile.tscn" id="10_776vs"]
 [ext_resource type="Texture2D" uid="uid://d1jiwun1ixyi2" path="res://enemies/Boss/animations/death/10 Death-ENDGEGNER_00000.png" id="12_3576r"]
+[ext_resource type="Texture2D" uid="uid://cdj3x1ye2w4yw" path="res://LightRadial.png" id="12_adyph"]
 [ext_resource type="Texture2D" uid="uid://vi6ug0jka86y" path="res://enemies/Boss/animations/death/10 Death-ENDGEGNER_00001.png" id="13_adyph"]
 [ext_resource type="PackedScene" uid="uid://dp30tk5n2idoy" path="res://gui/Healthbar/HealthbarBoss.tscn" id="13_tj8ii"]
 [ext_resource type="Texture2D" uid="uid://cri42puoja1fg" path="res://enemies/Boss/animations/death/10 Death-ENDGEGNER_00002.png" id="14_pqbnm"]
@@ -351,6 +352,12 @@ MID_AIR_JUMPS = 1
 can_dash = true
 attack_upgraded = true
 
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+position = Vector2(960, 576)
+energy = 0.6
+texture = ExtResource("12_adyph")
+texture_scale = 1.5
+
 [node name="Boss" parent="." instance=ExtResource("4_c1k21")]
 z_index = 52
 position = Vector2(930, 560)
@@ -451,6 +458,9 @@ z_index = 70
 offset_right = 1920.0
 offset_bottom = 1080.0
 stream = ExtResource("16_g2y0v")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0.129767, 0.155073, 1)
 
 [connection signal="died" from="Jumper" to="." method="_on_jumper_died"]
 [connection signal="hurt" from="Jumper" to="." method="_on_jumper_hurt"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bpyyv1fc7hc5k"]
+[gd_scene load_steps=13 format=3 uid="uid://bpyyv1fc7hc5k"]
 
 [ext_resource type="Texture2D" uid="uid://do4mmm7u5wugl" path="res://components/Orb/Orb.png" id="1_31qk3"]
 [ext_resource type="Script" uid="uid://vegybli6yl7b" path="res://components/Orb/orb.gd" id="1_thts2"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ci1ck0qe327vg" path="res://gui/Tutorials/00-Controls-SMASH.png" id="6_170cd"]
 [ext_resource type="AudioStream" uid="uid://berfanypvy651" path="res://components/Orb/Orb-Wummern.ogg" id="7_170cd"]
 [ext_resource type="AudioStream" uid="uid://by2is122w85g4" path="res://components/Orb/Collect Sound.wav" id="8_7pixc"]
+[ext_resource type="Texture2D" uid="uid://dtata7fy3yv0c" path="res://LightRadial_sm.png" id="10_8qixq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_31qk3"]
 radius = 32.0
@@ -43,6 +44,7 @@ visible = false
 shape = SubResource("CircleShape2D_31qk3")
 
 [node name="detection_area" type="Area2D" parent="."]
+visible = false
 collision_layer = 2147483648
 collision_mask = 18
 
@@ -83,6 +85,12 @@ parameters/looping = true
 [node name="snd_collect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_7pixc")
 volume_db = -15.097
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.819608, 0.505882, 0.984314, 1)
+energy = 0.9
+texture = ExtResource("10_8qixq")
+texture_scale = 0.5
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]

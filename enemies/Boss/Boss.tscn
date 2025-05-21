@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://b41fu1evkx8je"]
+[gd_scene load_steps=72 format=3 uid="uid://b41fu1evkx8je"]
 
 [ext_resource type="Script" uid="uid://c1sdhgs6cgfio" path="res://enemies/Boss/boss.gd" id="1_vb1ri"]
 [ext_resource type="Texture2D" uid="uid://bgsy3osmb53w1" path="res://enemies/Boss/animations/idle/01 Idle_00000.png" id="2_7wdbc"]
@@ -64,6 +64,7 @@
 [ext_resource type="Texture2D" uid="uid://c0x7oxuyljmno" path="res://enemies/Boss/animations/idle/01 Idle_00034.png" id="36_5v703"]
 [ext_resource type="Script" uid="uid://dtfoilkdcfvgv" path="res://addons/health_hitbox_hurtbox/2d/hurt_box_2d/basic_hurt_box_2d.gd" id="37_vw0p4"]
 [ext_resource type="Script" uid="uid://cobp4qehnuq77" path="res://addons/health_hitbox_hurtbox/resources/modifier.gd" id="38_vj4fe"]
+[ext_resource type="Texture2D" uid="uid://dtata7fy3yv0c" path="res://LightRadial_sm.png" id="66_ua6qq"]
 [ext_resource type="AudioStream" uid="uid://8rhfaxa87s51" path="res://enemies/Boss/sounds/BOSS-Tot.wav" id="67_d7g4l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vb1ri"]
@@ -258,14 +259,14 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="Resource" id="Resource_k0jys"]
+[sub_resource type="Resource" id="Resource_ua6qq"]
 script = ExtResource("38_vj4fe")
 incrementer = 0
 multiplier = 1.0
 convert_affect = 0
 convert_type = 0
 
-[sub_resource type="Resource" id="Resource_ua6qq"]
+[sub_resource type="Resource" id="Resource_d7g4l"]
 script = ExtResource("38_vj4fe")
 incrementer = 0
 multiplier = 1.0
@@ -299,8 +300,8 @@ collision_mask = 4
 script = ExtResource("37_vw0p4")
 health = NodePath("../Health")
 modifiers = Dictionary[int, ExtResource("38_vj4fe")]({
-1: SubResource("Resource_k0jys"),
-2: SubResource("Resource_ua6qq")
+1: SubResource("Resource_ua6qq"),
+2: SubResource("Resource_d7g4l")
 })
 metadata/_custom_type_script = "uid://dtfoilkdcfvgv"
 
@@ -309,6 +310,11 @@ shape = SubResource("CircleShape2D_vmky8")
 
 [node name="snd_tot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("67_d7g4l")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.837935, 0.562637, 0.986433, 1)
+energy = 0.9
+texture = ExtResource("66_ua6qq")
 
 [connection signal="damaged" from="Health" to="." method="_on_health_damaged"]
 [connection signal="died" from="Health" to="." method="_on_health_died"]

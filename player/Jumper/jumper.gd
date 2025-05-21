@@ -925,4 +925,4 @@ func is_player():
 	return true;
 
 func disable_hurtbox():
-	$HurtBox2D/CollisionShape2D.disabled = true;
+	$HurtBox2D/CollisionShape2D.set_deferred("disabled", true);

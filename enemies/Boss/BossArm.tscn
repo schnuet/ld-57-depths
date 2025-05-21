@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://c2sbsr2q6310d"]
+[gd_scene load_steps=69 format=3 uid="uid://c2sbsr2q6310d"]
 
 [ext_resource type="Script" uid="uid://db2c13eqhpb7c" path="res://enemies/Boss/boss_arm.gd" id="1_no7rm"]
 [ext_resource type="Script" uid="uid://chrsg1fc53qs3" path="res://addons/health_hitbox_hurtbox/2d/hit_box_2d/basic_hit_box_2d.gd" id="2_6hig3"]
@@ -58,6 +58,7 @@
 [ext_resource type="Texture2D" uid="uid://c2t5l4hlv5mbi" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00032.png" id="56_qf3k1"]
 [ext_resource type="Texture2D" uid="uid://bxqqvks3ehcyl" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00033.png" id="57_edviy"]
 [ext_resource type="Texture2D" uid="uid://cqt3ef1yo6ao" path="res://enemies/Boss/animations/arm_move/02 Tentakel-Attacke_00034.png" id="58_rg5m4"]
+[ext_resource type="Texture2D" uid="uid://dtata7fy3yv0c" path="res://LightRadial_sm.png" id="59_wai0d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2v3gv"]
 size = Vector2(64, 64)
@@ -68,17 +69,23 @@ affect = 1
 type = 2
 amount = 1
 
+[sub_resource type="Resource" id="Resource_qwpsv"]
+script = ExtResource("3_qq42c")
+affect = 1
+type = 2
+amount = 1
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbm8s"]
 size = Vector2(32, 512)
 
-[sub_resource type="Resource" id="Resource_vbokf"]
+[sub_resource type="Resource" id="Resource_wai0d"]
 script = ExtResource("6_mi0nv")
 incrementer = 0
 multiplier = 1.0
 convert_affect = 0
 convert_type = 0
 
-[sub_resource type="Resource" id="Resource_77k22"]
+[sub_resource type="Resource" id="Resource_evx3y"]
 script = ExtResource("6_mi0nv")
 incrementer = 0
 multiplier = 1.0
@@ -87,6 +94,9 @@ convert_type = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asrnl"]
 size = Vector2(64, 264)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0wrsl"]
+light_mode = 1
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gbm8s"]
 animations = [{
@@ -281,7 +291,7 @@ shape = SubResource("RectangleShape2D_2v3gv")
 collision_layer = 64
 collision_mask = 2
 script = ExtResource("2_6hig3")
-actions = Array[ExtResource("3_qq42c")]([SubResource("Resource_omduj")])
+actions = Array[ExtResource("3_qq42c")]([SubResource("Resource_omduj"), SubResource("Resource_qwpsv")])
 metadata/_custom_type_script = "uid://chrsg1fc53qs3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BasicHitBox2D"]
@@ -297,8 +307,8 @@ collision_mask = 4
 script = ExtResource("5_32eir")
 health = NodePath("../Health")
 modifiers = Dictionary[int, ExtResource("6_mi0nv")]({
-1: SubResource("Resource_77k22"),
-2: SubResource("Resource_vbokf")
+1: SubResource("Resource_wai0d"),
+2: SubResource("Resource_evx3y")
 })
 metadata/_custom_type_script = "uid://dtfoilkdcfvgv"
 
@@ -309,6 +319,7 @@ disabled = true
 debug_color = Color(0.97853, 0, 0.395442, 0.42)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_0wrsl")
 position = Vector2(8, -216)
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_gbm8s")
@@ -316,5 +327,12 @@ animation = &"rise"
 
 [node name="cooldown_timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -64)
+color = Color(0.962687, 0.4606, 0.98, 1)
+energy = 0.5
+texture = ExtResource("59_wai0d")
+texture_scale = 0.25
 
 [connection signal="died" from="Health" to="." method="_on_health_died"]
