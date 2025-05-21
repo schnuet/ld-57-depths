@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://hvhc1se8n78j"]
+[gd_scene load_steps=19 format=3 uid="uid://hvhc1se8n78j"]
 
 [ext_resource type="Script" uid="uid://f6paob8dsqvt" path="res://enemies/Spitter/spitter.gd" id="1_o4d81"]
 [ext_resource type="Script" uid="uid://dr8bvnfebp76" path="res://addons/health_hitbox_hurtbox/health/health.gd" id="2_fdpw6"]
 [ext_resource type="PackedScene" uid="uid://bfvvc1f6rf8gv" path="res://components/HealthBar/HealthBar.tscn" id="3_sef37"]
 [ext_resource type="Script" uid="uid://dtfoilkdcfvgv" path="res://addons/health_hitbox_hurtbox/2d/hurt_box_2d/basic_hurt_box_2d.gd" id="4_ie3dq"]
 [ext_resource type="Script" uid="uid://cobp4qehnuq77" path="res://addons/health_hitbox_hurtbox/resources/modifier.gd" id="5_r7ge4"]
+[ext_resource type="Material" uid="uid://4esyyehxfm0y" path="res://shaders/ShaderMaterial.tres" id="6_eji7b"]
 [ext_resource type="Texture2D" uid="uid://bom7qa6mjcy57" path="res://enemies/Spitter/spit/01 Spucki_00000.png" id="6_eyp17"]
 [ext_resource type="Texture2D" uid="uid://csvfdp7ai0ow6" path="res://enemies/Spitter/spit/01 Spucki_00001.png" id="7_eji7b"]
 [ext_resource type="Texture2D" uid="uid://dyq3203wlcgeo" path="res://enemies/Spitter/spit/01 Spucki_00002.png" id="8_g1hkq"]
@@ -16,14 +17,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fdpw6"]
 size = Vector2(50, 50)
 
-[sub_resource type="Resource" id="Resource_eyp17"]
+[sub_resource type="Resource" id="Resource_eji7b"]
 script = ExtResource("5_r7ge4")
 incrementer = 0
 multiplier = 1.0
 convert_affect = 0
 convert_type = 0
 
-[sub_resource type="Resource" id="Resource_eji7b"]
+[sub_resource type="Resource" id="Resource_g1hkq"]
 script = ExtResource("5_r7ge4")
 incrementer = 0
 multiplier = 1.0
@@ -62,7 +63,7 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Spitter" type="CharacterBody2D"]
+[node name="Spitter" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 256
 script = ExtResource("1_o4d81")
 
@@ -87,8 +88,8 @@ position = Vector2(0, 35)
 script = ExtResource("4_ie3dq")
 health = NodePath("../Health")
 modifiers = Dictionary[int, ExtResource("5_r7ge4")]({
-1: SubResource("Resource_eyp17"),
-2: SubResource("Resource_eji7b")
+1: SubResource("Resource_eji7b"),
+2: SubResource("Resource_g1hkq")
 })
 metadata/_custom_type_script = "uid://dtfoilkdcfvgv"
 
@@ -102,6 +103,7 @@ shape = SubResource("RectangleShape2D_xrlf0")
 wait_time = 0.5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = ExtResource("6_eji7b")
 sprite_frames = SubResource("SpriteFrames_fdpw6")
 offset = Vector2(36, -18.105)
 

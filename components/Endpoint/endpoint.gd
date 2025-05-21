@@ -3,7 +3,13 @@ extends Area2D
 func _on_body_entered(_body: Node2D) -> void:
 	var player = get_player();
 	player.enabled = false;
+	player.hide_healthbar();
 	player.disable_hurtbox();
+	
+	var enemies = get_tree().get_nodes_in_group("enemies");
+	for enemy in enemies:
+		if enemy.has_method("sleep"):
+			enemy.sleep();
 	
 	$CanvasLayer/ColorRect.show();
 	var tween = get_tree().create_tween();

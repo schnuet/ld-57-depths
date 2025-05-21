@@ -41,6 +41,11 @@ project/assembly_name="Space Garden"
 
 enabled=PackedStringArray("res://addons/health_hitbox_hurtbox/plugin.cfg", "res://addons/scene_manager/plugin.cfg", "res://addons/shaker/plugin.cfg")
 
+[global_group]
+
+enemies=""
+player=""
+
 [gui]
 
 fonts/dynamic_fonts/use_oversampling=false

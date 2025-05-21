@@ -4,6 +4,7 @@ extends Node
 @onready var current_player = null;
 
 const VOLUME_MAX = -14;
+#const VOLUME_MAX = -80;
 
 func _ready():
 	for player in players:
@@ -21,6 +22,7 @@ func play_music(music_name: String):
 func stop_music():
 	if current_player:
 		current_player.stop();
+		current_player = null;
 
 func fade_to(music_name):
 	if current_player and current_player.name == music_name:

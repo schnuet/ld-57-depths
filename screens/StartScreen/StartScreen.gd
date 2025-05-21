@@ -4,6 +4,8 @@ extends Node2D
 @onready var black_overlay = $BlackOverlay;
 @onready var start_button = $StartButton;
 
+var switching: bool = false;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# prepare intro
@@ -29,14 +31,14 @@ func _ready():
 	black_overlay.hide();
 	
 	$video_intro.play();
-	$snd_intro.play();
 	
 	#$IntroVideo.play();
 	await $video_intro.finished;
-	$video_intro.queue_free();
+	$video_intro.hide();
 
 func _process(_delta):
-	pass;
+	if Input.is_action_just_released("ui_accept") or Input.is_action_just_released("jump"):
+		proceed();
 	
 func fade_in_logo():
 	if (!is_instance_valid(logo)):
@@ -48,8 +50,31 @@ func fade_in_from_black():
 	var tween = get_tree().create_tween().tween_property(black_overlay, "modulate", Color.TRANSPARENT, 2);
 	await tween.finished;
 
-func _on_start_button_pressed():
-	$StartButton.queue_free();
+
+func proceed():
+	if $video_intro.is_playing():
+		print("intro playing");
+		$video_intro.stop();
+		$video_intro.hide();
+		return;
+	
+	if $video_fall.is_playing():
+		print("fall playing");
+		$video_fall.stop();
+		black_overlay.show();
+		black_overlay.modulate = Color.WHITE;
+		SceneManager.change_scene("res://level design/LevelGenerator/LevelGenerator.tscn");
+		return;
+	
+	if switching:
+		print("switching");
+		return;
+	
+	print("switch!");
+	
+	switching = true;
+	$image.hide();
+	start_button.hide();
 	$video_fall.show();
 	$video_fall.play();
 	await $video_fall.finished;
@@ -57,5 +82,5 @@ func _on_start_button_pressed():
 	
 	SceneManager.change_scene("res://level design/LevelGenerator/LevelGenerator.tscn");
 
-func _on_credits_button_pressed():
-	SceneManager.change_scene("res://screens/CreditsScreen/CreditsScreen.tscn");
+func _on_start_button_pressed():
+	proceed();

@@ -106,5 +106,8 @@ func position_sprite():
 
 func awaken():
 	position_sprite();
+	animated_sprite.material.set_shader_parameter("flash_value", 0.0);
 	start_timers();
-	
+
+func sleep():
+	process_mode = Node.PROCESS_MODE_DISABLED;

@@ -11,8 +11,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	position += velocity * delta;
 	
-	animated_sprite.look_at(position + velocity);
-	#animated_sprite.rotation_degrees - 180;
+	animated_sprite.look_at(global_position + velocity);
+	animated_sprite.rotation_degrees -= 180;
 
 
 func _on_basic_hit_box_2d_action_applied(_hurt_box: HurtBox2D) -> void:

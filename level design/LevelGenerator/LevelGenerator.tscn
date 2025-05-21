@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://crios7cuyg8bd"]
+[gd_scene load_steps=22 format=3 uid="uid://crios7cuyg8bd"]
 
 [ext_resource type="Script" uid="uid://djr1h56yjfbyo" path="res://level design/LevelGenerator/level_generator.gd" id="1_qrd63"]
 [ext_resource type="PackedScene" uid="uid://wg5sh88g8m7" path="res://level design/level sections START/start_1.tscn" id="2_3oiy7"]
+[ext_resource type="PackedScene" uid="uid://dudvqgrisbqnp" path="res://level design/level sections/none.tscn" id="2_o1cfb"]
 [ext_resource type="PackedScene" uid="uid://deqst0s8ve8d7" path="res://level design/level sections/bottom_1.tscn" id="2_p83jk"]
 [ext_resource type="PackedScene" uid="uid://bq2wv5ny2ed18" path="res://level design/level sections/left_1.tscn" id="4_3oiy7"]
 [ext_resource type="PackedScene" uid="uid://d05hydbjxmo1b" path="res://level design/level sections/left_2.tscn" id="5_joo2e"]
@@ -23,6 +24,21 @@
 
 [node name="LevelGenerator" type="Node2D"]
 script = ExtResource("1_qrd63")
+
+[node name="MainBackground" type="Parallax2D" parent="."]
+z_index = -50
+scroll_scale = Vector2(0, 0)
+metadata/_edit_lock_ = true
+
+[node name="black_background" type="ColorRect" parent="MainBackground"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="None" parent="." instance=ExtResource("2_o1cfb")]
+visible = false
+position = Vector2(-5000, -10000)
 
 [node name="Sections" type="Node2D" parent="."]
 process_mode = 4

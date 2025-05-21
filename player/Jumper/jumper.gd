@@ -457,8 +457,10 @@ func enter_state_slash_air_side(_state_before: State):
 	slash_cooldown_timer = SLASH_COOLDOWN;
 	enable_slash_hitbox()
 
-func handle_state_slash_air_side(delta: float):
-	velocity.x = move_toward(velocity.x, 0, 1000 * delta)
+func handle_state_slash_air_side(_delta: float):
+	if has_hit_hurtbox:
+		velocity.x = -slash_direction.x * SLASH_MOVE_SPEED;
+		has_hit_hurtbox = false;
 
 	if slash_timer <= 0:
 		enter_state(State.FALL)
@@ -480,6 +482,10 @@ func enter_state_slash_air_down(_state_before: State):
 
 func handle_state_slash_air_down(delta: float):
 	apply_gravity(delta)
+	
+	if has_hit_hurtbox:
+		velocity.y = -slash_direction.y * SLASH_MOVE_SPEED;
+		has_hit_hurtbox = false;
 
 	if slash_timer <= 0:
 		enter_state(State.FALL)
@@ -501,6 +507,10 @@ func enter_state_slash_air_up(_state_before: State):
 
 func handle_state_slash_air_up(delta: float):
 	apply_gravity(delta)
+	
+	if has_hit_hurtbox:
+		velocity.y = -slash_direction.y * SLASH_MOVE_SPEED;
+		has_hit_hurtbox = false;
 
 	if slash_timer <= 0:
 		enter_state(State.FALL)
@@ -649,10 +659,10 @@ func _on_hitbox_slash_up_hurt_box_entered(_hurt_box: HurtBox2D) -> void:
 func _on_hitbox_slash_down_hurt_box_entered(_hurt_box: HurtBox2D) -> void:
 	has_hit_hurtbox = true;
 
-func _on_hitbox_slash_left_upgraded_hurt_box_entered(hurt_box: HurtBox2D) -> void:
+func _on_hitbox_slash_left_upgraded_hurt_box_entered(_hurt_box: HurtBox2D) -> void:
 	has_hit_hurtbox = true;
 
-func _on_hitbox_slash_right_upgraded_hurt_box_entered(hurt_box: HurtBox2D) -> void:
+func _on_hitbox_slash_right_upgraded_hurt_box_entered(_hurt_box: HurtBox2D) -> void:
 	has_hit_hurtbox = true;
 
 
@@ -884,11 +894,11 @@ func _on_health_died(_entity: Node) -> void:
 	$HurtBox2D.queue_free()
 
 func _on_health_damaged(_entity: Node, _type: HealthActionType.Enum, _amount: int, _incrementer: int, _multiplier: float, applied: int) -> void:
-	Engine.time_scale = 0.25;
+	Engine.time_scale = 0.125;
 	hurt.emit(-applied);
 	var tween = get_tree().create_tween();
 	tween.tween_property(Engine, "time_scale", 1, 0.5);
-	tween.set_ease(Tween.EASE_OUT);
+	tween.set_ease(Tween.EASE_IN);
 
 
 func hide_healthbar():

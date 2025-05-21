@@ -16,6 +16,8 @@ var PlayerScene = preload("res://player/Jumper/Jumper.tscn");
 const SideCamera = preload("res://player/SideCamera/SideCamera.tscn");
 const Orb = preload("res://components/Orb/Orb.tscn");
 
+var camera: Camera2D = null;
+
 var tutorial_visible = false;
 
 # Called when the node enters the scene tree for the first time.
@@ -34,19 +36,33 @@ func _ready() -> void:
 	
 	start_sections_container.position = Vector2(-50 * game_dimensions.x, -50 * game_dimensions.y);
 	
+	
 	generate_level(30);
+	
 	add_player();
 	var player = get_player();
-	placed_sections[0]._on_player_section_entered(player);
 	player.enabled = false;
-	tutorial_image.modulate = Color.TRANSPARENT;
 	
-	await get_tree().create_timer(1).timeout;
+	var start_section = placed_sections[0];
+	
+	camera = SideCamera.instantiate();
+	level.add_child(camera);
+	camera.limit_left = start_section.global_position.x;
+	camera.limits.set("left", start_section.global_position.x);
+	camera.limit_top = start_section.global_position.y;
+	camera.limits.set("top", start_section.global_position.y);
+	camera.limit_bottom = start_section.global_position.y + 1080;
+	camera.limits.set("bottom", start_section.global_position.y + 1080);
+	
+	tutorial_image.modulate = Color.TRANSPARENT;
+	await get_tree().create_timer(1.5).timeout;
 	
 	var tween = get_tree().create_tween();
 	tween.tween_property(tutorial_image, "modulate", Color.WHITE, 0.5);
 	tutorial_image.show();
 	
+	start_section._on_player_section_entered(player);
+	camera.following = player;
 	MusicPlayer.play_music("horror");
 
 func _process(_delta: float) -> void:
@@ -56,6 +72,9 @@ func _process(_delta: float) -> void:
 			var player = get_player();
 			player.enabled = true;
 			player.show_healthbar();
+			camera.limit_left = -100000000000;
+			camera.limit_top = -100000000000;
+			camera.limit_bottom = 100000000000;
 			return;
 	
 	if Input.is_action_just_pressed("regenerate"):
@@ -65,12 +84,8 @@ func _process(_delta: float) -> void:
 
 func add_player():
 	var player = PlayerScene.instantiate();
-	player.position = Vector2(960, 900);
+	player.position = Vector2(940, 300);
 	level.add_child(player);
-	
-	var camera = SideCamera.instantiate();
-	level.add_child(camera);
-	camera.following = player;
 	
 	player.connect("died", _on_jumper_died);
 
@@ -197,22 +212,48 @@ func generate_level(min_level_size: int = 30) -> void:
 		if placed == 0:
 			break;
 
-	# Re-set all terrain tilemap tiles
-	var main_tilemap_cells = main_tilemap.get_used_cells()
-	main_tilemap.set_cells_terrain_connect(main_tilemap_cells, 0, false);
-
 	# set connected section for each placed section
 	for section in placed_sections:
 		var pos = Vector2i(int(section.position.x) / game_dimensions.x, int(section.position.y) / game_dimensions.y);
-		var unblocked_sides = get_unblocked_open_sides(section);
-		for side in unblocked_sides:
+		var sides = get_open_sides(section);
+		for side in sides:
 			var side_pos = pos + side;
 			if section_positions.has(side_pos):
 				var connected_section = section_positions[side_pos];
 				if not section.connected_sections.has(connected_section):
 					section.connected_sections.append(connected_section);
 					connected_section.connected_sections.append(section);
-					print("Connected: ", section.name, " with ", connected_section.name);
+	
+	# fill all empty areas with the "none" tile
+	var empty_tile_layer: TileMapLayer = $None/TileMapLayer;
+	var empty_tile_pattern = empty_tile_layer.get_pattern(empty_tile_layer.get_used_cells());
+	
+	var level_origin = Vector2i.ZERO;
+	var level_extends = Vector2i.ZERO;
+	for pos in section_positions:
+		if pos.x < level_origin.x:
+			level_origin.x = pos.x;
+		if pos.y < level_origin.y:
+			level_origin.y = pos.y;
+		if pos.x > level_extends.x:
+			level_extends.x = pos.x;
+		if pos.y > level_extends.y:
+			level_extends.y = pos.y;
+	
+	var width = level_extends.x - level_origin.x;
+	var height = level_extends.y - level_origin.x;
+	
+	for x in (width + 2):
+		for y in (height + 2):
+			var pos = Vector2i(x-1, y-1);
+			print(pos);
+			if not section_positions.has(pos):
+				main_tilemap.set_pattern(Vector2i(pos.x * 30, pos.y * 17), empty_tile_pattern);
+	print();
+	
+	# Re-set all terrain tilemap tiles
+	var main_tilemap_cells = main_tilemap.get_used_cells()
+	main_tilemap.set_cells_terrain_connect(main_tilemap_cells, 0, false);
 
 func get_random_level_section(criteria: Dictionary, index: int = 50) -> LevelSection:
 	var valid_sections: Array[LevelSection] = [];
@@ -245,7 +286,7 @@ func clear_level() -> void:
 func add_level_section(section: LevelSection, p: Vector2i, direction: Vector2, index: int = 0) -> void:
 	if section == null:
 		return;
-	var new_section = section.duplicate();
+	var new_section = section.duplicate(DUPLICATE_USE_INSTANTIATION);
 	new_section.name = section.name + "_" + str(index);
 
 	var section_size = new_section.size;
@@ -293,10 +334,23 @@ func add_level_section(section: LevelSection, p: Vector2i, direction: Vector2, i
 
 func on_section_entered(section: LevelSection):
 	var active_sections = section.connected_sections;
+	var next_sections = [];
+	for active_section in active_sections:
+		for connected_section in active_section.connected_sections:
+			if next_sections.has(connected_section):
+				continue;
+			next_sections.append(connected_section);
+	print(active_sections);
+	print(next_sections);
 	for level_section in placed_sections:
-		if active_sections.find(level_section):
+		if level_section == section:
+			level_section.awaken();
+		elif active_sections.find(level_section) != -1:
+			level_section.awaken();
+		elif next_sections.find(level_section) != -1:
 			level_section.awaken();
 		else:
+			print("no ", level_section);
 			level_section.sleep();
 
 
@@ -309,20 +363,20 @@ func get_section_at(pos: Vector2i) -> LevelSection:
 func number_section(section: LevelSection, num: int) -> void:
 	return; # STOP THIS
 	
-	# Add a label to the section
-	var label = Label.new();
-	label.text = str(num);
-	label.position = Vector2(200, 200);
-	label.add_theme_font_size_override("font_size", 64);
-	section.add_child(label);
-
-	var sides_count = section.open_sides_count;
-	var count_label = Label.new();
-	count_label.text = str(sides_count);
-	count_label.position = Vector2(200, 300);
-	count_label.text += " " + section.name;
-	count_label.add_theme_font_size_override("font_size", 32);
-	section.add_child(count_label);
+	## Add a label to the section
+	#var label = Label.new();
+	#label.text = str(num);
+	#label.position = Vector2(200, 200);
+	#label.add_theme_font_size_override("font_size", 64);
+	#section.add_child(label);
+#
+	#var sides_count = section.open_sides_count;
+	#var count_label = Label.new();
+	#count_label.text = str(sides_count);
+	#count_label.position = Vector2(200, 300);
+	#count_label.text += " " + section.name;
+	#count_label.add_theme_font_size_override("font_size", 32);
+	#section.add_child(count_label);
 
 
 func is_space_free(pos: Vector2i, size: Vector2i) -> bool:
@@ -364,6 +418,20 @@ func get_unblocked_open_sides(section: LevelSection) -> Array[Vector2i]:
 
 	return unblocked_sides;
 
+func get_open_sides(section: LevelSection) -> Array[Vector2i]:
+	var sides: Array[Vector2i] = [];
+	
+	if section.top:
+		sides.append(Vector2i.UP);
+	if section.right:
+		sides.append(Vector2i.RIGHT);
+	if section.bottom:
+		sides.append(Vector2i.DOWN);
+	if section.left:
+		sides.append(Vector2i.LEFT);
+
+	return sides;
+	
 
 func get_position_criteria(pos: Vector2i) -> Dictionary:
 	var criteria = {};

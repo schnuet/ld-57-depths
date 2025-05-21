@@ -315,6 +315,9 @@ func _on_boss_died() -> void:
 	MusicPlayer.stop_music();
 	$CanvasLayer/credits_video.show();
 	$CanvasLayer/credits_video.play();
+	await $CanvasLayer/credits_video.finished;
+	
+	SceneManager.change_scene("res://screens/StartScreen/StartScreen.tscn");
 
 
 func _on_jumper_died() -> void:

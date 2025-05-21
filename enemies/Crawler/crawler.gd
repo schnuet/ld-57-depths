@@ -27,6 +27,8 @@ enum DIR {
 var is_ready: bool = false;
 var arrived_on_side: bool = false;
 
+var hit_tween: Tween = null;
+
 func _ready() -> void:
 	change_direction(dir);
 
@@ -159,7 +161,14 @@ func _on_ready_timer_timeout() -> void:
 
 func awaken():
 	is_ready = true;
-	animated_sprite.play()
+	animated_sprite.material.set_shader_parameter("flash_value", 0.0);
+	animated_sprite.play();
+	change_direction(dir);
+	process_mode = Node.PROCESS_MODE_INHERIT;
+	print("awaken crawler");
+
+func sleep():
+	process_mode = Node.PROCESS_MODE_DISABLED;
 
 func start_timers():
 	ready_timer.start();
@@ -167,8 +176,14 @@ func start_timers():
 func _on_health_damaged(_entity: Node, _type: HealthActionType.Enum, _amount: int, _incrementer: int, _multiplier: float, _applied: int) -> void:
 	hurt_timer.start(0.125);
 	animated_sprite.material.set_shader_parameter("flash_value", 1.0);
-	var tween = get_tree().create_tween();
-	tween.tween_property(animated_sprite, "material:shader_parameter/flash_value", 0.0, 0.5);
+	print("damaged crawler");
+	if hit_tween and hit_tween.is_running():
+		hit_tween.stop();
+	hit_tween = get_tree().create_tween();
+	hit_tween.tween_property(animated_sprite, "material:shader_parameter/flash_value", 0.0, 0.5);
 
 func _on_health_died(_entity: Node) -> void:
+	if hit_tween and hit_tween.is_running():
+		hit_tween.stop();
+	animated_sprite.material.set_shader_parameter("flash_value", 0.0);
 	queue_free()

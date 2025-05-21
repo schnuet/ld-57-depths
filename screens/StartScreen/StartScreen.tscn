@@ -1,8 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://do42mk4be24ko"]
+[gd_scene load_steps=18 format=3 uid="uid://do42mk4be24ko"]
 
 [ext_resource type="Script" uid="uid://bi2gr0eq70kic" path="res://screens/StartScreen/StartScreen.gd" id="1_dks8u"]
 [ext_resource type="FontFile" uid="uid://b2jbl0piinbrn" path="res://gui/Typography/fonts/MunroSmall-wPZw.ttf" id="2_4bpjc"]
-[ext_resource type="AudioStream" uid="uid://7fui0tdm7b8j" path="res://screens/StartScreen/01-INTRO-01.ogg" id="3_rsv2s"]
 [ext_resource type="VideoStream" uid="uid://v21xi4fpwc6n" path="res://screens/StartScreen/01-INTRO-01.ogv" id="5_3ayag"]
 [ext_resource type="VideoStream" uid="uid://l0nbvdelyubd" path="res://screens/StartScreen/Fall-zum-BOSS.ogv" id="5_okxca"]
 
@@ -37,7 +36,7 @@ base_font = ExtResource("2_4bpjc")
 [node name="StartScreen" type="Node2D"]
 script = ExtResource("1_dks8u")
 
-[node name="01-intro-0100407" type="Sprite2D" parent="."]
+[node name="image" type="Sprite2D" parent="."]
 texture = SubResource("CompressedTexture2D_0drl7")
 centered = false
 
@@ -54,16 +53,10 @@ color = Color(0, 0, 0, 1)
 
 [node name="Logo" type="Sprite2D" parent="."]
 
-[node name="snd_intro" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_rsv2s")
-
-[node name="snd_fall" type="AudioStreamPlayer" parent="."]
-
 [node name="video_intro" type="VideoStreamPlayer" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
 stream = ExtResource("5_3ayag")
-volume_db = -80.0
 
 [node name="video_fall" type="VideoStreamPlayer" parent="."]
 visible = false

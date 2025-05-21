@@ -42,6 +42,8 @@ var attacked: bool = false;
 var excited: bool = false;
 var is_ready: bool = false;
 
+var hit_tween: Tween = null;
+
 func _ready() -> void:
 	start_timers();
 	enter_state(State.IDLE);
@@ -96,6 +98,7 @@ func enter_state(new_state: State):
 	match new_state:
 		State.CHASE:
 			animated_sprite.play("run");
+			animated_sprite.speed_scale = 1;
 			player = find_player();
 			if player:
 				if player.global_position.x < global_position.x:
@@ -112,17 +115,21 @@ func enter_state(new_state: State):
 				velocity.x = run_speed;
 		State.ATTACK:
 			animated_sprite.play("attack");
+			animated_sprite.speed_scale = 1.25;
 			velocity.x = 0;
 			attack_timer.start()
 		State.IDLE:
 			animated_sprite.play("idle");
+			animated_sprite.speed_scale = 1;
 		State.HURT:
-			hurt_timer.start(0.2);
+			hurt_timer.start(0.1);
 			animated_sprite.play("hurt");
-			var tween = get_tree().create_tween()
+			animated_sprite.speed_scale = 1;
+			if hit_tween and hit_tween.is_running():
+				hit_tween.stop();
+			hit_tween = get_tree().create_tween()
 			animated_sprite.material.set_shader_parameter("flash_value", 1.0);
-			tween.tween_property(animated_sprite, "material:shader_parameter/flash_value", 0.0, 0.5);
-		
+			hit_tween.tween_property(animated_sprite, "material:shader_parameter/flash_value", 0.0, 0.5);
 		
 	state_label.text = State.keys()[new_state];
 	state = new_state;
@@ -199,9 +206,11 @@ func _on_health_damaged(_entity: Node, _type: HealthActionType.Enum, _amount: in
 
 func _on_excite_timer_timeout() -> void:
 	excited = false;
-	
 
 func _on_health_died(_entity: Node) -> void:
+	if hit_tween and hit_tween.is_running():
+		hit_tween.stop();
+	animated_sprite.material.set_shader_parameter("flash_value", 0.0);
 	queue_free()
 
 
@@ -212,4 +221,9 @@ func awaken():
 	if is_ready:
 		return;
 	is_ready = true;
+	process_mode = Node.PROCESS_MODE_INHERIT;
+	animated_sprite.material.set_shader_parameter("flash_value", 0.0);
 	start_timers();
+
+func sleep():
+	process_mode = Node.PROCESS_MODE_DISABLED;

@@ -43,17 +43,19 @@ func _ready() -> void:
 	collision_shape.shape = shape;
 	collision_shape.position = game_dimensions / 2;
 	section_area.add_child(collision_shape);
-	section_area.set_collision_mask_value(5, true); # DETECT PLAYER
+	section_area.set_collision_mask_value(16, true); # DETECT PLAYER Detector Area
 	section_area.set_collision_mask_value(9, true); # DETECT ENEMIES
 	section_area.set_collision_layer_value(1, false);
 	section_area.set_collision_layer_value(32, true); # 32 is just so that it has a layer.
 	section_area.set_collision_mask_value(1, false);
 	section_area.connect("body_entered", _on_section_area_body_entered);
+	section_area.connect("area_entered", _on_player_detector_entered);
 	add_child(section_area);
 	
 	var sprite = Sprite2D.new();
 	sprite.texture = background_texture;
 	sprite.z_index = -3;
+	sprite.scale.y = 1.01;
 	sprite.centered = false;
 	add_child(sprite);
 
@@ -77,6 +79,10 @@ func _on_player_section_entered(player: Jumper):
 	print("player entered ", name);
 	adjust_player_camera_limits(player);
 	player_entered.emit(self);
+
+func _on_player_detector_entered(area: Area2D):
+	var player = area.get_parent();
+	_on_player_section_entered(player as Jumper);
 
 func adjust_player_camera_limits(player: Jumper):
 	if top:
@@ -103,22 +109,32 @@ func adjust_player_camera_limits(player: Jumper):
 func awaken():
 	if not asleep:
 		return;
+
+	print("awaken section ", name);
 	asleep = false;
+	show();
+	
 	var objects = section_area.get_overlapping_bodies();
 	for object in objects:
 		object.process_mode = Node.PROCESS_MODE_INHERIT;
 	
+	var parent = get_parent();
 	for child in get_children():
 		if child.has_method("awaken"):
-			child.awaken();
+			remove_child(child);
+			parent.call_deferred("add_child", child);
+			child.position += position;
+			child.call_deferred("awaken");
 
 func sleep():
 	if asleep:
 		return;
 	asleep = true;
-	var objects = section_area.get_overlapping_bodies();
-	for object in objects:
-		object.process_mode = Node.PROCESS_MODE_DISABLED;
+	print("sleep section ", name);
+	#var objects = section_area.get_overlapping_bodies();
+	#for object in objects:
+		#object.process_mode = Node.PROCESS_MODE_DISABLED;
+	hide();
 
 
 # ==============================
